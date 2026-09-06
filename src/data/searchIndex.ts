@@ -26,14 +26,14 @@ const FOOTER = [
 ];
 
 const DESCRIPTION =
-  "The alumni platform of the St. Xavier's College Alumni Association: a searchable directory of Xaverians, alumni stories, chapters, events and a private way to request a connection with a fellow Xaverian.";
+  "The alumni platform of the St. Xaviers College (Calcutta) Alumni Association: a searchable directory of Xaverians, alumni stories, chapters, events and a private way to request a connection with a fellow Xaverian.";
 
 export const searchIndex: SearchEntry[] = [
   {
     url: '/',
     title: 'Home',
     description: DESCRIPTION,
-    h1: ["St. Xavier's College"],
+    h1: ["St. Xaviers College (Calcutta)"],
     h2: [
       'About SXCCAA',
       'The Xaverian community',
@@ -54,8 +54,8 @@ export const searchIndex: SearchEntry[] = [
     h6: [],
     p: [
       ...NAV,
-      "St. Xavier's College (Autonomous) · Kolkata",
-      "A lifetime of connections. The St. Xavier's College Alumni Association brings Xaverians together to reconnect with their alma mater, celebrate their journeys and strengthen the community beyond the campus.",
+      "St. Xaviers College (Calcutta)",
+      "A lifetime of connections. The St. Xaviers College (Calcutta) Alumni Association brings Xaverians together to reconnect with their alma mater, celebrate their journeys and strengthen the community beyond the campus.",
       'Explore Alumni',
       'Events & Activities',
       ...FOOTER,
@@ -164,7 +164,7 @@ export const searchIndex: SearchEntry[] = [
   {
     url: '/contact',
     title: 'Contact SXCCAA',
-    description: 'Get in touch with the St. Xavier’s College Alumni Association about the alumni directory, chapters, events or Association initiatives.',
+    description: 'Get in touch with the St. Xaviers College (Calcutta) Alumni Association about the alumni directory, chapters, events or Association initiatives.',
     h1: ['Contact'],
     h2: ['Stay connected with SXCCAA', 'FAQS'],
     h3: faq.map((item) => item.question),

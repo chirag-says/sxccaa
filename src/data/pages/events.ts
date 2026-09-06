@@ -90,7 +90,7 @@ export const upcomingEvent = {
      * candidate that gets upscaled. */
     widths: [1024],
     alt:
-      "Poster for Nostalgia '26 cum Shakti, the Women Achiever Awards 2026, presented by the West Zone Chapter of the St. Xavier's College (Cal) Alumni Association. 3rd October 2026, 10:00 AM to 5:00 PM, Taj Santacruz, Mumbai. The poster also lists early-bird booking rates and bank details.",
+      "Poster for Nostalgia '26 cum Shakti, the Women Achiever Awards 2026, presented by the West Zone Chapter of the St. Xaviers College (Calcutta) Alumni Association. 3rd October 2026, 10:00 AM to 5:00 PM, Taj Santacruz, Mumbai. The poster also lists early-bird booking rates and bank details.",
   } as SiteImage,
 };
 
@@ -99,7 +99,7 @@ export const featuredEvent = {
   id: 'alumni-connect',
   title: 'Alumni Connect',
   date: '21 August 2026',
-  place: "St. Xavier's College (Autonomous), Kolkata",
+  place: "St. Xaviers College (Calcutta)",
   description:
     'The College’s events listing records Alumni Connect as a completed event on 21 August 2026.',
   source: { label: 'Official event page', href: 'https://www.sxccal.edu/' },
@@ -119,7 +119,7 @@ export const alumniEvents: AlumniEvent[] = [
     stamp: { day: '22', month: 'Aug', year: '2026' },
     place: 'Bodhona, Newtown',
     description:
-      "Organised by the St. Xavier's College (Calcutta) Alumni Association. The initiative brought care and companionship to gifted and specially-abled children, with distribution of ration, stationery, apparel and essentials, lunch, musical performances, dance and a drawing competition.",
+      "Organised by the St. Xaviers College (Calcutta) Alumni Association. The initiative brought care and companionship to gifted and specially-abled children, with distribution of ration, stationery, apparel and essentials, lunch, musical performances, dance and a drawing competition.",
     strands: ['community'],
     source: { label: 'Official Ripples of Hope page', href: 'https://www.sxccal.edu/' },
     images: [
@@ -132,7 +132,7 @@ export const alumniEvents: AlumniEvent[] = [
     title: 'Alumni Connect',
     date: '21 August 2026',
     stamp: { day: '21', month: 'Aug', year: '2026' },
-    place: "St. Xavier's College (Autonomous), Kolkata",
+    place: "St. Xaviers College (Calcutta)",
     description:
       'The College’s events listing records Alumni Connect as a completed event on 21 August 2026.',
     strands: ['fellowship'],
@@ -156,7 +156,7 @@ export const alumniEvents: AlumniEvent[] = [
     title: 'International Day of Yoga',
     date: '2026',
     stamp: { year: '2026' },
-    place: "St. Xavier's College (Autonomous), Kolkata",
+    place: "St. Xaviers College (Calcutta)",
     description:
       "Marked at the College by SXCCAA together with the Students' Council, the NSS and the NCC. The College records the observance for 2026; it has not published a day, so none is given here.",
     strands: ['community', 'fellowship'],
@@ -165,7 +165,7 @@ export const alumniEvents: AlumniEvent[] = [
         src: '/images/events/international-yoga-day.jpg',
         width: 399,
         height: 501,
-        alt: "International Day of Yoga at St. Xavier's College, held with SXCCAA, the Students' Council, the NSS and the NCC",
+        alt: "International Day of Yoga at St. Xaviers College (Calcutta), held with SXCCAA, the Students' Council, the NSS and the NCC",
       },
     ],
   },
@@ -174,7 +174,7 @@ export const alumniEvents: AlumniEvent[] = [
     title: 'SXCCAA Eid Milan 2026',
     date: '27 March 2026',
     stamp: { day: '27', month: 'Mar', year: '2026' },
-    place: "Big Parlour, St. Xavier's College",
+    place: "Big Parlour, St. Xaviers College (Calcutta)",
     description:
       'Xaverians and their families gathered for Eid Milan, with an address by Rev. Dr. Dominic Savio, SJ, President of SXCCAA, followed by traditional Eid delicacies and community bonding.',
     strands: ['fellowship'],
@@ -186,7 +186,7 @@ export const alumniEvents: AlumniEvent[] = [
     title: "International Women's Day — Women's Forum",
     date: 'March 2026',
     stamp: { month: 'Mar', year: '2026' },
-    place: "St. Xavier's College (Autonomous), Kolkata",
+    place: "St. Xaviers College (Calcutta)",
     description:
       "The College's In Press archive records International Women's Day by Alumni under March 2026. The SXCCAA Women's Forum also runs the established Women & Beyond series; the 2024 edition was organised by the Women's Forum of the Association.",
     strands: ['women'],
@@ -216,9 +216,9 @@ export const alumniEvents: AlumniEvent[] = [
     title: 'SXCCAA FIDE Rated Rapid Chess Championship 2.0',
     date: '9–11 June 2025',
     stamp: { day: '09–11', month: 'Jun', year: '2025' },
-    place: "St. Xavier's College (Autonomous), Kolkata",
+    place: "St. Xaviers College (Calcutta)",
     description:
-      "Organised by SXCCAA in association with St. Xavier's College and the Department of Sports. The championship and its event material are recorded in the College's official documentation.",
+      "Organised by SXCCAA in association with St. Xaviers College (Calcutta) and the Department of Sports. The championship and its event material are recorded in the College's official documentation.",
     strands: ['sport'],
     source: { label: 'Official championship page', href: 'https://www.sxccal.edu/' },
     images: [],
@@ -228,9 +228,9 @@ export const alumniEvents: AlumniEvent[] = [
     title: 'Xaverian Soccer League',
     date: 'Season 2, May 2025 · Season 3, 2026',
     stamp: { year: '2025' },
-    place: "St. Xavier's College (Autonomous), Kolkata",
+    place: "St. Xaviers College (Calcutta)",
     description:
-      "SXCCAA and the St. Xavier's College Department of Sports organised Season 2 of the Xaverian Soccer League in May 2025. The College's 2026 In Press archive records Season 3, including the opening, the player auction and related coverage.",
+      "SXCCAA and the St. Xaviers College (Calcutta) Department of Sports organised Season 2 of the Xaverian Soccer League in May 2025. The College's 2026 In Press archive records Season 3, including the opening, the player auction and related coverage.",
     strands: ['sport'],
     source: { label: "Official gallery", href: 'https://www.sxccal.edu/' },
     images: [],

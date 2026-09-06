@@ -56,7 +56,7 @@ export const pillars: Pillar[] = [
     ordinal: '03',
     title: 'Our legacy',
     summary:
-      "Since 1860, St. Xavier's College has grown from a small beginning into a distinguished institution with a lasting tradition of education, service and excellence.",
+      "Since 1860, St. Xaviers College (Calcutta) has grown from a small beginning into a distinguished institution with a lasting tradition of education, service and excellence.",
     points: [
       'Rooted in Jesuit educational heritage',
       'Guided by the ideal of Nihil Ultra',
@@ -95,7 +95,7 @@ export const history = {
     width: 1000,
     height: 667,
     widths: [512],
-    alt: "The façade of St. Xavier's College, Kolkata",
+    alt: "The façade of St. Xaviers College (Calcutta)",
   } as SiteImage,
   milestones: [
     {
@@ -143,7 +143,7 @@ export const why = {
     {
       ordinal: '01',
       title: 'Heritage and tradition',
-      text: "St. Xavier's College is a 166-year-old institution with a rich heritage and a long tradition.",
+      text: "St. Xaviers College (Calcutta) is a 166-year-old institution with a rich heritage and a long tradition.",
     },
     {
       ordinal: '02',
@@ -218,7 +218,7 @@ export const facts: FactCard[] = [
     suffix: '+',
     group: true,
     title: 'Students',
-    description: "On the rolls at St. Xavier's College (Autonomous), Kolkata.",
+    description: "On the rolls at St. Xaviers College (Calcutta).",
   },
   {
     value: 8,
@@ -253,7 +253,7 @@ export const statLines: StatLine[] = [
 export const bannerLead = {
   eyebrow: 'Since 1860',
   lead: 'A legacy that continues, carried forward by every Xaverian.',
-  text: "Founded in 1860 by the Society of Jesus, St. Xavier's College, Kolkata has grown into a leading institution of higher education while remaining rooted in its Jesuit educational tradition.",
+  text: "Founded in 1860 by the Society of Jesus, St. Xaviers College (Calcutta) has grown into a leading institution of higher education while remaining rooted in its Jesuit educational tradition.",
 };
 
 /** The badge over the info section's photograph. */

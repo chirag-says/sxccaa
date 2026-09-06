@@ -20,9 +20,9 @@ import '@/styles/alumni.css';
 import { FramerEffects } from '@/components/motion/FramerEffects';
 
 export const metadata: Metadata = {
-  title: { default: "St. Xavier's College Alumni Association — SXCCAA", template: '%s' },
+  title: { default: "St. Xaviers College (Calcutta) Alumni Association — SXCCAA", template: '%s' },
   description:
-    "The alumni platform of the St. Xavier's College Alumni Association: a searchable directory of Xaverians, alumni stories, chapters, events and a private way to request a connection with a fellow Xaverian.",
+    "The alumni platform of the St. Xaviers College (Calcutta) Alumni Association: a searchable directory of Xaverians, alumni stories, chapters, events and a private way to request a connection with a fellow Xaverian.",
   icons: { icon: '/favicon.png', apple: '/apple-touch-icon.png' },
 };
 

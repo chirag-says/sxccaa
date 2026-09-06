@@ -189,7 +189,7 @@ export function AboutSlider() {
                 sizes="(max-width: 809.98px) 20vw, min(25vw, 330px)"
                 srcSet="/images/home/about-crest-512.png 512w, /images/home/about-crest-1024.png 1024w, /images/home/about-crest.png 1144w"
                 src="/images/home/about-crest-512.png"
-                alt="The crest of St. Xavier's College, Calcutta"
+                alt="The crest of St. Xaviers College (Calcutta)"
                 style={CONTAIN}
               />
             </div>

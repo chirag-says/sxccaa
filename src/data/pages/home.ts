@@ -19,7 +19,7 @@ import { eventsCta } from '@/data/site';
  */
 export const hero = {
   /** The College, centred at the top, one entry per word so it can wrap. */
-  display: ["St.", "Xavier's", 'College'],
+  display: ["St.", "Xaviers", 'College', '(Calcutta)'],
   /** The Association's own line, under the College's name. */
   subtitle: 'Alumni Association',
   /** The line at the bottom right. */
@@ -110,7 +110,7 @@ export interface CampusCard {
 
 /** "Inside the Xaverian experience": four cards in two columns. */
 export const campusCards: CampusCard[] = [
-  { title: 'Campus', description: "St. Xavier's College (Autonomous), Kolkata — 30, Mother Teresa Sarani, in the heart of the city.", image: { src: '/images/home/campus-raghabpur.jpg', width: 1348, height: 442, widths: [512, 1024], alt: "St. Xavier's College campus, Kolkata" } },
+  { title: 'Campus', description: "St. Xaviers College (Calcutta) — 30, Mother Teresa Sarani, in the heart of the city.", image: { src: '/images/home/campus-raghabpur.jpg', width: 1348, height: 442, widths: [512, 1024], alt: "St. Xaviers College (Calcutta) campus" } },
   { title: 'Academics', description: 'Humanities, Science, Commerce, Business Administration and Education.', image: { src: '/images/home/campus-libraries.jpg', width: 2832, height: 4256, widths: [1024, 2048, 4096], alt: 'Card Image', position: '59.4% 15.1%' } },
   { title: 'Life at Xavier\'s', description: 'Sports, fitness, societies and the vibrant campus culture that shapes every Xaverian.', image: { src: '/images/home/campus-gym.jpg', width: 6755, height: 4508, widths: [512, 1024, 2048, 4096], alt: 'Card Image' } },
 ];

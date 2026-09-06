@@ -11,7 +11,7 @@ import { ContactCta } from '@/components/shared/ContactCta';
 export const metadata: Metadata = {
   title: 'Alumni Events & Activities — SXCCAA',
   description:
-    "Initiatives, gatherings and championships run by the St. Xavier's College Alumni Association and its forums, with the Association's own record of each.",
+    "Initiatives, gatherings and championships run by the St. Xaviers College (Calcutta) Alumni Association and its forums, with the Association's own record of each.",
 };
 
 export default function EventsPage() {

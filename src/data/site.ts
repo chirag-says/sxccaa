@@ -19,9 +19,9 @@ export const siteLogo = {
 };
 
 /** The institution. */
-export const siteName = "St. Xavier's College (Autonomous), Kolkata";
+export const siteName = "St. Xaviers College (Calcutta)";
 /** The Association this site belongs to. */
-export const associationName = "St. Xavier's College Alumni Association";
+export const associationName = "St. Xaviers College (Calcutta) Alumni Association";
 export const associationShortName = 'SXCCAA';
 /** The College motto, used as a quiet sign-off. */
 export const motto = 'Nihil Ultra';

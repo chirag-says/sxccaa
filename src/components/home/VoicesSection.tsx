@@ -136,7 +136,7 @@ export function VoicesSection() {
             sizes="100vw"
             width={1666}
             height={944}
-            alt="The gate of St. Xavier's College (Autonomous), Kolkata, Raghabpur campus, at dusk"
+            alt="The gate of St. Xaviers College (Calcutta), Raghabpur campus, at dusk"
             decoding="async"
             loading="lazy"
           />
