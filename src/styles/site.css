@@ -1,0 +1,175 @@
+/*
+ * Hand-written rules the rebuild adds on top of Framer's stylesheet.
+ *
+ * Framer drives its hover states with a `.hover` class and animates the layout
+ * change it causes (a text wrapper switching to `justify-content: flex-end`,
+ * an icon moving to a new absolute position) with a FLIP layout animation of
+ * 0.4s cubic-bezier(.44, 0, .56, 1). The rules below reproduce each of those
+ * movements as a transform transition of the same length and easing, which is
+ * what the visitor sees: the label slides up by one line and the arrow swaps.
+ */
+
+/* Framer's server render sets the appear-animated elements to their start
+ * state inline and animates them out of it with script. Without script nothing
+ * would reveal them, so the rest state is forced. */
+.no-js [data-framer-appear-id],
+.no-js [data-framer-appear-id] span {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ---- pill button (framer-rgTzD) and the form's submit (framer-LUWvx) -------- */
+.framer-rgTzD .framer-w20m9e,
+.framer-rgTzD .framer-ihcm4m,
+.framer-rgTzD .framer-1t7z4po,
+.framer-rgTzD .framer-1y5yfiu,
+.framer-LUWvx .framer-mzvlr6,
+.framer-LUWvx .framer-rkzbrv,
+.framer-LUWvx .framer-w7iu64,
+.framer-LUWvx .framer-824uir {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+/* label: 26px line plus the 10px gap */
+.framer-rgTzD:hover .framer-w20m9e,
+.framer-rgTzD:hover .framer-ihcm4m,
+.framer-LUWvx:hover .framer-mzvlr6,
+.framer-LUWvx:hover .framer-rkzbrv {
+  transform: translateY(-36px) !important;
+}
+/* arrows: the resting arrow leaves up-right, the hover arrow takes its place */
+.framer-rgTzD:hover .framer-1t7z4po,
+.framer-LUWvx:hover .framer-w7iu64 {
+  transform: translate(11px, -28px);
+}
+.framer-rgTzD:hover .framer-1y5yfiu,
+.framer-LUWvx:hover .framer-824uir {
+  transform: translate(-50%, -50%) translate(11px, -28px) !important;
+}
+
+/* ---- header navigation item (framer-ID2Sw) ----------------------------------- */
+.framer-ID2Sw.framer-1elg814 {
+  transition: background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1), --border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-ID2Sw .framer-c3h8z2,
+.framer-ID2Sw .framer-2fqee9 {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+/* desktop pills: 20px line plus the 10px gap; the phone list has no hover swap */
+.framer-ID2Sw.framer-v-1elg814:hover .framer-c3h8z2,
+.framer-ID2Sw.framer-v-1elg814:hover .framer-2fqee9,
+.framer-ID2Sw.framer-v-1rml2sl:hover .framer-c3h8z2,
+.framer-ID2Sw.framer-v-1rml2sl:hover .framer-2fqee9 {
+  transform: translateY(-30px) !important;
+}
+.framer-ID2Sw.framer-v-1elg814:hover {
+  background-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)) !important;
+}
+.framer-ID2Sw.framer-v-1rml2sl:hover {
+  background-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17)) !important;
+}
+
+/* ---- "Pages" dropdown trigger (framer-oEnJF) ---------------------------------- */
+.framer-oEnJF.framer-1ye23zd {
+  transition: background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-oEnJF .framer-1nobhpd,
+.framer-oEnJF .framer-kv96uo {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-oEnJF .framer-yvgXh {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-oEnJF[data-open='true'] .framer-1nobhpd,
+.framer-oEnJF[data-open='true'] .framer-kv96uo {
+  transform: translateY(-30px) !important;
+}
+/* dropdown links: the label dims to 70% ink and brightens on hover */
+.framer-toeVM .framer-1qcqbb2 p {
+  transition: color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-toeVM:hover .framer-1qcqbb2 p {
+  color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17)) !important;
+}
+
+/* ---- footer link (framer-ba157): 22px line plus the 10px gap ------------------ */
+.framer-ba157 .framer-1w2poyh,
+.framer-ba157 .framer-77rbd {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-ba157:hover .framer-1w2poyh,
+.framer-ba157:hover .framer-77rbd {
+  transform: translateY(-32px) !important;
+}
+
+/* ---- social icon (framer-jmRrq): grows from 38px on hover ---------------------- */
+.framer-jmRrq.framer-lu7sx7 {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+/* ---- header colour changes between the transparent and scrolled states -------- */
+.framer-rGmLG.framer-1josfqx,
+.framer-rGmLG .framer-4X5ZN img,
+.framer-rGmLG .framer-6FqrO div,
+.framer-rGmLG .framer-19t9n8a-container {
+  transition: background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1), box-shadow 0.4s cubic-bezier(0.44, 0, 0.56, 1), opacity 0.4s cubic-bezier(0.44, 0, 0.56, 1), top 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-rGmLG .framer-text,
+.framer-rGmLG svg {
+  transition: color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+/* hamburger bars fold into a cross */
+.framer-6FqrO .framer-1qtdxqi,
+.framer-6FqrO .framer-q44wgk,
+.framer-6FqrO .framer-8bquqo {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1), opacity 0.4s cubic-bezier(0.44, 0, 0.56, 1), background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-6FqrO[data-open='true'] .framer-8bquqo {
+  transform: translateY(8px) rotate(45deg);
+}
+.framer-6FqrO[data-open='true'] .framer-1qtdxqi {
+  transform: translateY(-8px) rotate(-45deg);
+}
+.framer-6FqrO[data-open='true'] .framer-q44wgk {
+  opacity: 0;
+}
+/* the phone and tablet menu panel: hidden copies must not catch taps */
+.framer-rGmLG .framer-19t9n8a-container[data-open='false'] {
+  pointer-events: none;
+}
+
+/* ---- card hovers: the image zooms behind its clipped frame -------------------- */
+.framer-fY6u9 .framer-1pw9j51,
+.framer-jo2CN .framer-1s1s5wx {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-fY6u9:hover .framer-1pw9j51 {
+  transform: scale(1.1) !important;
+}
+.framer-jo2CN:hover .framer-1s1s5wx {
+  transform: scale(1.05) rotate(1deg) !important;
+}
+
+/* ---- program accordion icon: the circle fills and turns 45° when open ---------- */
+.framer-49uvd .framer-1bwzyd0,
+.framer-49uvd .framer-1bwzyd0 div div {
+  transition: background-color 0.5s cubic-bezier(0.44, 0, 0.56, 1), transform 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-mA0WG .framer-ew4fl7 {
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+/* ---- program accordion: the image scales in from the bottom edge, the plus turns on phone ---- */
+.framer-49uvd .framer-kstmv,
+.framer-49uvd .framer-pwy9x1 {
+  transition: transform 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.framer-49uvd,
+.framer-mA0WG {
+  cursor: pointer;
+  outline: none;
+}
+.framer-49uvd:focus-visible,
+.framer-mA0WG:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
