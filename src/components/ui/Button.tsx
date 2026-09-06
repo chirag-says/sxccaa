@@ -10,35 +10,45 @@ import { tokens } from '@/lib/tokens';
  * over the hero image (and the header swaps it for `default` once scrolled).
  * `phone` is the smaller pill without the hover swap, used inside the
  * accordions on tablet and phone.
+ *
+ * `variant` sets the size; `light` sets the tone. The template has no light
+ * pill at phone size, so `light` is how the small pill gets one without
+ * inventing a fourth Framer variant.
  */
 export interface ButtonProps {
   label: string;
-  href: string;
+  /** Omitted when the pill submits a form rather than navigating. */
+  href?: string;
   variant?: 'default' | 'white' | 'phone';
+  /** Grey fill with ink label, for a size the template has no light variant of. */
+  light?: boolean;
   /** Framer's wrapper class around the button, which carries its layout slot. */
   containerClass?: string;
   style?: CSSProperties;
   target?: string;
   rel?: string;
+  /** Render as `<button type="submit">` — same pill, inside a form. */
+  submit?: boolean;
+  disabled?: boolean;
 }
 
 const VARIANT_CLASS = { default: 'framer-v-1lxudta', white: 'framer-v-hsq876', phone: 'framer-v-l0a84m' } as const;
 const VARIANT_NAME = { default: 'Default', white: 'White', phone: 'Phone' } as const;
 const RADIUS = { borderBottomLeftRadius: '80px', borderBottomRightRadius: '80px', borderTopLeftRadius: '80px', borderTopRightRadius: '80px' };
 
-export function Button({ label, href, variant = 'default', containerClass, style, target, rel }: ButtonProps) {
-  const bg = variant === 'white' ? tokens.grey : tokens.ink;
-  const fg = variant === 'white' ? tokens.ink : tokens.white;
+export function Button({ label, href, variant = 'default', light, containerClass, style, target, rel, submit, disabled }: ButtonProps) {
+  const isLight = variant === 'white' || light === true;
+  const bg = isLight ? tokens.grey : tokens.ink;
+  const fg = isLight ? tokens.ink : tokens.white;
   const hover = variant !== 'phone';
   const textStyle = { '--extracted-r6o4lv': fg, '--framer-paragraph-spacing': '0px', transform: 'none' } as CSSProperties;
   const pStyle = { '--framer-text-color': `var(--extracted-r6o4lv, ${fg})` } as CSSProperties;
+  const Tag = submit ? 'button' : 'a';
   const anchor = (
-    <a
+    <Tag
       className={`framer-rgTzD framer-yylGA framer-1lxudta ${VARIANT_CLASS[variant]} framer-1p2gjlx`}
       data-framer-name={VARIANT_NAME[variant]}
-      href={href}
-      target={target}
-      rel={rel}
+      {...(submit ? { type: 'submit' as const, disabled } : { href, target, rel })}
       style={{ backgroundColor: bg, ...style, ...RADIUS }}
     >
       <div className="framer-1nqzra9" data-framer-name="Text Wrapper" style={{ borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px', borderTopLeftRadius: '0px', borderTopRightRadius: '0px' }}>
@@ -59,7 +69,7 @@ export function Button({ label, href, variant = 'default', containerClass, style
         <div data-framer-name="Defualt Icon" className="framer-utBpC framer-1t7z4po" style={{ '--imrg1o': fg } as CSSProperties} />
         {hover && <div data-framer-name="Hover Icon" className="framer-utBpC framer-1y5yfiu" style={{ '--imrg1o': fg, transform: 'translate(-50%, -50%)' } as CSSProperties} />}
       </div>
-    </a>
+    </Tag>
   );
   return containerClass ? <div className={containerClass}>{anchor}</div> : anchor;
 }

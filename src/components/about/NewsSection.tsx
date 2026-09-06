@@ -14,7 +14,7 @@ import { news } from '@/data/pages/about';
 export function NewsSection() {
   return (
     <>
-      <section className={"framer-1um6t8q"} data-framer-name={"News Section"}>
+      <section className={"framer-1um6t8q"} data-framer-name={"News Section"} id={"stories"}>
         <div className={"framer-jr82e5"} data-framer-name={"Container"}>
           <div className={"framer-ncxk5h"} data-framer-name={"News Content Wrapper"}>
             <div className={"framer-1gqykxc"} data-framer-name={"Top Content"}>
@@ -23,14 +23,14 @@ export function NewsSection() {
                   <div className={"ssr-variant hidden-1ppn25y"}>
                     <div className={"framer-f9aycm"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"Latest news in "}
+                        {"From the Xaverian "}
                       </h2>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-r0yflc hidden-4h95au"}>
                     <div className={"framer-f9aycm"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center" } as React.CSSProperties}>
-                        {"Latest news in "}
+                        {"From the Xaverian "}
                       </h2>
                     </div>
                   </div>
@@ -39,21 +39,21 @@ export function NewsSection() {
                   <div className={"ssr-variant hidden-4h95au hidden-1ppn25y"}>
                     <div className={"framer-gji2wv"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"ox versity"}
+                        {"community"}
                       </h2>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-r0yflc hidden-1ppn25y"}>
                     <div className={"framer-gji2wv"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"ox versity"}
+                        {"community"}
                       </h3>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-r0yflc hidden-4h95au"}>
                     <div className={"framer-gji2wv"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                       <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center" } as React.CSSProperties}>
-                        {"ox versity"}
+                        {"community"}
                       </h3>
                     </div>
                   </div>
@@ -65,12 +65,12 @@ export function NewsSection() {
                     <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                       <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                         <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"All News"}
+                          {"All Stories"}
                         </p>
                       </div>
                       <div className={"framer-ihcm4m"} data-framer-name={"Hover Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                         <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"All News"}
+                          {"All Stories"}
                         </p>
                       </div>
                     </div>
@@ -87,7 +87,7 @@ export function NewsSection() {
                     <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                       <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                         <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"All News"}
+                          {"All Stories"}
                         </p>
                       </div>
                     </div>
@@ -113,12 +113,12 @@ export function NewsSection() {
                   <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                     <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                       <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                        {"All News"}
+                        {"All Stories"}
                       </p>
                     </div>
                     <div className={"framer-ihcm4m"} data-framer-name={"Hover Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                       <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                        {"All News"}
+                        {"All Stories"}
                       </p>
                     </div>
                   </div>
@@ -135,7 +135,7 @@ export function NewsSection() {
                   <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                     <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                       <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                        {"All News"}
+                        {"All Stories"}
                       </p>
                     </div>
                   </div>

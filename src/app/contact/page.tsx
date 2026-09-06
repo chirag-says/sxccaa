@@ -5,7 +5,7 @@ import { FaqSection } from '@/components/contact/FaqSection';
 import { Footer } from '@/components/layout/Footer';
 import { LAYOUT_HASHES } from '@/lib/breakpoints';
 
-export const metadata: Metadata = { title: 'Contact Us - OX Versity' };
+export const metadata: Metadata = { title: 'Contact SXCCAA' };
 
 export default function ContactPage() {
   return (

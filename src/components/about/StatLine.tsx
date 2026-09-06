@@ -37,6 +37,8 @@ export function StatLine({ stat, index, variant, containerClass }: { stat: Stat;
             <NumberCounter
               end={stat.value}
               suffix={stat.suffix}
+              display={stat.display}
+              group={stat.group}
               style={{ color: tokens.white, fontFamily: '"Instrument Sans", "Instrument Sans Placeholder", sans-serif', fontSize: v.fontSize, fontStyle: 'normal', fontWeight: '600', letterSpacing: '0em', lineHeight: v.lineHeight }}
             />
           </div>

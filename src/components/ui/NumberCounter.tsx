@@ -5,6 +5,12 @@
  * number starts ten below its final value and counts up over 1.5s with an
  * ease-in-out curve once it scrolls into view, then stays. Reduced motion
  * shows the final value at once.
+ *
+ * Three additions the Association's facts need: `display` renders a fact that
+ * is not a number ("A++") in the same slot without a count; `group` adds
+ * thousands separators, which a count wants (8,600) and a year does not
+ * (1860); and the run-up never starts below zero, so a small number does not
+ * count up from a negative.
  */
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
@@ -16,21 +22,21 @@ export const COUNTER_RUN_UP = 10;
 const DURATION = 1.5;
 const EASE: [number, number, number, number] = [0.44, 0, 0.56, 1];
 
-export function NumberCounter({ end, suffix, style }: { end: number; suffix: string; style: CSSProperties }) {
+export function NumberCounter({ end, suffix, display, group, style }: { end: number; suffix: string; display?: string; group?: boolean; style: CSSProperties }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref);
-  const start = end - COUNTER_RUN_UP;
+  const start = Math.max(0, end - COUNTER_RUN_UP);
   const [value, setValue] = useState(start);
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || display) return;
     if (prefersReducedMotion()) {
       setValue(end);
       return;
     }
     const controls = animate(start, end, { duration: DURATION, ease: EASE, onUpdate: (v) => setValue(Math.round(v)) });
     return () => controls.stop();
-  }, [inView, start, end]);
+  }, [inView, start, end, display]);
 
   return (
     <span
@@ -39,8 +45,8 @@ export function NumberCounter({ end, suffix, style }: { end: number; suffix: str
       aria-live="polite"
       tabIndex={0}
     >
-      {value}
-      {suffix}
+      {display ?? (group ? value.toLocaleString('en-IN') : value)}
+      {display ? '' : suffix}
     </span>
   );
 }

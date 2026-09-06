@@ -7,18 +7,20 @@ import type { Metadata } from 'next';
  *   framer-runtime  component CSS Framer only injects on interaction (dropdown)
  *   breakpoints  which breakpoint copy of a component is visible
  *   site         the few hand-written rules the rebuild adds
+ *   voices       the home page's animated community voices section
  */
 import '@/styles/fonts.css';
 import '@/styles/framer.css';
 import '@/styles/framer-runtime.css';
 import '@/styles/breakpoints.css';
 import '@/styles/site.css';
+import '@/styles/voices.css';
 import { FramerEffects } from '@/components/motion/FramerEffects';
 
 export const metadata: Metadata = {
-  title: 'OX Versity - Modern Education & University Website Template',
+  title: { default: "St. Xavier's College Alumni Association — SXCCAA", template: '%s' },
   description:
-    'Ox-Versity is a modern, conversion-focused Framer template built for universities, colleges, online courses, and education platforms. Featuring clean layouts, CMS-powered content, smooth animations, and responsive design for fast launches.',
+    "The alumni platform of the St. Xavier's College Alumni Association: a searchable directory of Xaverians, alumni stories, chapters, events and a private way to request a connection with a fellow Xaverian.",
   icons: { icon: '/favicon.png', apple: '/apple-touch-icon.png' },
 };
 

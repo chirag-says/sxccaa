@@ -16,7 +16,7 @@ const H = PAGE_HASHES.home;
 export function EventsSection() {
   return (
     <>
-      <section className={"framer-1r1183x"} data-framer-name={"Events Section"}>
+      <section className={"framer-1r1183x"} data-framer-name={"Events Section"} id={"events"}>
         <div className={"framer-gv5ene"} data-framer-name={"Container"}>
           <div className={"framer-1heahnx"} data-framer-name={"Content Wrapper"}>
             <div className={"framer-mroxpt"} data-framer-name={"Title Block"}>
@@ -24,14 +24,14 @@ export function EventsSection() {
                 <div className={"ssr-variant hidden-1n3ggvs"}>
                   <div className={"framer-1g89kp2"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                     <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center" } as React.CSSProperties}>
-                      {"Upcoming events "}
+                      {"Xaverian events "}
                     </h2>
                   </div>
                 </div>
                 <div className={"ssr-variant hidden-72rtr7 hidden-11qy7e3"}>
                   <div className={"framer-1g89kp2"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                     <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center" } as React.CSSProperties}>
-                      {"Upcoming events "}
+                      {"Xaverian events "}
                     </h2>
                   </div>
                 </div>

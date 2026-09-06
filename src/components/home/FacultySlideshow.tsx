@@ -13,8 +13,8 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { animate, type AnimationPlaybackControls } from 'motion';
-import { imageSrcSet } from '@/lib/images';
 import { tokens } from '@/lib/tokens';
+import { SlideMedia } from './SlideMedia';
 import type { FacultySlide } from '@/data/pages/home';
 
 const GAP = 24;
@@ -26,18 +26,13 @@ const VARIANT = {
   tablet: { slots: ['framer-1k4yv1u-container', 'framer-bmh1x-container', 'framer-1xcb8ej-container'], cls: 'framer-v-hwi51f', name: 'Tablet', pill: 'framer-v-1csj9wd', pillName: 'Phone', fill: true, arrow: 48, arrowTop: -140 },
 } as const;
 type Variant = keyof typeof VARIANT;
-const SIZES = '(min-width: 1200px) max(max(1296px, 1px), max(100vw, 1px)), (max-width: 809.98px) max(max(1296px, 1px), max(100vw, 1px)), (min-width: 810px) and (max-width: 1199.98px) max(max(810px, 1px), max(100vw, 1px))';
 
 function SlideCard({ slide, variant }: { slide: FacultySlide; variant: Variant }) {
   const v = VARIANT[variant];
   return (
     <div className={`framer-FtBy4 framer-QNdG4 framer-RqKzS framer-1qbswss ${v.cls}`} data-framer-name={v.name} style={{ ...(v.fill ? { height: '100%' } : {}), width: '100%', borderBottomLeftRadius: '16px', borderBottomRightRadius: '16px', borderTopLeftRadius: '16px', borderTopRightRadius: '16px' }}>
       <div className="framer-112po6y" data-framer-name="Image Wrap">
-        <div className="framer-1jldtx4" data-framer-name="BG Image">
-          <div style={{ position: 'absolute', borderRadius: 'inherit', top: 0, right: 0, bottom: 0, left: 0 }} data-framer-background-image-wrapper="true">
-            <img decoding="async" width={slide.image.width} height={slide.image.height} sizes={SIZES} srcSet={imageSrcSet(slide.image)} src={slide.image.src} alt={slide.image.alt} style={{ display: 'block', width: '100%', height: '100%', borderRadius: 'inherit', objectPosition: 'center', objectFit: 'cover' }} />
-          </div>
-        </div>
+        <SlideMedia image={slide.image} />
         <div className="framer-440jsc" data-framer-name="BG Overlay" style={{ background: `linear-gradient(180deg, var(--token-fe810758-ba26-4c60-a7b7-193cf95cf6ce, rgba(255, 255, 255, 0)) 0%, ${tokens.ink70} 100%)` }} />
       </div>
       <div className="framer-1642ta9" data-framer-name="Content Wrapper">

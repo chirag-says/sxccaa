@@ -75,7 +75,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-59pkxz"} data-framer-name={"List Item Block"}>
-{footerColumns[0].links.map((link, i) => <FooterLink key={link.href} link={link} variant="default" containerClass={LINK_CONTAINERS[0][i] ?? LINK_CONTAINERS[0][LINK_CONTAINERS[0].length - 1]} />)}
+{footerColumns[0].links.map((link, i) => <FooterLink key={link.label} link={link} variant="default" containerClass={LINK_CONTAINERS[0][i] ?? LINK_CONTAINERS[0][LINK_CONTAINERS[0].length - 1]} />)}
 </div>
                     </div>
                     <div className={"framer-2lhesk"} data-framer-name={"Footer List"}>
@@ -85,7 +85,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-9faqx5"} data-framer-name={"List Item Block"}>
-{footerColumns[1].links.map((link, i) => <FooterLink key={link.href} link={link} variant="default" containerClass={LINK_CONTAINERS[1][i] ?? LINK_CONTAINERS[1][LINK_CONTAINERS[1].length - 1]} />)}
+{footerColumns[1].links.map((link, i) => <FooterLink key={link.label} link={link} variant="default" containerClass={LINK_CONTAINERS[1][i] ?? LINK_CONTAINERS[1][LINK_CONTAINERS[1].length - 1]} />)}
 </div>
                     </div>
                     <div className={"framer-14olq64"} data-framer-name={"Footer List"}>
@@ -95,7 +95,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-mr2n1u"} data-framer-name={"List Item Block"}>
-{footerColumns[2].links.map((link, i) => <FooterLink key={link.href} link={link} variant="default" containerClass={LINK_CONTAINERS[2][i] ?? LINK_CONTAINERS[2][LINK_CONTAINERS[2].length - 1]} />)}
+{footerColumns[2].links.map((link, i) => <FooterLink key={link.label} link={link} variant="default" containerClass={LINK_CONTAINERS[2][i] ?? LINK_CONTAINERS[2][LINK_CONTAINERS[2].length - 1]} />)}
 </div>
                     </div>
                     <div className={"framer-1um81sx"} data-framer-name={"Footer List"}>
@@ -105,7 +105,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-55ksaj"} data-framer-name={"List Item Block"}>
-{footerColumns[3].links.map((link, i) => <FooterLink key={link.href} link={link} variant="default" containerClass={LINK_CONTAINERS[3][i] ?? LINK_CONTAINERS[3][LINK_CONTAINERS[3].length - 1]} />)}
+{footerColumns[3].links.map((link, i) => <FooterLink key={link.label} link={link} variant="default" containerClass={LINK_CONTAINERS[3][i] ?? LINK_CONTAINERS[3][LINK_CONTAINERS[3].length - 1]} />)}
 </div>
                     </div>
                   </div>
@@ -118,7 +118,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                     <a className={"framer-4X5ZN framer-10rs7as framer-v-1xpu774 framer-1jc5brm"} data-framer-name={"Logo Dark Large"} data-highlight={"true"} href={"/"} tabIndex={0} style={{ height: "100%", width: "100%" } as React.CSSProperties}>
                       <div className={"framer-1jrltms"} data-framer-name={"Logo"}>
                         <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                          <img decoding={"async"} loading={"lazy"} width={"153"} height={"29"} src={siteLogo.dark} alt={""} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "contain" } as React.CSSProperties} />
+                          <img decoding={"async"} loading={"lazy"} width={"1245"} height={"227"} src={siteLogo.watermark} alt={""} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "contain" } as React.CSSProperties} />
                         </div>
                       </div>
                     </a>
@@ -179,7 +179,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-59pkxz"} data-framer-name={"List Item Block"}>
-{footerColumns[0].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[0][i] ?? LINK_CONTAINERS[0][LINK_CONTAINERS[0].length - 1]} />)}
+{footerColumns[0].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[0][i] ?? LINK_CONTAINERS[0][LINK_CONTAINERS[0].length - 1]} />)}
 </div>
                     </div>
                     <div className={"framer-2lhesk"} data-framer-name={"Footer List"}>
@@ -189,7 +189,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-9faqx5"} data-framer-name={"List Item Block"}>
-{footerColumns[1].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[1][i] ?? LINK_CONTAINERS[1][LINK_CONTAINERS[1].length - 1]} />)}
+{footerColumns[1].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[1][i] ?? LINK_CONTAINERS[1][LINK_CONTAINERS[1].length - 1]} />)}
 </div>
                     </div>
                     <div className={"framer-14olq64"} data-framer-name={"Footer List"}>
@@ -199,7 +199,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-mr2n1u"} data-framer-name={"List Item Block"}>
-{footerColumns[2].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[2][i] ?? LINK_CONTAINERS[2][LINK_CONTAINERS[2].length - 1]} />)}
+{footerColumns[2].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[2][i] ?? LINK_CONTAINERS[2][LINK_CONTAINERS[2].length - 1]} />)}
 </div>
                     </div>
                     <div className={"framer-1um81sx"} data-framer-name={"Footer List"}>
@@ -209,7 +209,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                         </p>
                       </div>
                       <div className={"framer-55ksaj"} data-framer-name={"List Item Block"}>
-{footerColumns[3].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[3][i] ?? LINK_CONTAINERS[3][LINK_CONTAINERS[3].length - 1]} />)}
+{footerColumns[3].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[3][i] ?? LINK_CONTAINERS[3][LINK_CONTAINERS[3].length - 1]} />)}
 </div>
                     </div>
                   </div>
@@ -222,7 +222,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                     <a className={"framer-4X5ZN framer-10rs7as framer-v-1xpu774 framer-1jc5brm"} data-framer-name={"Logo Dark Large"} data-highlight={"true"} href={"/"} tabIndex={0} style={{ height: "100%", width: "100%" } as React.CSSProperties}>
                       <div className={"framer-1jrltms"} data-framer-name={"Logo"}>
                         <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                          <img decoding={"async"} loading={"lazy"} width={"153"} height={"29"} src={siteLogo.dark} alt={""} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "contain" } as React.CSSProperties} />
+                          <img decoding={"async"} loading={"lazy"} width={"1245"} height={"227"} src={siteLogo.watermark} alt={""} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "contain" } as React.CSSProperties} />
                         </div>
                       </div>
                     </a>
@@ -286,7 +286,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                       </p>
                     </div>
                     <div className={"framer-59pkxz"} data-framer-name={"List Item Block"}>
-{footerColumns[0].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[0][i] ?? LINK_CONTAINERS[0][LINK_CONTAINERS[0].length - 1]} />)}
+{footerColumns[0].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[0][i] ?? LINK_CONTAINERS[0][LINK_CONTAINERS[0].length - 1]} />)}
 </div>
                   </div>
                   <div className={"framer-2lhesk"} data-framer-name={"Footer List"}>
@@ -296,7 +296,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                       </p>
                     </div>
                     <div className={"framer-9faqx5"} data-framer-name={"List Item Block"}>
-{footerColumns[1].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[1][i] ?? LINK_CONTAINERS[1][LINK_CONTAINERS[1].length - 1]} />)}
+{footerColumns[1].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[1][i] ?? LINK_CONTAINERS[1][LINK_CONTAINERS[1].length - 1]} />)}
 </div>
                   </div>
                   <div className={"framer-14olq64"} data-framer-name={"Footer List"}>
@@ -306,7 +306,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                       </p>
                     </div>
                     <div className={"framer-mr2n1u"} data-framer-name={"List Item Block"}>
-{footerColumns[2].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[2][i] ?? LINK_CONTAINERS[2][LINK_CONTAINERS[2].length - 1]} />)}
+{footerColumns[2].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[2][i] ?? LINK_CONTAINERS[2][LINK_CONTAINERS[2].length - 1]} />)}
 </div>
                   </div>
                   <div className={"framer-1um81sx"} data-framer-name={"Footer List"}>
@@ -316,7 +316,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                       </p>
                     </div>
                     <div className={"framer-55ksaj"} data-framer-name={"List Item Block"}>
-{footerColumns[3].links.map((link, i) => <FooterLink key={link.href} link={link} variant="small" containerClass={LINK_CONTAINERS[3][i] ?? LINK_CONTAINERS[3][LINK_CONTAINERS[3].length - 1]} />)}
+{footerColumns[3].links.map((link, i) => <FooterLink key={link.label} link={link} variant="small" containerClass={LINK_CONTAINERS[3][i] ?? LINK_CONTAINERS[3][LINK_CONTAINERS[3].length - 1]} />)}
 </div>
                   </div>
                 </div>
@@ -329,7 +329,7 @@ export function Footer({ hashes = LAYOUT_HASHES.main, containerClass = 'framer-1
                   <a className={"framer-4X5ZN framer-10rs7as framer-v-1xpu774 framer-1jc5brm"} data-framer-name={"Logo Dark Large"} data-highlight={"true"} href={"/"} tabIndex={0} style={{ height: "100%", width: "100%" } as React.CSSProperties}>
                     <div className={"framer-1jrltms"} data-framer-name={"Logo"}>
                       <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                        <img decoding={"async"} width={"153"} height={"29"} src={siteLogo.dark} alt={""} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "contain" } as React.CSSProperties} />
+                        <img decoding={"async"} width={"1245"} height={"227"} src={siteLogo.watermark} alt={""} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "contain" } as React.CSSProperties} />
                       </div>
                     </div>
                   </a>

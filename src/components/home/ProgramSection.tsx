@@ -6,8 +6,8 @@
  * styles it exactly as the original.
  */
 
-import { ProgramAccordion } from '@/components/programs/ProgramAccordion';
-import { programs, programDetailsLabel } from '@/data/programs';
+import { ExploreAccordion } from '@/components/explore/ExploreAccordion';
+import { exploreItems, exploreDetailsLabel } from '@/data/explore';
 
 export function ProgramSection() {
   return (
@@ -21,14 +21,14 @@ export function ProgramSection() {
                   <div className={"ssr-variant hidden-1n3ggvs"}>
                     <div className={"framer-13m21ni"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"Our university "}
+                        {"Explore the Xaverian "}
                       </h2>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-72rtr7 hidden-11qy7e3"}>
                     <div className={"framer-13m21ni"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center" } as React.CSSProperties}>
-                        {"Our university "}
+                        {"Explore the Xaverian "}
                       </h2>
                     </div>
                   </div>
@@ -37,21 +37,21 @@ export function ProgramSection() {
                   <div className={"ssr-variant hidden-1n3ggvs hidden-11qy7e3"}>
                     <div className={"framer-onbweg"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"programs"}
+                        {"network"}
                       </h2>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-72rtr7 hidden-11qy7e3"}>
                     <div className={"framer-onbweg"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                       <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center" } as React.CSSProperties}>
-                        {"programs"}
+                        {"network"}
                       </h3>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-1n3ggvs hidden-72rtr7"}>
                     <div className={"framer-onbweg"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"programs"}
+                        {"network"}
                       </h3>
                     </div>
                   </div>
@@ -59,16 +59,16 @@ export function ProgramSection() {
               </div>
               <div className={"ssr-variant hidden-11qy7e3"}>
                 <div className={"framer-1sen24b-container hidden-1n3ggvs"} data-framer-name={"Button"} style={{ willChange: "transform", opacity: "0", transform: "translateY(60px)" } as React.CSSProperties}>
-                  <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-1lxudta framer-1p2gjlx"} data-framer-name={"Default"} href={"/programs"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
+                  <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-1lxudta framer-1p2gjlx"} data-framer-name={"Default"} href={"/explore"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
                     <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                       <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                         <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"View Programs"}
+                          {"Explore the Network"}
                         </p>
                       </div>
                       <div className={"framer-ihcm4m"} data-framer-name={"Hover Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                         <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"View Programs"}
+                          {"Explore the Network"}
                         </p>
                       </div>
                     </div>
@@ -81,11 +81,11 @@ export function ProgramSection() {
               </div>
               <div className={"ssr-variant hidden-1n3ggvs hidden-72rtr7"}>
                 <div className={"framer-1sen24b-container hidden-1n3ggvs"} data-framer-name={"Button"} style={{ willChange: "transform", opacity: "0", transform: "translateY(60px)" } as React.CSSProperties}>
-                  <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/programs"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
+                  <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/explore"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
                     <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                       <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                         <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"View Programs"}
+                          {"Explore the Network"}
                         </p>
                       </div>
                     </div>
@@ -97,21 +97,21 @@ export function ProgramSection() {
               </div>
             </div>
             <div className={"ssr-variant hidden-1n3ggvs hidden-11qy7e3"}>
-              <ProgramAccordion programs={programs} breakpoint="desktop" containerClass="framer-pt2w7z-container" detailsLabel={programDetailsLabel} />
+              <ExploreAccordion items={exploreItems} breakpoint="desktop" containerClass="framer-pt2w7z-container" detailsLabel={exploreDetailsLabel} />
             </div>
             <div className={"ssr-variant hidden-72rtr7 hidden-11qy7e3"}>
-              <ProgramAccordion programs={programs} breakpoint="phone" containerClass="framer-pt2w7z-container" detailsLabel={programDetailsLabel} />
+              <ExploreAccordion items={exploreItems} breakpoint="phone" containerClass="framer-pt2w7z-container" detailsLabel={exploreDetailsLabel} />
             </div>
             <div className={"ssr-variant hidden-1n3ggvs hidden-72rtr7"}>
-              <ProgramAccordion programs={programs} breakpoint="tablet" containerClass="framer-pt2w7z-container" detailsLabel={programDetailsLabel} />
+              <ExploreAccordion items={exploreItems} breakpoint="tablet" containerClass="framer-pt2w7z-container" detailsLabel={exploreDetailsLabel} />
             </div>
             <div className={"ssr-variant"}>
               <div className={"framer-1938cx9-container hidden-72rtr7 hidden-11qy7e3"} data-framer-name={"Button"} style={{ willChange: "transform", opacity: "0", transform: "translateY(40px)" } as React.CSSProperties}>
-                <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/programs"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
+                <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/explore"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
                   <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                     <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                       <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                        {"View Programs"}
+                        {"Explore the Network"}
                       </p>
                     </div>
                   </div>

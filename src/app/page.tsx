@@ -6,7 +6,7 @@ import { FacultySection } from '@/components/home/FacultySection';
 import { ProgramSection } from '@/components/home/ProgramSection';
 import { CampusSection } from '@/components/home/CampusSection';
 import { EventsSection } from '@/components/home/EventsSection';
-import { ContactCta } from '@/components/shared/ContactCta';
+import { VoicesSection } from '@/components/home/VoicesSection';
 
 export default function HomePage() {
   return (
@@ -20,7 +20,7 @@ export default function HomePage() {
           <ProgramSection />
           <CampusSection />
           <EventsSection />
-          <ContactCta />
+          <VoicesSection />
         </div>
       </div>
     </SiteShell>

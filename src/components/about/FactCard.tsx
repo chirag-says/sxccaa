@@ -35,6 +35,8 @@ export function FactCard({ fact, breakpoint, containerClass }: { fact: Fact; bre
           <NumberCounter
             end={fact.value}
             suffix={fact.suffix}
+            display={fact.display}
+            group={fact.group}
             style={{ color: tokens.ink, fontFamily: '"Montserrat", "Montserrat Placeholder", sans-serif', fontSize: v.fontSize, fontStyle: 'normal', fontWeight: '600', letterSpacing: '0em', lineHeight: '1.15625em' }}
           />
         </div>

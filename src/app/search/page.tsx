@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { LAYOUT_HASHES } from '@/lib/breakpoints';
 import { searchPage } from '@/data/pages/search';
 
-export const metadata: Metadata = { title: 'Search - OX Versity' };
+export const metadata: Metadata = { title: 'Search — SXCCAA' };
 
 /**
  * The original site has no search page: its search lives in the header modal.

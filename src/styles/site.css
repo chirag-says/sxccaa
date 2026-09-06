@@ -173,3 +173,1056 @@
   outline: 2px solid currentColor;
   outline-offset: 4px;
 }
+
+/* ---- hero tiers ------------------------------------------------------------
+ * The hero holds the College's name across the top, the founding year very
+ * small under it, and one line at the bottom right. No buttons: both calls to
+ * action are in the About section below.
+ *
+ * The name is set in the template's own display preset (1y2slg) — the type the
+ * original uses for "OX Versity" — only sized to fit the width it now has, and
+ * the bottom-right line keeps the template's paragraph preset (1o6hdtu) and
+ * its 30%/516px measure. The wrappers between the section and the content are
+ * stretched so the row can become a full-height grid; nothing else about the
+ * section changes.
+ *
+ * Scoped to #hero. 1y2slg and 1o6hdtu also dress the About, Alumni and Explore
+ * banners, which keep the template's own scale. */
+
+/* the template gives each of these `height: min-content`, which wins over a
+ * stretched align-self; they need an auto height before they can fill */
+#hero .framer-w9d4ld,
+#hero .framer-10ootzd,
+#hero .framer-x3cdgf {
+  flex: 1 0 auto;
+  height: auto;
+  align-self: stretch;
+  align-items: stretch;
+  place-content: stretch;
+}
+/* the template clips this wrapper, which would cut off the bottom line where
+ * it is pulled past the wrapper's edge; the section itself still clips, so
+ * nothing can escape the hero */
+#hero .framer-x3cdgf {
+  overflow: visible;
+}
+/* stretching the container overrides the section's `align-items: center`, so
+ * the 1800px measure has to re-centre itself */
+#hero .framer-w9d4ld {
+  margin-inline: auto;
+}
+
+/* two rows: the name at the top, the line at the bottom right */
+#hero .framer-7lgqt8 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  place-content: stretch;
+  flex: 1 0 auto;
+  height: auto;
+  gap: 0;
+}
+
+/* the College's name, centred across the top, with the year under it */
+#hero .site-hero-heading {
+  grid-row: 1;
+  align-self: start;
+  flex: none;
+  width: 100%;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+}
+#hero .framer-z4uw3d {
+  place-content: center;
+}
+#hero .framer-1slilnr {
+  flex: none;
+  width: 100%;
+}
+#hero .framer-text.framer-styles-preset-1y2slg {
+  --framer-text-alignment: center;
+  --framer-font-size: 96px;
+  --framer-line-height: 1.02em;
+}
+@media (min-width: 1920px) {
+  #hero .framer-text.framer-styles-preset-1y2slg {
+    --framer-font-size: 140px;
+  }
+}
+@media (max-width: 1199.98px) and (min-width: 810px) {
+  #hero .framer-text.framer-styles-preset-1y2slg {
+    --framer-font-size: 64px;
+  }
+}
+@media (max-width: 809.98px) {
+  #hero .framer-text.framer-styles-preset-1y2slg {
+    --framer-font-size: 40px;
+  }
+}
+
+/* the founding year: very small, directly under the name */
+.site-hero-since {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: auto;
+  margin-top: 14px;
+}
+#hero .site-hero-since p.framer-text {
+  --framer-font-size: 13px;
+  --framer-line-height: 1.4em;
+  --framer-letter-spacing: 0.28em;
+  --framer-font-weight: 600;
+  --framer-text-transform: uppercase;
+  --framer-text-alignment: center;
+  --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.72));
+}
+
+/* The line sits at the foot of the hero, centred on the same axis as the name
+ * above it. Three reasons it reads better here than in the corner: the hero's
+ * other two elements are centred, so one axis keeps the composition calm; the
+ * bottom band of the photograph is lawn, the emptiest and highest-contrast
+ * part of the frame; and a line at the top and a line at the foot frame the
+ * picture between them. It is held to a measure and balanced so it breaks into
+ * two lines of near-equal length — the thing that makes centred type look set
+ * rather than accidental. Pulled down past most of the section's 150px bottom
+ * padding; the section clips its overflow, so it can never spill below. */
+.site-hero-lede {
+  position: relative;
+  grid-row: 2;
+  align-self: end;
+  justify-self: center;
+  flex: none;
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  margin-bottom: -86px;
+}
+/* set as small as it can go and still be read: 14px is the floor the rest of
+ * the site uses for its own fine print (the filter labels, the card meta) */
+#hero .site-hero-lede p.framer-text {
+  --framer-font-size: 15px;
+  --framer-line-height: 1.75em;
+  --framer-font-weight: 400;
+  --framer-letter-spacing: 0.015em;
+  --framer-text-alignment: center;
+  --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.88));
+  text-wrap: balance;
+}
+
+/* ---- hero scrim ------------------------------------------------------------
+ * The photograph's lower right is the sunlit facade, which is where the line
+ * at the foot sits. The template's two flat overlay layers are left alone;
+ * this adds a gradient over the lower part of the second one, so the foot of
+ * the hero keeps its contrast without darkening the sky the name sits on. */
+#hero .framer-6mzyty {
+  background-image: linear-gradient(
+    to top,
+    rgba(10, 20, 35, 0.6) 0%,
+    rgba(10, 20, 35, 0.34) 34%,
+    rgba(10, 20, 35, 0.08) 62%,
+    rgba(10, 20, 35, 0) 80%
+  );
+}
+
+@media (max-width: 1199.98px) {
+  .site-hero-lede {
+    max-width: 560px;
+    margin-bottom: -30px;
+  }
+}
+@media (max-width: 809.98px) {
+  .site-hero-since {
+    margin-top: 10px;
+  }
+  #hero .site-hero-since p.framer-text {
+    --framer-font-size: 11px;
+    --framer-letter-spacing: 0.24em;
+  }
+  .site-hero-lede {
+    max-width: none;
+    margin-bottom: -24px;
+  }
+  #hero .site-hero-lede p.framer-text {
+    --framer-font-size: 13px;
+    --framer-line-height: 1.7em;
+  }
+}
+
+/* ---- About section: the home page's two calls to action ---------------------
+ * The template gives the About section one pill. The Association's home page
+ * puts both of the hero's buttons here instead, so the first thing a visitor
+ * scrolls to carries the actions. The row keeps the template's pill and adds
+ * the second beside it. */
+.site-about-actions {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ---- alumni directory, profile and connection request ------------------------
+ * The template has no directory, so these are the rebuild's own components.
+ * They are built from the template's measurements rather than new ones: the
+ * section padding (150/80/60), container widths (1800/990/620 at 20px), inner
+ * measure (1296px), card radius (15px), pill radius (30px), input radius (50px),
+ * the grey card fill and the 0.4s cubic-bezier(.44,0,.56,1) transition are all
+ * lifted from framer.css so these pages sit inside the same design language. */
+
+.sx-section {
+  display: flex;
+  flex-flow: column;
+  place-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  height: min-content;
+  padding: 150px 0;
+  position: relative;
+}
+.sx-section--tight { padding: 150px 0 0; }
+.sx-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1800px;
+  padding: 0 20px;
+  position: relative;
+}
+.sx-wrapper {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  max-width: 1296px;
+  gap: 50px;
+}
+.sx-head { display: flex; flex-flow: column; gap: 16px; max-width: 760px; }
+.sx-head p { color: rgba(17, 17, 17, 0.7); }
+
+/* notice strip — states plainly that the records are placeholders */
+.sx-notice {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px 20px;
+  border-radius: 15px;
+  background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248));
+  border: 1px solid rgba(17, 17, 17, 0.12);
+}
+.sx-notice p { color: rgba(17, 17, 17, 0.7); margin: 0; }
+
+/* pill — the template's 30px pill, at label scale */
+.sx-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 0.6px solid rgba(17, 17, 17, 0.2);
+  white-space: nowrap;
+}
+.sx-pill--solid {
+  background-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  border-color: transparent;
+}
+.sx-pill--solid p { color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)); }
+.sx-pill--demo {
+  background-color: rgba(19, 62, 109, 0.1);
+  border-color: rgba(19, 62, 109, 0.35);
+}
+
+/* search and filters */
+.sx-controls { display: flex; flex-flow: column; gap: 16px; }
+.sx-search { position: relative; display: flex; }
+.sx-search input {
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248));
+  color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  font-family: 'Instrument Sans', 'Instrument Sans Placeholder', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-search input:focus { border-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17)); }
+.sx-filters { display: flex; flex-flow: row wrap; gap: 12px; align-items: center; }
+.sx-filters select {
+  appearance: none;
+  padding: 12px 38px 12px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  background-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23111'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px;
+  color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  font-family: 'Instrument Sans', 'Instrument Sans Placeholder', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-filters select:hover, .sx-filters select:focus-visible { border-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17)); }
+.sx-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  cursor: pointer;
+  transition: background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1), border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-toggle[data-on='true'] {
+  background-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  border-color: transparent;
+}
+.sx-toggle[data-on='true'] p { color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)); }
+.sx-toggle input { position: absolute; opacity: 0; pointer-events: none; }
+.sx-reset {
+  background: none;
+  border: none;
+  padding: 12px 4px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: rgba(17, 17, 17, 0.7);
+  font-family: 'Instrument Sans', 'Instrument Sans Placeholder', sans-serif;
+  font-size: 14px;
+}
+.sx-count { color: rgba(17, 17, 17, 0.7); }
+
+/* card grid */
+.sx-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sx-card {
+  display: flex;
+  flex-flow: column;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 15px;
+  background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248));
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  overflow: hidden;
+}
+.sx-card__media {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.sx-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-card:hover .sx-card__media img { transform: scale(1.05); }
+.sx-card__tags { position: absolute; top: 12px; left: 12px; display: flex; gap: 6px; }
+.sx-card__tags .sx-pill { background-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)); }
+.sx-card__body { display: flex; flex-flow: column; gap: 6px; flex: 1; }
+.sx-card__meta { color: rgba(17, 17, 17, 0.7); }
+.sx-card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+}
+.sx-card__cta { display: inline-flex; align-items: center; gap: 8px; }
+.sx-card__cta span { transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1); }
+.sx-card:hover .sx-card__cta span { transform: translateX(4px); }
+
+.sx-empty {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 15px;
+  background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248));
+}
+.sx-empty p { color: rgba(17, 17, 17, 0.7); }
+
+/* profile */
+.sx-profile { display: grid; grid-template-columns: 360px 1fr; gap: 48px; align-items: start; }
+.sx-profile__aside { display: flex; flex-flow: column; gap: 20px; position: sticky; top: 120px; }
+.sx-profile__photo { border-radius: 15px; overflow: hidden; aspect-ratio: 1; background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248)); }
+.sx-profile__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sx-profile__main { display: flex; flex-flow: column; gap: 36px; }
+.sx-block { display: flex; flex-flow: column; gap: 12px; }
+.sx-block h2 { margin: 0; }
+.sx-block p { color: rgba(17, 17, 17, 0.7); margin: 0; }
+.sx-pills { display: flex; flex-flow: row wrap; gap: 8px; }
+.sx-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; }
+.sx-fact { display: flex; flex-flow: column; gap: 4px; }
+.sx-fact dt { color: rgba(17, 17, 17, 0.5); }
+.sx-fact dd { margin: 0; }
+.sx-links { display: flex; gap: 12px; flex-flow: row wrap; }
+
+/* connection request */
+.sx-steps { display: flex; flex-flow: row wrap; gap: 10px; align-items: center; }
+.sx-step { display: inline-flex; align-items: center; gap: 8px; }
+.sx-step[data-state='done'] p, .sx-step[data-state='current'] p { color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17)); }
+.sx-step[data-state='todo'] p { color: rgba(17, 17, 17, 0.4); }
+.sx-step__dot {
+  width: 22px; height: 22px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(17, 17, 17, 0.25);
+  transition: background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-step[data-state='done'] .sx-step__dot,
+.sx-step[data-state='current'] .sx-step__dot {
+  background-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  border-color: transparent;
+}
+.sx-step__rule { flex: 1; min-width: 16px; height: 1px; background-color: rgba(17, 17, 17, 0.15); }
+.sx-form { display: flex; flex-flow: column; gap: 20px; max-width: 620px; }
+.sx-field { display: flex; flex-flow: column; gap: 8px; }
+.sx-field input, .sx-field select, .sx-field textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(17, 17, 17, 0.15);
+  background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248));
+  color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  font-family: 'Instrument Sans', 'Instrument Sans Placeholder', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-field textarea { border-radius: 15px; min-height: 140px; resize: vertical; }
+.sx-field input:focus, .sx-field select:focus, .sx-field textarea:focus {
+  border-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+}
+.sx-field__hint { color: rgba(17, 17, 17, 0.5); }
+.sx-otp { letter-spacing: 0.5em; text-align: center; font-size: 24px !important; }
+.sx-actions { display: flex; flex-flow: row wrap; gap: 12px; align-items: center; }
+
+@media (max-width: 1199.98px) {
+  .sx-section { padding: 80px 0; }
+  .sx-section--tight { padding: 80px 0 0; }
+  .sx-container { max-width: 990px; }
+  .sx-wrapper { gap: 40px; }
+  .sx-grid { grid-template-columns: repeat(2, 1fr); }
+  .sx-profile { grid-template-columns: 280px 1fr; gap: 32px; }
+}
+@media (max-width: 809.98px) {
+  .sx-section { padding: 60px 0; }
+  .sx-section--tight { padding: 60px 0 0; }
+  .sx-container { max-width: 620px; }
+  .sx-wrapper { gap: 30px; }
+  .sx-grid { grid-template-columns: 1fr; }
+  .sx-profile { grid-template-columns: 1fr; gap: 28px; }
+  .sx-profile__aside { position: static; }
+  .sx-profile__photo { max-width: 260px; }
+  .sx-facts { grid-template-columns: 1fr; }
+  .sx-filters select, .sx-toggle { flex: 1 1 45%; }
+}
+
+/* ---- about page: pillars, history and "Why Xavier's" --------------------------
+ * Three hand-written sections the Framer export has no equivalent for. They are
+ * built from the template's own measurements — section padding 150/80/60,
+ * container 1800/990/620 at 20px, inner measure 1296px, card radius 15px, and
+ * the 0.4s cubic-bezier(.44,0,.56,1) that every colour and layout change on the
+ * site uses — so they read as part of the same design.
+ *
+ * Colour comes from the one chromatic token the palette already carries: the
+ * navy the banner tints its photographs with (--token-c4ab01f3, #133e6d at 35%).
+ * `--sx-navy` is that colour's channels, so a fill can be mixed at any strength,
+ * and `--sx-accent` is a light tint of the same hue for marks that have to read
+ * against it. Both are declared once here; recolouring the section is a change
+ * to these two values. */
+
+.sx-content { width: 100%; max-width: 1296px; }
+.sx-section--dark {
+  --sx-navy: 19, 62, 109;
+  --sx-accent: rgb(146, 187, 234);
+  background-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  /* a deep pool of the navy behind the cards, falling away to ink at the edges */
+  background-image:
+    radial-gradient(115% 85% at 82% 12%, rgba(var(--sx-navy), 0.6) 0%, rgba(var(--sx-navy), 0) 62%),
+    radial-gradient(90% 70% at 2% 104%, rgba(var(--sx-navy), 0.32) 0%, rgba(var(--sx-navy), 0) 68%);
+}
+.sx-section--grey { background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248)); }
+
+/* A section that fills the viewport on every layout and centres its content in
+ * it. The band of padding scales with the viewport rather than sitting at the
+ * template's fixed 150px, so a short laptop screen still holds the whole
+ * section between its edges instead of pushing it past the fold. */
+.sx-section--screen {
+  min-height: 100vh;
+  min-height: 100svh;
+  justify-content: center;
+  padding-block: clamp(40px, 6vh, 150px);
+}
+
+/* white type on the dark section: the presets set --framer-text-color per
+ * element, so this has to match their specificity and land later. */
+.sx-section--dark .framer-text.framer-text {
+  --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
+}
+
+/* section heading: the template's eyebrow over a two-line display title */
+.sx-eyebrow {
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.375em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.75));
+}
+.sx-eyebrow--ink { color: var(--token-22882129-b366-490b-9a5e-fd923b82bd88, rgba(17, 17, 17, 0.7)); }
+.sx-heading { display: flex; flex-flow: column; margin: 0; }
+.sx-heading__line { display: block; }
+/* On desktop the heading sits in a narrow column beside its content, so the
+ * authored lines are held together; below that they are full width and may
+ * rewrap, which is what a 320px screen needs. */
+@media (min-width: 1200px) {
+  .sx-heading__line { --framer-text-wrap-override: nowrap; }
+}
+
+/* ---- mission / vision / legacy accordion --------------------------------- */
+
+.sx-pillars { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 60px; align-items: start; }
+.sx-pillars__head { display: flex; flex-flow: column; gap: 20px; position: sticky; top: 120px; }
+.sx-pillars__list { display: flex; flex-flow: column; gap: 16px; }
+
+.sx-pillar {
+  position: relative;
+  border: 1px solid var(--token-36ef251f-1e06-4c6c-acb0-c1bc97a355e3, rgba(255, 255, 255, 0.1));
+  border-radius: 15px;
+  /* the template's glass: a near-transparent fill over a heavy blur */
+  background-color: rgba(255, 255, 255, 0.03);
+  background-image: linear-gradient(150deg, rgba(var(--sx-navy), 0) 0%, rgba(var(--sx-navy), 0) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  box-shadow: 0 0 0 0 rgba(var(--sx-navy), 0);
+  transition:
+    border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1),
+    background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1),
+    box-shadow 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+/* the fill deepens into navy as the card opens; a gradient cannot be
+ * transitioned, so it crossfades under the card instead */
+.sx-pillar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(150deg, rgba(var(--sx-navy), 0.75) 0%, rgba(var(--sx-navy), 0.22) 52%, rgba(255, 255, 255, 0.04) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0) 45%);
+  transition: opacity 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-pillar > * { position: relative; }
+.sx-pillar:hover { border-color: rgba(146, 187, 234, 0.35); }
+.sx-pillar.is-open {
+  border-color: rgba(146, 187, 234, 0.55);
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 30px 80px -34px rgba(var(--sx-navy), 0.95);
+}
+.sx-pillar.is-open::before { opacity: 1; }
+
+.sx-pillar__header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 28px 32px;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.sx-pillar__ordinal {
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--token-7d23561c-8e41-40bd-aa1c-c6efa74680d3, rgba(255, 255, 255, 0.3));
+  transition: color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-pillar.is-open .sx-pillar__ordinal { color: var(--sx-accent); }
+
+/* the plus turns into a cross and fills, as on the site's other accordion */
+.sx-pillar__icon {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 24px;
+  border: 1px solid var(--token-7d23561c-8e41-40bd-aa1c-c6efa74680d3, rgba(255, 255, 255, 0.3));
+  background-color: rgba(255, 255, 255, 0);
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1), background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1), border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-pillar__bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  background-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
+  transition: background-color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-pillar__bar:first-child { width: 14px; height: 1.5px; transform: translate(-50%, -50%); }
+.sx-pillar__bar:last-child { width: 1.5px; height: 14px; transform: translate(-50%, -50%); }
+.sx-pillar.is-open .sx-pillar__icon {
+  transform: rotate(45deg);
+  background-color: var(--sx-accent);
+  border-color: rgba(255, 255, 255, 0);
+}
+.sx-pillar.is-open .sx-pillar__bar {
+  background-color: rgb(var(--sx-navy));
+}
+
+/* the panel grows from 0 to its measured height; the body fades up behind it */
+.sx-pillar__panel {
+  overflow: hidden;
+  transition: height 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-pillar__inner {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  gap: 0 24px;
+  padding: 0 32px 30px;
+}
+.sx-pillar__inner > * { grid-column: 2; }
+.sx-pillar__summary,
+.sx-pillar__points li {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s cubic-bezier(0.44, 0, 0.56, 1), transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-pillar.is-open .sx-pillar__summary { opacity: 1; transform: none; transition-delay: 0.1s; }
+.sx-pillar.is-open .sx-pillar__points li {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(0.18s + var(--i) * 0.07s);
+}
+.sx-pillar__points {
+  display: flex;
+  flex-flow: column;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.sx-pillar__points li { position: relative; padding-left: 22px; }
+.sx-pillar__points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--sx-accent);
+}
+
+/* ---- history timeline ----------------------------------------------------- */
+
+.sx-history { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: start; }
+.sx-history__aside { display: flex; flex-flow: column; gap: 20px; }
+.sx-history__intro { color: var(--token-22882129-b366-490b-9a5e-fd923b82bd88, rgba(17, 17, 17, 0.7)); }
+.sx-history__figure { margin: 10px 0 0; border-radius: 15px; overflow: hidden; }
+.sx-history__figure img { display: block; width: 100%; height: 260px; object-fit: cover; }
+
+.sx-timeline { display: flex; flex-flow: column; margin: 0; padding: 0; list-style: none; }
+.sx-timeline__item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 28px;
+  padding: 34px 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+}
+.sx-timeline__item:last-child { border-bottom: 1px solid rgba(17, 17, 17, 0.12); }
+.sx-timeline__year {
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+}
+.sx-timeline__body { display: flex; flex-flow: column; gap: 10px; }
+.sx-timeline__body p { margin: 0; color: var(--token-22882129-b366-490b-9a5e-fd923b82bd88, rgba(17, 17, 17, 0.7)); }
+.sx-timeline__title { margin: 0; }
+
+/* ---- why Xavier's --------------------------------------------------------- */
+
+.sx-why { display: flex; flex-flow: column; gap: 60px; }
+.sx-why__head { display: flex; flex-flow: column; gap: 20px; }
+.sx-why__grid { display: grid; grid-template-columns: repeat(2, minmax(10px, 1fr)); gap: 20px; }
+.sx-reason {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+  padding: 36px;
+  border-radius: 15px;
+  background-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
+  border: 1px solid rgba(17, 17, 17, 0.08);
+}
+.sx-reason__ordinal {
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(17, 17, 17, 0.35);
+}
+.sx-reason__title { margin: 0; }
+.sx-reason p { margin: 0; color: var(--token-22882129-b366-490b-9a5e-fd923b82bd88, rgba(17, 17, 17, 0.7)); }
+
+/* elements the Reveal component animates are hidden until script runs */
+.no-js [data-reveal] { opacity: 1 !important; transform: none !important; }
+
+@media (max-width: 1199.98px) {
+  /* the two columns hold down to the template's tablet width: stacking the
+   * heading above the list here would push the section past one screen */
+  .sx-pillars { grid-template-columns: 0.8fr 1.2fr; gap: 40px; }
+  .sx-pillar__header { padding: 24px; grid-template-columns: 36px 1fr 40px; gap: 18px; }
+  .sx-pillar__inner { padding: 0 24px 26px; grid-template-columns: 36px 1fr 40px; gap: 0 18px; }
+  .sx-pillar__icon { width: 40px; height: 40px; }
+  .sx-history { grid-template-columns: 1fr; gap: 40px; }
+  .sx-history__figure img { height: 300px; }
+  .sx-timeline__item { grid-template-columns: 96px 1fr; gap: 20px; padding: 28px 0; }
+  .sx-why { gap: 40px; }
+  .sx-reason { padding: 28px; }
+}
+@media (max-width: 809.98px) {
+  .sx-pillars { grid-template-columns: 1fr; gap: 30px; }
+  .sx-pillars__head { position: static; }
+  .sx-pillar__header { padding: 20px; grid-template-columns: 1fr 36px; gap: 14px; }
+  .sx-pillar__ordinal { display: none; }
+  .sx-pillar__icon { width: 36px; height: 36px; }
+  .sx-pillar__inner { grid-template-columns: 1fr; padding: 0 20px 22px; }
+  .sx-pillar__inner > * { grid-column: 1; }
+  .sx-pillar__points { margin-top: 18px; }
+  .sx-history__figure img { height: 220px; }
+  .sx-timeline__item { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .sx-why__grid { grid-template-columns: 1fr; }
+  .sx-reason { padding: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-pillar,
+  .sx-pillar__panel,
+  .sx-pillar__icon,
+  .sx-pillar__bar,
+  .sx-pillar__ordinal,
+  .sx-pillar__summary,
+  .sx-pillar__points li { transition: none; }
+}
+
+/* Framer gives a text node that is not the first child a paragraph spacing
+ * margin; these blocks space themselves with flex gaps instead. */
+.sx-history__intro.framer-text,
+.sx-timeline__body p.framer-text,
+.sx-timeline__title.framer-text,
+.sx-reason p.framer-text,
+.sx-reason__title.framer-text { margin: 0; }
+.sx-history__intro.sx-history__intro { color: var(--token-22882129-b366-490b-9a5e-fd923b82bd88, rgba(17, 17, 17, 0.7)); }
+.sx-timeline__body p.sx-timeline__text,
+.sx-reason p.sx-reason__text { color: var(--token-22882129-b366-490b-9a5e-fd923b82bd88, rgba(17, 17, 17, 0.7)); }
+
+/* ---- about banner: the lead beside the title -------------------------------
+ * The "Since 1860" block moved up out of the info section. On desktop it sits
+ * in the banner's second column, bottom-aligned with the display title; below
+ * 1200px the template's content row turns into a column and it stacks under it.
+ * It rises in after the title's own entrance, on the same curve — as CSS, so it
+ * does not depend on the script that drives the Framer appear animations. */
+
+/* the template clips its banner content row; the lead rises 40px into place,
+ * so the two elements that hold it are opened up for the length of that move */
+.framer-1rqftte:has(.sx-banner-lead),
+.framer-1u4dl21:has(.sx-banner-lead) { overflow: visible; }
+
+.sx-banner-lead {
+  display: flex;
+  flex-flow: column;
+  flex: none;
+  align-self: flex-end;
+  gap: 14px;
+  width: 34%;
+  max-width: 420px;
+  padding-bottom: 12px;
+  animation: sx-lead-rise 0.9s cubic-bezier(0.44, 0, 0.56, 1) 0.75s both;
+}
+@keyframes sx-lead-rise {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+.sx-banner-lead__eyebrow { color: rgb(146, 187, 234); }
+/* the two presets declare size and colour per element, so these have to match
+ * their specificity (three classes) and land later in the cascade */
+.sx-banner-lead .sx-banner-lead__line.framer-text {
+  margin: 0;
+  --framer-font-size: 24px;
+  --framer-line-height: 1.35em;
+  --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
+}
+.sx-banner-lead .sx-banner-lead__text.framer-text {
+  margin: 0;
+  --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.75));
+}
+
+/* the section eyebrow picks up the accent on the dark ground */
+.sx-section--dark .sx-eyebrow { color: var(--sx-accent); }
+
+/* ---- why Xavier's: the same navy, at label weight, on the light ground ----- */
+.sx-reason {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1), box-shadow 0.4s cubic-bezier(0.44, 0, 0.56, 1), transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+/* a hairline of the navy down the leading edge, drawn on when the card is hovered */
+.sx-reason::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background-color: rgb(19, 62, 109);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-reason:hover {
+  border-color: rgba(19, 62, 109, 0.22);
+  box-shadow: 0 24px 50px -34px rgba(19, 62, 109, 0.6);
+  transform: translateY(-3px);
+}
+.sx-reason:hover::before { transform: scaleY(1); }
+.sx-reason__ordinal { color: rgb(19, 62, 109); }
+
+/* the timeline year carries the same navy, so the two light sections agree */
+.sx-timeline__year { color: rgb(19, 62, 109); }
+
+/* The display word "Association" is set at one size across the whole desktop
+ * range and needs about 850px of row to itself. Narrower than that, the lead
+ * drops under the title rather than squeezing it into a clipped wrapper. */
+@media (max-width: 1359.98px) {
+  .framer-1u4dl21:has(.sx-banner-lead) { flex-wrap: wrap; }
+  .sx-banner-lead {
+    /* the flex line breaks on the item's outer size, and a max-width would be
+     * applied before that break — so the block runs the full row and the
+     * measure is set on its children instead */
+    flex: 0 0 100%;
+    align-self: flex-start;
+    width: 100%;
+    max-width: none;
+    margin-top: 24px;
+    padding-bottom: 0;
+  }
+  .sx-banner-lead > * { max-width: 620px; }
+}
+@media (max-width: 1199.98px) {
+  .sx-banner-lead .sx-banner-lead__line.framer-text { --framer-font-size: 20px; }
+}
+/* stacked and still at the desktop title size, the banner's 150px foot would
+ * push the first line up under the fixed header on a short screen */
+@media (min-width: 1200px) and (max-width: 1359.98px) {
+  .framer-nlgv1q:has(.sx-banner-lead) { padding-bottom: 90px; }
+}
+@media (max-width: 809.98px) {
+  .sx-banner-lead { gap: 12px; margin-top: 20px; }
+  .sx-banner-lead .sx-banner-lead__line.framer-text { --framer-font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-banner-lead { animation: none; }
+  .sx-reason, .sx-reason::before, .sx-pillar, .sx-pillar::before { transition: none; }
+}
+
+/* ---- info section after the "Since 1860" card moved into the banner ---------
+ * That column is now the photograph alone, so it centres against the taller
+ * facts column rather than hanging from the top of the row, and the section
+ * carries the same navy the pillars do so the two dark bands read as one. */
+.framer-b52HK .framer-1uwh6jg { align-items: center; }
+.framer-b52HK .framer-z9n5fr {
+  background-image:
+    radial-gradient(105% 80% at 12% 6%, rgba(19, 62, 109, 0.42) 0%, rgba(19, 62, 109, 0) 62%),
+    radial-gradient(85% 65% at 96% 100%, rgba(19, 62, 109, 0.26) 0%, rgba(19, 62, 109, 0) 70%);
+}
+@media (max-width: 809.98px) {
+  .framer-b52HK .framer-1uwh6jg { align-items: stretch; }
+}
+
+/* ---- the College ------------------------------------------------------------
+ * Type and rules, not cards: the page already has two card grids and an
+ * accordion, so this section earns its weight from a ruled list, a display
+ * motto and a rail of label-and-value pairs. The ground stays the page's own
+ * white with only a breath of the navy in the motto panel, so it sits quietly
+ * after the "Why Xavier's" grid rather than competing with it. */
+
+.sx-college { background-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)); }
+.sx-college__inner { display: flex; flex-flow: column; gap: 90px; }
+.sx-college__top { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: start; }
+.sx-college__head { display: flex; flex-flow: column; gap: 20px; position: sticky; top: 120px; }
+.sx-college__body { display: flex; flex-flow: column; gap: 44px; }
+.sx-college__body .sx-college__lead.framer-text {
+  margin: 0;
+  --framer-font-size: 26px;
+  --framer-line-height: 1.42em;
+  --framer-text-color: var(--token-22882129-b366-490b-9a5e-fd923b82bd88, rgba(17, 17, 17, 0.7));
+}
+
+/* the four marks: one to a line, each behind a rule that draws itself in */
+.sx-marks { display: flex; flex-flow: column; margin: 0; padding: 0; list-style: none; counter-reset: mark; }
+.sx-marks__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+  counter-increment: mark;
+}
+.sx-marks__item:last-child { border-bottom: 1px solid rgba(17, 17, 17, 0.12); }
+/* the roman-ish index the counter prints, kept quiet beside the word */
+.sx-marks__item::before {
+  content: "0" counter(mark);
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(17, 17, 17, 0.35);
+  transition: color 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+/* a navy rule that grows from nothing to fill the gap before the word */
+.sx-marks__rule {
+  flex: none;
+  width: 0;
+  height: 1px;
+  background-color: rgb(19, 62, 109);
+  transition: width 0.5s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-marks__word.framer-text {
+  margin: 0;
+  --framer-text-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+  transition: transform 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+.sx-marks__item:hover .sx-marks__rule { width: 56px; }
+.sx-marks__item:hover .sx-marks__word.framer-text { transform: translateX(6px); }
+.sx-marks__item:hover::before { color: rgb(19, 62, 109); }
+
+/* the motto, set as display type over its translation */
+.sx-motto {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 12px;
+  padding: 80px 40px 0;
+  border-radius: 15px;
+  text-align: center;
+  background-color: var(--token-d5147b08-e506-4b4a-b908-10ebbdc474cc, rgb(248, 248, 248));
+  background-image: radial-gradient(90% 120% at 50% 0%, rgba(19, 62, 109, 0.09) 0%, rgba(19, 62, 109, 0) 62%);
+}
+.sx-motto__eyebrow { margin: 0; }
+.sx-motto__latin {
+  margin: 0;
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 104px;
+  font-weight: 700;
+  line-height: 1em;
+  letter-spacing: -0.02em;
+  color: rgb(19, 62, 109);
+}
+.sx-motto__gloss {
+  margin: 0;
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+/* the rail of affiliations under it */
+.sx-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(10px, 1fr));
+  gap: 0;
+  width: 100%;
+  margin: 72px 0 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.12);
+}
+.sx-rail__item {
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+  padding: 28px 28px 34px;
+  text-align: left;
+  border-left: 1px solid rgba(17, 17, 17, 0.12);
+}
+.sx-rail__item:first-child { border-left: 0; }
+.sx-rail__label {
+  font-family: "Instrument Sans", "Instrument Sans Placeholder", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.4);
+}
+.sx-rail__value.framer-text {
+  margin: 0;
+  --framer-text-color: var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17));
+}
+
+@media (max-width: 1199.98px) {
+  .sx-college__inner { gap: 60px; }
+  .sx-college__top { grid-template-columns: 1fr; gap: 36px; }
+  .sx-college__head { position: static; }
+  .sx-college__body { gap: 32px; }
+  .sx-college__body .sx-college__lead.framer-text { --framer-font-size: 20px; }
+  .sx-marks__item { padding: 18px 0; gap: 18px; }
+  .sx-motto { padding: 56px 28px 0; }
+  .sx-motto__latin { font-size: 72px; }
+  .sx-rail { grid-template-columns: repeat(2, minmax(10px, 1fr)); margin-top: 52px; }
+  .sx-rail__item { padding: 22px 22px 26px; }
+  .sx-rail__item:nth-child(odd) { border-left: 0; }
+  .sx-rail__item:nth-child(n + 3) { border-top: 1px solid rgba(17, 17, 17, 0.12); }
+}
+@media (max-width: 809.98px) {
+  .sx-college__inner { gap: 44px; }
+  .sx-college__body .sx-college__lead.framer-text { --framer-font-size: 18px; }
+  .sx-marks__item { gap: 14px; padding: 16px 0; }
+  .sx-motto { padding: 40px 20px 0; border-radius: 12px; }
+  .sx-motto__latin { font-size: 44px; }
+  .sx-motto__gloss { font-size: 13px; letter-spacing: 0.28em; }
+  .sx-rail { grid-template-columns: 1fr; margin-top: 40px; }
+  .sx-rail__item { border-left: 0; padding: 18px 0 20px; }
+  .sx-rail__item + .sx-rail__item { border-top: 1px solid rgba(17, 17, 17, 0.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-marks__rule, .sx-marks__word.framer-text, .sx-marks__item::before { transition: none; }
+}
+
+/* ---- "coming soon" plate on the Xaverian community cards -------------------- */
+/* Stands in for a photograph the Association has not supplied. It fills the
+ * card's image slot, so the gradient, the pill and the card's own animations
+ * are unaffected. */
+.site-coming-soon {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+.site-coming-soon p {
+  color: var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

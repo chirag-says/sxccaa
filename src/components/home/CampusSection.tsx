@@ -44,14 +44,14 @@ export function CampusSection() {
                 <div className={"ssr-variant hidden-1n3ggvs"}>
                   <div className={"framer-xjwpuc"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                     <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center", '--framer-text-color': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))" } as React.CSSProperties}>
-                      {"Inside the world "}
+                      {"Inside the Xaverian "}
                     </h2>
                   </div>
                 </div>
                 <div className={"ssr-variant hidden-72rtr7 hidden-11qy7e3"}>
                   <div className={"framer-xjwpuc"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                     <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center", '--framer-text-color': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))" } as React.CSSProperties}>
-                      {"Inside the world "}
+                      {"Inside the Xaverian "}
                     </h2>
                   </div>
                 </div>
@@ -60,21 +60,21 @@ export function CampusSection() {
                 <div className={"ssr-variant hidden-1n3ggvs hidden-11qy7e3"}>
                   <div className={"framer-1cuqyk1"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                     <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center", '--framer-text-color': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))" } as React.CSSProperties}>
-                      {"of campus"}
+                      {"experience"}
                     </h2>
                   </div>
                 </div>
                 <div className={"ssr-variant hidden-72rtr7 hidden-11qy7e3"}>
                   <div className={"framer-1cuqyk1"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                     <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center", '--framer-text-color': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))" } as React.CSSProperties}>
-                      {"of campus"}
+                      {"experience"}
                     </h3>
                   </div>
                 </div>
                 <div className={"ssr-variant hidden-1n3ggvs hidden-72rtr7"}>
                   <div className={"framer-1cuqyk1"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                     <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"} style={{ '--framer-text-alignment': "center", '--framer-text-color': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))" } as React.CSSProperties}>
-                      {"of campus"}
+                      {"experience"}
                     </h3>
                   </div>
                 </div>

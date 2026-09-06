@@ -1,27 +1,42 @@
 /**
  * Site-wide content: the brand, contact details and the link lists that the
  * header and footer render. Edit here; the components only lay it out.
+ *
+ * Facts about the College come from the official site, sxccal.edu. Nothing
+ * about the alumni body itself is stated as a number here, because the
+ * Association has not supplied the alumni dataset yet.
  */
 
 export const siteLogo = {
-  /** White wordmark, used over the dark hero images and in the preloader. */
+  /** Crest and wordmark in white, used over the dark hero images and in the preloader. */
   white: '/svg/logo-white.svg',
-  /** Dark wordmark, used in the footer and the scrolled header. */
+  /** The ink cut, used in the footer and the scrolled header. */
   dark: '/svg/logo-dark.svg',
+  /** The oversized mark behind the footer, drawn at roughly 1245×227. */
+  watermark: '/svg/logo-watermark.svg',
   width: 156,
   height: 38,
 };
 
-export const siteName = 'OX Versity';
+/** The institution. */
+export const siteName = "St. Xavier's College (Autonomous), Kolkata";
+/** The Association this site belongs to. */
+export const associationName = "St. Xavier's College Alumni Association";
+export const associationShortName = 'SXCCAA';
+/** The College motto, used as a quiet sign-off. */
+export const motto = 'Nihil Ultra';
 
 export const contact = {
-  officeLabel: 'Campus Office',
+  officeLabel: 'Association Office',
   /** Rendered one line each (an empty string is a blank line), as the original's forced line breaks. */
-  address: ['45 College Street, Greenfield', '', 'Boston, MA 02115, USA'],
+  address: ['30, Mother Teresa Sarani', '', 'Kolkata – 700016, West Bengal, India'],
   addressHref:
-    'https://www.google.com/maps/search/45+College+Street,+Greenfield%E2%80%A8%E2%80%A8Boston,+MA+02115,+USA/@42.4924877,-72.52468,136694m/data=!3m2!1e3!4b1?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D',
+    "https://www.google.com/maps/search/?api=1&query=St+Xavier's+College+Autonomous+Kolkata%2C+30%2C+Mother+Teresa+Sarani%2C+Kolkata+700016",
   emailLabel: 'Email',
-  email: 'hello@mflowtcompany.com',
+  email: 'contact@sxccal.edu',
+  /** College reception, as published on sxccal.edu. */
+  phone: '033-2255-1101',
+  phoneHref: 'tel:+913322551101',
 };
 
 export interface NavLink {
@@ -29,40 +44,46 @@ export interface NavLink {
   href: string;
 }
 
-/** The main navigation. `/programs` and `/contact` are real routes; the rest are the template's. */
+/**
+ * The three pills in the desktop bar. The "Explore" dropdown is rendered
+ * between the second and third, so the reading order is
+ * Home · About SXCCAA · Explore · Contact.
+ */
 export const mainNav: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Programs', href: '/programs' },
+  { label: 'About SXCCAA', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
-/** The "Pages" dropdown in the desktop header, three columns. */
+/** Label on the desktop dropdown pill. */
+export const pagesMenuLabel = 'Explore';
+
+/** The dropdown in the desktop header, three columns. */
 export const pagesMenu: { title: string; links: NavLink[] }[] = [
   {
-    title: 'Main Pages',
+    title: 'Alumni',
     links: [
-      { label: 'Home', href: '/' },
-      { label: 'About', href: '/about' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Program', href: '/programs' },
-      { label: 'Event', href: '/events' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Alumni Directory', href: '/alumni' },
+      { label: 'Xaverians Making a Difference', href: '/alumni#featured' },
+      { label: 'Connect with an Alumnus', href: '/alumni' },
+      { label: 'Chapters', href: '/explore#chapters' },
+      { label: 'Community Initiatives', href: '/explore#community-initiatives' },
     ],
   },
   {
-    title: 'Details Pages',
+    title: 'Association',
     links: [
-      { label: 'Blog Details', href: '/blog/innovating-education-for-2025-future' },
-      { label: 'Program Details', href: '/programs/b-sc-in-computer-science' },
-      { label: 'Event Details', href: '/events/perspectives-on-higher-education' },
+      { label: 'About SXCCAA', href: '/about' },
+      { label: 'Events & Activities', href: '/#events' },
+      { label: 'Contact SXCCAA', href: '/contact' },
     ],
   },
   {
-    title: 'Uility Pages',
+    title: 'More',
     links: [
-      { label: 'Terms & Condition', href: '/terms-conditions' },
-      { label: 'Privacy-Policy', href: '/privacy-policy' },
-      { label: '404', href: '/404' },
+      { label: 'Search', href: '/search' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms of Use', href: '/terms-of-use' },
     ],
   },
 ];
@@ -70,31 +91,31 @@ export const pagesMenu: { title: string; links: NavLink[] }[] = [
 /** The phone and tablet menu, one flat list. */
 export const mobileMenu: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Programs', href: '/programs' },
-  { label: 'Program Details', href: '/programs/b-sc-in-computer-science' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Blog Details', href: '/blog/innovating-education-for-2025-future' },
-  { label: 'Event', href: '/events' },
-  { label: 'Event Details', href: '/events/perspectives-on-higher-education' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'About SXCCAA', href: '/about' },
+  { label: 'Alumni Directory', href: '/alumni' },
+  { label: 'Xaverians Making a Difference', href: '/alumni#featured' },
+  { label: 'Explore the Network', href: '/explore' },
+  { label: 'Chapters', href: '/explore#chapters' },
+  { label: 'Events & Activities', href: '/#events' },
+  { label: 'Community Initiatives', href: '/explore#community-initiatives' },
+  { label: 'Contact', href: '/contact' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
-  { label: 'Terms & Condition', href: '/terms-conditions' },
-  { label: '404', href: '/404' },
+  { label: 'Terms of Use', href: '/terms-of-use' },
 ];
 
-export const headerCta: NavLink = { label: 'Contact Us', href: '/contact' };
+export const headerCta: NavLink = { label: 'Explore Alumni', href: '/alumni' };
 
-/** The "Questions?" form block at the foot of the home and about pages. */
+/** The enquiry block at the foot of the home and about pages. */
 export const contactCta = {
-  title: 'Questions? We’re here to help',
+  title: 'Stay connected with SXCCAA',
+  intro: 'Have a question, or want to reconnect with the Xaverian community? Get in touch with us.',
   form: {
     nameLabel: 'Full name*',
-    namePlaceholder: 'Mason Ethan',
+    namePlaceholder: 'Your full name',
     emailLabel: 'Email*',
-    emailPlaceholder: 'hello@mflowtcompany.com',
+    emailPlaceholder: 'you@example.com',
     messageLabel: 'Message',
-    messagePlaceholder: 'Plan your campus future with us...',
+    messagePlaceholder: 'Tell us how we can help...',
     consent: 'I agree to the terms and conditions.',
     submit: 'Send Message',
     sending: 'Sending…',
@@ -110,31 +131,31 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
     title: 'Main Pages',
     links: [
       { label: 'Home', href: '/' },
-      { label: 'About Us', href: '/about' },
-      { label: 'Events', href: '/events' },
-      { label: 'Programs', href: '/programs' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'About SXCCAA', href: '/about' },
+      { label: 'Alumni', href: '/alumni' },
+      { label: 'Events', href: '/#events' },
+      { label: 'Stories', href: '/alumni#featured' },
     ],
   },
   {
-    title: 'Programs',
+    title: 'Explore',
     links: [
-      { label: 'Undergraduate', href: '/programs/b-sc-in-computer-science' },
-      { label: 'Postgraduate', href: '/programs/postgraduate' },
-      { label: 'Professional Studies', href: '/programs/professional-studies' },
-      { label: 'Certificate &  Courses', href: '/programs/certificate-courses' },
+      { label: 'Alumni Directory', href: '/alumni' },
+      { label: 'Chapters', href: '/explore#chapters' },
+      { label: 'Community Initiatives', href: '/explore#community-initiatives' },
+      { label: 'Connect', href: '/explore#connect' },
     ],
   },
   {
     title: 'Support',
-    links: [{ label: 'Contact Us', href: '/contact' }],
+    links: [{ label: 'Contact SXCCAA', href: '/contact' }],
   },
   {
     title: 'Utility Pages',
     links: [
-      { label: '404', href: '/404' },
+      { label: 'Search', href: '/search' },
       { label: 'Privacy Policy', href: '/privacy-policy' },
-      { label: 'Terms & Conditions', href: '/terms-conditions' },
+      { label: 'Terms of Use', href: '/terms-of-use' },
     ],
   },
 ];

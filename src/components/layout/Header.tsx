@@ -26,7 +26,7 @@ import { usePathname } from 'next/navigation';
 import { animate, type AnimationPlaybackControls } from 'motion';
 import { Button } from '@/components/ui/Button';
 import { SearchModal } from '@/components/search/SearchModal';
-import { headerCta, mainNav, mobileMenu, pagesMenu, siteLogo, type NavLink } from '@/data/site';
+import { headerCta, mainNav, mobileMenu, pagesMenu, pagesMenuLabel, siteLogo, type NavLink } from '@/data/site';
 import { tokens } from '@/lib/tokens';
 
 type Tone = 'light' | 'dark';
@@ -127,7 +127,7 @@ function PagesDropdown({ pathname }: { pathname: string }) {
             </div>
             <div className={classes.block} data-framer-name="Menu Link Block">
               {column.links.map((link, i) => (
-                <div key={link.href} className={classes.links[i] ?? classes.links[classes.links.length - 1]}>
+                <div key={link.label} className={classes.links[i] ?? classes.links[classes.links.length - 1]}>
                   <a
                     className="framer-toeVM framer-5YEWi framer-1f7aydr framer-v-1f7aydr framer-1smurqg"
                     data-framer-name="Default"
@@ -169,10 +169,10 @@ function PagesMenu({ tone, open, onOpen, onClose, pathname }: { tone: Tone; open
         <div className="framer-5i704a" data-framer-name="Content Wrapper">
           <div className="framer-wur4gk" data-framer-name="Text Wrapper">
             <div className="framer-1nobhpd" data-framer-name="Default Text" data-framer-component-type="RichTextContainer" style={textVars(text)}>
-              <p className="framer-text framer-styles-preset-ss1j4w" data-styles-preset="L47Y0ZKX7" style={textColor(text)}>Pages</p>
+              <p className="framer-text framer-styles-preset-ss1j4w" data-styles-preset="L47Y0ZKX7" style={textColor(text)}>{pagesMenuLabel}</p>
             </div>
             <div className="framer-kv96uo" data-framer-name="Hover Text" data-framer-component-type="RichTextContainer" style={textVars(text)}>
-              <p className="framer-text framer-styles-preset-ss1j4w" data-styles-preset="L47Y0ZKX7" style={textColor(text)}>Pages</p>
+              <p className="framer-text framer-styles-preset-ss1j4w" data-styles-preset="L47Y0ZKX7" style={textColor(text)}>{pagesMenuLabel}</p>
             </div>
           </div>
           <div className="framer-yvgXh framer-xynpjb" style={{ '--43q7um': text, transform: open ? 'rotate(180deg)' : 'none' } as CSSProperties} />
@@ -230,7 +230,7 @@ function MobileMenu({ open, pathname, onNavigate }: { open: boolean; pathname: s
         <div className="framer-1ni2m92" data-framer-name="Menu Item Wrapper">
           <div className="framer-18gaspg" data-framer-name="Menu Item Wrap">
             {mobileMenu.map((link, i) => (
-              <div key={link.href} className={MOBILE_ITEM_CLASSES[i] ?? MOBILE_ITEM_CLASSES[MOBILE_ITEM_CLASSES.length - 1]}>
+              <div key={link.label} className={MOBILE_ITEM_CLASSES[i] ?? MOBILE_ITEM_CLASSES[MOBILE_ITEM_CLASSES.length - 1]}>
                 <a
                   className="framer-ID2Sw framer-5YEWi framer-1elg814 framer-v-4ktrah framer-1jk0ay1"
                   data-border="true"

@@ -26,14 +26,14 @@ export function AboutStory() {
                   <div className={"ssr-variant hidden-1ppn25y"}>
                     <div className={"framer-ziamzv"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"About our "}
+                        {"About "}
                       </h2>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-r0yflc hidden-4h95au"}>
                     <div className={"framer-ziamzv"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"About our "}
+                        {"About "}
                       </h2>
                     </div>
                   </div>
@@ -42,21 +42,21 @@ export function AboutStory() {
                   <div className={"ssr-variant hidden-4h95au hidden-1ppn25y"}>
                     <div className={"framer-1bqoyud"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h2 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"university"}
+                        {"SXCCAA"}
                       </h2>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-r0yflc hidden-1ppn25y"}>
                     <div className={"framer-1bqoyud"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(80px)" } as React.CSSProperties}>
                       <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"university"}
+                        {"SXCCAA"}
                       </h3>
                     </div>
                   </div>
                   <div className={"ssr-variant hidden-r0yflc hidden-4h95au"}>
                     <div className={"framer-1bqoyud"} data-framer-name={"TItle"} data-framer-component-type={"RichTextContainer"} style={{ willChange: "transform", opacity: "0", transform: "translateY(30px)" } as React.CSSProperties}>
                       <h3 className={"framer-text framer-styles-preset-1tiwwlt"} data-styles-preset={"WXi_OMzDz"}>
-                        {"university"}
+                        {"SXCCAA"}
                       </h3>
                     </div>
                   </div>
@@ -66,21 +66,21 @@ export function AboutStory() {
                 <div className={"framer-wpiv40"} data-framer-name={"Text Wrapper"} style={{ willChange: "transform", opacity: "0", transform: "translateY(60px)" } as React.CSSProperties}>
                   <div className={"framer-1pk5kty"} data-framer-name={"Paragraph"} data-framer-component-type={"RichTextContainer"} style={{ transform: "none" } as React.CSSProperties}>
                     <p className={"framer-text framer-styles-preset-18gc2kl"} data-styles-preset={"mM0cFQnf6"}>
-                      {"Our University provides world-class education, drives innovation, and prepares future leaders. With modern facilities and a vibrant community, we empower students to succeed and make lasting impact."}
+                      {"A community that carries the Xaverian spirit forward. SXCCAA connects Xaverians through fellowship, initiatives and engagement with their alma mater, strengthening the bond between alumni and the College."}
                     </p>
                   </div>
                   <div className={"ssr-variant hidden-4h95au"}>
                     <div className={"framer-1f003gl-container"} data-framer-name={"Button"}>
-                      <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-1lxudta framer-1p2gjlx"} data-framer-name={"Default"} href={"/contact"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
+                      <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-1lxudta framer-1p2gjlx"} data-framer-name={"Default"} href={"/alumni"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
                         <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                           <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                             <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                              {"Discover More"}
+                              {"Discover the Association"}
                             </p>
                           </div>
                           <div className={"framer-ihcm4m"} data-framer-name={"Hover Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                             <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                              {"Discover More"}
+                              {"Discover the Association"}
                             </p>
                           </div>
                         </div>
@@ -93,11 +93,11 @@ export function AboutStory() {
                   </div>
                   <div className={"ssr-variant hidden-r0yflc"}>
                     <div className={"framer-1f003gl-container"} data-framer-name={"Button"}>
-                      <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/contact"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
+                      <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/alumni"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
                         <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                           <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                             <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                              {"Discover More"}
+                              {"Discover the Association"}
                             </p>
                           </div>
                         </div>
@@ -113,15 +113,15 @@ export function AboutStory() {
                 <div className={"framer-wpiv40"} data-framer-name={"Text Wrapper"} style={{ willChange: "transform", opacity: "0", transform: "translateY(40px)" } as React.CSSProperties}>
                   <div className={"framer-1pk5kty"} data-framer-name={"Paragraph"} data-framer-component-type={"RichTextContainer"} style={{ transform: "none" } as React.CSSProperties}>
                     <p className={"framer-text framer-styles-preset-18gc2kl"} data-styles-preset={"mM0cFQnf6"}>
-                      {"Our University provides world-class education, drives innovation, and prepares future leaders. With modern facilities and a vibrant community, we empower students to succeed and make lasting impact."}
+                      {"A community that carries the Xaverian spirit forward. SXCCAA connects Xaverians through fellowship, initiatives and engagement with their alma mater, strengthening the bond between alumni and the College."}
                     </p>
                   </div>
                   <div className={"framer-1f003gl-container"} data-framer-name={"Button"}>
-                    <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/contact"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
+                    <a className={"framer-rgTzD framer-yylGA framer-1lxudta framer-v-l0a84m framer-1p2gjlx"} data-framer-name={"Phone"} href={"/alumni"} style={{ backgroundColor: "var(--token-1c49fc01-5a06-4e84-9621-823d64297d7d, rgb(17, 17, 17))", borderBottomLeftRadius: "80px", borderBottomRightRadius: "80px", borderTopLeftRadius: "80px", borderTopRightRadius: "80px" } as React.CSSProperties}>
                       <div className={"framer-1nqzra9"} data-framer-name={"Text Wrapper"} style={{ borderBottomLeftRadius: "0px", borderBottomRightRadius: "0px", borderTopLeftRadius: "0px", borderTopRightRadius: "0px" } as React.CSSProperties}>
                         <div className={"framer-w20m9e"} data-framer-name={"Default Text"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
                           <p className={"framer-text framer-styles-preset-c29y5p"} data-styles-preset={"MIzrA6q79"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                            {"Discover More"}
+                            {"Discover the Association"}
                           </p>
                         </div>
                       </div>

@@ -1,13 +1,19 @@
 /** Content of the contact page: the intro, contact details, social links and FAQ. */
 
 export const contactPage = {
-  title: 'Get In Touch With Us',
-  intro: 'Whether you need admission guidance, course details, scholarships, or campus info, our team is here to guide you with care and support.',
-  phone: '+1 (800) 555-0199',
-  phoneHref: 'tel:+18005550199',
-  email: 'admission@university.edu',
-  emailHref: 'mailto:admission@university.edu',
+  title: 'Stay connected with SXCCAA',
+  intro:
+    'Have a question, or want to reconnect with the Xaverian community? Whether it is the alumni directory, a chapter, an Association initiative or an event, our team is here to help.',
+  /** College reception, as published on sxccal.edu. */
+  phone: '033-2255-1101',
+  phoneHref: 'tel:+913322551101',
+  email: 'contact@sxccal.edu',
+  emailHref: 'mailto:contact@sxccal.edu',
   followLabel: 'Follow Us -',
+  /**
+   * Social accounts are left pointing at the platforms until SXCCAA confirms
+   * its official handles; nothing here claims to be an Association account.
+   */
   socials: [
     { name: 'LinkedIn', href: 'https://www.linkedin.com/', icon: '/svg/icons/social-linkedin.svg' },
     { name: 'X', href: 'https://x.com/', icon: '/svg/icons/social-x.svg' },
@@ -16,11 +22,11 @@ export const contactPage = {
   ],
   form: {
     nameLabel: 'Full name*',
-    namePlaceholder: 'Mason Ethan',
+    namePlaceholder: 'Your full name',
     emailLabel: 'Email*',
-    emailPlaceholder: 'yourmail@email.com',
+    emailPlaceholder: 'you@example.com',
     messageLabel: 'Message',
-    messagePlaceholder: 'Plan your campus future with us...',
+    messagePlaceholder: 'Tell us how we can help...',
     consent: 'I agree to the terms and conditions.',
     submit: 'Send Message',
     sending: 'Sending…',
@@ -37,30 +43,40 @@ export interface FaqItem {
   answer: string;
 }
 
-/** The FAQ accordion. The first item opens by default. */
+/**
+ * The FAQ accordion. The first item opens by default. The answers describe
+ * how this platform is designed to work — they make no claim about Association
+ * policy that SXCCAA has not set.
+ */
 export const faq: FaqItem[] = [
   {
-    question: 'How can I apply for admission?',
-    answer: 'Our admissions team provides step-by-step guidance to help you complete the application process smoothly, ensuring all requirements are met on time.',
+    question: 'How do I find another Xaverian in the directory?',
+    answer:
+      'Open the alumni directory and search by name, company, designation or location. You can also narrow the list by graduating year, programme, department, industry and city, or show only alumni who are open to being contacted.',
   },
   {
-    question: 'What courses are available in my program?',
-    answer: 'The courses available in your program depend on your major and year of study. Core courses are typically mandatory, while electives allow you to explore specialized topics. You can find the full course list in the academic catalog or on your program’s webpage. Contact your academic advisor for personalized guidance.',
+    question: 'Why can I not see an alumnus’s email address or phone number?',
+    answer:
+      'By design. Personal contact details are never shown on the public site. If an alumnus is open to connecting, you send a connection request instead, and their contact details are released to you only if they accept it.',
   },
   {
-    question: 'Are scholarships available?',
-    answer: 'Yes, most universities offer a range of scholarships, including merit-based, need-based, and program-specific awards. Some are automatic upon admission, while others require a separate application. Visit the Scholarships or Financial Aid section on the university website for eligibility criteria and deadlines.',
+    question: 'How does a connection request work?',
+    answer:
+      'You complete a short form on the profile, verify your email address with a one-time code, and the request goes to the Association for review. If it is approved, the alumnus receives it and can accept or decline. Nothing is shared until they accept.',
   },
   {
-    question: 'What is campus life like?',
-    answer: "Campus life is vibrant and diverse, with a variety of student clubs, events, sports, and cultural activities. Whether you're interested in leadership, arts, volunteering, or recreation, there are many opportunities to get involved and build a community.",
+    question: 'I am an alumnus. How do I get listed, or correct my details?',
+    answer:
+      'Alumni records are maintained by the Association. Write to us using the form on this page with your name, graduating year and programme, and the Association will update your record.',
   },
   {
-    question: 'How do I access student support services?',
-    answer: 'Student support services are usually available online and on campus. These include academic advising, counseling, career services, health services, and tutoring. You can access them through the university’s student portal, by visiting the student services center, or scheduling appointments directly.',
+    question: 'How do I ask for my details to be removed?',
+    answer:
+      'Contact the Association using the form on this page. Every record carries visibility and consent flags, and a record can be withdrawn from the public directory at any time while remaining in the Association’s own archive.',
   },
   {
-    question: 'Can I transfer from another university?',
-    answer: 'Yes, many universities accept transfer students. You’ll need to submit your transcripts, meet minimum GPA requirements, and possibly provide course descriptions for credit evaluation. Check the university’s transfer admission page for detailed steps and deadlines.',
+    question: 'How can I get involved with SXCCAA’s initiatives?',
+    answer:
+      'The Association runs fellowship gatherings, chapter activities and community initiatives through the year. Get in touch using the form on this page and tell us how you would like to help — mentoring, referrals, guest lectures or internships.',
   },
 ];

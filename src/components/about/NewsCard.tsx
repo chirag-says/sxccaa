@@ -33,12 +33,16 @@ const PILL = {
 export function NewsCard({ item, variant }: { item: Card; variant: keyof typeof VARIANT }) {
   const v = VARIANT[variant];
   const radius = { borderBottomLeftRadius: v.radius, borderBottomRightRadius: v.radius, borderTopLeftRadius: v.radius, borderTopRightRadius: v.radius };
+  // Stories live on the College's own site until SXCCAA has story pages here.
+  const external = /^https?:/.test(item.href);
   return (
     <div className="framer-6dunz9-container" style={{ willChange: 'transform', opacity: 0, transform: 'translateY(40px)' }}>
       <a
         className={`framer-jo2CN framer-PG8vB framer-BPcYF framer-oqfc1u ${v.cls} framer-8lk2q3`}
         data-framer-name={v.name}
         href={item.href}
+        target={external ? '_blank' : undefined}
+        rel={external ? 'noreferrer' : undefined}
         style={{ backgroundColor: tokens.grey, height: '100%', width: '100%', ...radius }}
       >
         <div className="framer-j7n0as-container">
