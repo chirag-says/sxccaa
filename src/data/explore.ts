@@ -44,14 +44,14 @@ export const exploreItems: ExploreItem[] = [
     id: 'events',
     title: 'Events & Activities',
     description: 'Stay connected with alumni gatherings, fellowship and the activities the Association runs through the year.',
-    href: '/#events',
+    href: '/events',
     image: { src: '/images/programs/certificate-courses.jpg', width: 5472, height: 3468, widths: [512, 1024, 2048, 4096], alt: 'Thumbnail Image' },
   },
   {
     id: 'community-initiatives',
     title: 'Community Initiatives',
     description: "Explore the philanthropic and social initiatives the Association runs, and the ways Xaverians take part in them.",
-    href: '/#events',
+    href: '/events',
     image: { src: '/images/programs/online-programs.jpg', width: 3840, height: 2160, widths: [512, 1024, 2048], alt: 'Thumbnail Image' },
   },
   {

@@ -73,33 +73,5 @@ export const campusCards: CampusCard[] = [
   { title: 'Campus', description: "St. Xavier's College (Autonomous), Kolkata — 30, Mother Teresa Sarani, in the heart of the city.", image: { src: '/images/home/campus-sports-wellness.jpg', width: 4852, height: 3239, widths: [512, 1024, 2048, 4096], alt: 'Card Image' } },
   { title: 'Academics', description: 'Humanities, Science, Commerce, Business Administration and Education.', image: { src: '/images/home/campus-libraries.jpg', width: 2832, height: 4256, widths: [1024, 2048, 4096], alt: 'Card Image', position: '59.4% 15.1%' } },
   { title: 'Culture & Community', description: 'The activities, societies and gatherings that bring Xaverians together across generations.', image: { src: '/images/home/campus-gym.jpg', width: 6755, height: 4508, widths: [512, 1024, 2048, 4096], alt: 'Card Image' } },
-  { title: 'Chapters', description: "The wider SXCCAA network, connecting Xaverians beyond the campus and beyond Kolkata.", image: { src: '/images/home/campus-university-lab.jpg', width: 3840, height: 2160, widths: [512, 1024, 2048], alt: 'Card Image' } },
-];
-
-export interface EventCard {
-  title: string;
-  year: string;
-  place: string;
-  href: string;
-  image: SiteImage;
-  /**
-   * True where the card is a layout placeholder rather than a real event.
-   * Only events published by the College or the Association are listed as
-   * real; the rest wait on content from SXCCAA.
-   */
-  placeholder?: boolean;
-}
-
-/**
- * "Xaverian events & activities". Desktop and tablet show the first five in a
- * staggered grid (two stacks flanking a large centre card); phone shows all
- * six in a column.
- */
-export const events: EventCard[] = [
-  { title: 'Ripples of Hope', year: '22 August 2026', place: 'Bodhona, Newtown — an SXCCAA initiative', href: '/#events', image: { src: '/images/events/perspectives-on-higher-education.png', width: 2984, height: 2080, widths: [512, 1024, 2048], alt: 'Thumbnail Image' } },
-  { title: 'SXCCAA Eid Milan', year: '27 March 2026', place: 'A gathering of Xaverians and their families', href: '/#events', image: { src: '/images/events/digital-transformation.png', width: 2248, height: 1600, widths: [512, 1024, 2048], alt: 'Thumbnail Image' } },
-  { title: 'International Day of Yoga', year: '2026', place: "St. Xavier's College, with SXCCAA, the Students' Council, NSS and NCC", href: '/#events', image: { src: '/images/events/graduate-open-house.png', width: 2984, height: 2080, widths: [512, 1024, 2048], alt: 'Thumbnail Image' } },
-  { title: 'Event to be confirmed', year: '—', place: 'Awaiting details from SXCCAA', href: '/contact', placeholder: true, image: { src: '/images/events/poetry-philosophy.png', width: 2248, height: 1600, widths: [512, 1024, 2048], alt: 'Thumbnail Image' } },
-  { title: 'Event to be confirmed', year: '—', place: 'Awaiting details from SXCCAA', href: '/contact', placeholder: true, image: { src: '/images/events/innovations-in-medical-research.png', width: 2984, height: 2080, widths: [512, 1024, 2048], alt: 'Thumbnail Image' } },
-  { title: 'Event to be confirmed', year: '—', place: 'Awaiting details from SXCCAA', href: '/contact', placeholder: true, image: { src: '/images/events/global-entrepreneurship-summit.png', width: 2984, height: 2080, widths: [512, 1024, 2048], alt: 'Thumbnail Image' } },
+  { title: 'Chapters', description: 'The wider SXCCAA network, connecting Xaverians beyond the campus and beyond Kolkata.', image: { src: '/images/home/campus-university-lab.jpg', width: 3840, height: 2160, widths: [512, 1024, 2048], alt: 'Card Image' } },
 ];

@@ -279,35 +279,29 @@
   --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.72));
 }
 
-/* The line sits at the foot of the hero, centred on the same axis as the name
- * above it. Three reasons it reads better here than in the corner: the hero's
- * other two elements are centred, so one axis keeps the composition calm; the
- * bottom band of the photograph is lawn, the emptiest and highest-contrast
- * part of the frame; and a line at the top and a line at the foot frame the
- * picture between them. It is held to a measure and balanced so it breaks into
- * two lines of near-equal length — the thing that makes centred type look set
- * rather than accidental. Pulled down past most of the section's 150px bottom
- * padding; the section clips its overflow, so it can never spill below. */
+/* The line sits in the bottom-right corner of the hero, set flush right so its
+ * edge lands on the container's own margin — the same edge the header and every
+ * section below line up on. It is pulled down past most of the section's 150px
+ * bottom padding; the section clips its overflow, so it can never spill below.
+ * Balanced so the lines come out near-equal rather than one long and one stub. */
 .site-hero-lede {
   position: relative;
   grid-row: 2;
   align-self: end;
-  justify-self: center;
+  justify-self: end;
   flex: none;
   width: 100%;
-  max-width: 700px;
+  max-width: 560px;
   height: auto;
   margin-bottom: -86px;
 }
-/* set as small as it can go and still be read: 14px is the floor the rest of
- * the site uses for its own fine print (the filter labels, the card meta) */
 #hero .site-hero-lede p.framer-text {
-  --framer-font-size: 15px;
-  --framer-line-height: 1.75em;
+  --framer-font-size: 20px;
+  --framer-line-height: 1.6em;
   --framer-font-weight: 400;
-  --framer-letter-spacing: 0.015em;
-  --framer-text-alignment: center;
-  --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.88));
+  --framer-letter-spacing: 0.01em;
+  --framer-text-alignment: end;
+  --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.9));
   text-wrap: balance;
 }
 
@@ -328,8 +322,11 @@
 
 @media (max-width: 1199.98px) {
   .site-hero-lede {
-    max-width: 560px;
+    max-width: 460px;
     margin-bottom: -30px;
+  }
+  #hero .site-hero-lede p.framer-text {
+    --framer-font-size: 18px;
   }
 }
 @media (max-width: 809.98px) {
@@ -345,8 +342,8 @@
     margin-bottom: -24px;
   }
   #hero .site-hero-lede p.framer-text {
-    --framer-font-size: 13px;
-    --framer-line-height: 1.7em;
+    --framer-font-size: 15px;
+    --framer-line-height: 1.65em;
   }
 }
 
@@ -360,6 +357,55 @@
   flex-flow: row wrap;
   align-items: center;
   gap: 14px;
+}
+
+/* ---- footer sign-off mark ---------------------------------------------------
+ * The template ends its footer with an oversized copy of the logo. Its slot is
+ * deliberately shallower than the mark (6.34 against 5.49), so the bottom of
+ * the mark is cropped — which is fine for the original's wordmark, where the
+ * crop only trims empty space under the baseline, but the Association's mark is a
+ * crest beside two lines of type, and the crop cut the second line off.
+ *
+ * So the slot takes the mark's own ratio, nothing is cropped, and the mark is
+ * held to a measure rather than run to the full width of the window: a crest
+ * scaled to 1885px reads as a second logo shouting; at this size it reads as a
+ * sign-off. The space below it is the footer's, not the crop's. */
+.framer-kIeXk .framer-1wha7z8 {
+  height: auto;
+  padding-bottom: 64px;
+}
+.framer-kIeXk .framer-3xr0l9 {
+  aspect-ratio: auto;
+  height: auto;
+  width: 100%;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+.framer-kIeXk .framer-99r95a-container {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1245 / 227;
+  transform: none !important;
+}
+
+@media (max-width: 1199.98px) {
+  .framer-kIeXk .framer-1wha7z8 {
+    padding-bottom: 48px;
+  }
+  .framer-kIeXk .framer-3xr0l9 {
+    max-width: 760px;
+  }
+}
+@media (max-width: 809.98px) {
+  .framer-kIeXk .framer-1wha7z8 {
+    padding-bottom: 36px;
+  }
+  .framer-kIeXk .framer-3xr0l9 {
+    max-width: none;
+  }
 }
 
 /* ---- alumni directory, profile and connection request ------------------------
@@ -1225,4 +1271,84 @@
   color: var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8));
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+/* ---- about section: the scroll-driven three-panel composition ----------------
+ * `AboutSlider` reuses the export's own geometry (.framer-LyUVn) and spacers,
+ * so the only rules needed here are the ones the export's phone variant used to
+ * cover — it swapped the composition for a stacked grid, which has no
+ * choreography to drive — plus a slower cadence on tablet, where the export's
+ * spacers collapse to 20px and would run the whole sequence off in 180px.
+ *
+ * The proportions are chosen so the same keyframes hold at every width. A side
+ * panel starts with its leading edge on the centre panel's, which is
+ * (100% - centre) / 2 from the container edge, and travels all of it; stated as
+ * a share of the panel's own width that is ((100 - centre) / 2) / side. At
+ * 45 / 25 that is 1.1, and the phone's 56 / 20 is the same 1.1 — so both read
+ * the 110 / 86 / 46 / 0 table unchanged. */
+
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .framer-MS5lx .about-slider .framer-14udjcw,
+  .framer-MS5lx .about-slider .framer-13lzhb6,
+  .framer-MS5lx .about-slider .framer-101td2o {
+    height: 160px;
+  }
+}
+
+@media (max-width: 809.98px) {
+  /* Sticky, as on the wider breakpoints: the panel is held under the header
+   * while the spacers below it are scrolled through. */
+  .framer-MS5lx .about-slider .framer-foys6q-container {
+    position: sticky;
+    /* Desktop holds the panel about a third of the way down the viewport. The
+     * panel is far shorter here, so a fixed offset under the header would leave
+     * it stranded at the top of a tall screen; this keeps the same placement,
+     * and never rides up under the header on a short one. */
+    top: max(84px, calc(36vh - 64px));
+    /* the 51.6% centre panel at the export's 1.4 image ratio */
+    aspect-ratio: 2.713;
+    height: var(--framer-aspect-ratio-supported, 129px);
+  }
+  .framer-MS5lx .about-slider .framer-14udjcw,
+  .framer-MS5lx .about-slider .framer-13lzhb6,
+  .framer-MS5lx .about-slider .framer-101td2o {
+    height: 140px;
+  }
+  /* A 45% centre panel is too small to carry the composition at this width, so
+   * the centre takes more of it and the sides give it up. The share is chosen
+   * to keep the start offset at 110% of a side panel, as on desktop. */
+  .about-slider .framer-1ejz204 {
+    width: 51.6%;
+    max-width: none;
+  }
+  .about-slider .framer-otr7f8,
+  .about-slider .framer-1gtwo5i {
+    width: 22%;
+    max-width: none;
+  }
+  /* Each panel otherwise takes its height from its own image ratio, which at
+   * these widths would leave the sides visibly shorter than the centre. Let
+   * `top` and `bottom` win instead, so all three fill the frame. */
+  .about-slider .framer-otr7f8,
+  .about-slider .framer-1ejz204,
+  .about-slider .framer-1gtwo5i {
+    aspect-ratio: auto;
+    height: auto;
+  }
+}
+
+/* ---- the shared contact CTA on the rebuilt pages -----------------------------
+ * The export declares the CTA container's width scoped to the page roots it
+ * shipped with — `.framer-MS5lx` (home) and `.framer-b52HK` (about). /events,
+ * /alumni and the alumni profiles reuse the component under the programs
+ * template's root (`.framer-OAXg4`), where that rule never matched: the
+ * container fell back to shrink-to-fit and collapsed the whole section into a
+ * ~110px vertical sliver of its background photograph. Same declaration as the
+ * export's, unscoped. */
+.framer-o4lape-container,
+.framer-1j8g7ei-container {
+  flex: none;
+  width: 100%;
+  height: auto;
+  position: relative;
 }

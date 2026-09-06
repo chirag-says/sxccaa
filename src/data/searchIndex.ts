@@ -8,7 +8,7 @@
  * public site, so they are not offered as search results either.
  */
 import type { SearchEntry } from '@/lib/search';
-import { events } from '@/data/pages/home';
+import { alumniEvents, featuredEvent, eventsPage } from '@/data/pages/events';
 import { pillars, pillarsHeading, history, why, college, bannerLead } from '@/data/pages/about';
 import { exploreItems } from '@/data/explore';
 import { faq } from '@/data/pages/contact';
@@ -33,13 +33,12 @@ export const searchIndex: SearchEntry[] = [
     url: '/',
     title: 'Home',
     description: DESCRIPTION,
-    h1: ['One legacy.', 'One community.', 'Xaverians'],
+    h1: ["St. Xavier's College"],
     h2: [
       'About SXCCAA',
       'The Xaverian community',
       'Explore the Xaverian network',
       'Inside the Xaverian experience',
-      'Xaverian events & activities',
     ],
     h3: [
       'Alumni',
@@ -49,7 +48,6 @@ export const searchIndex: SearchEntry[] = [
       'Campus',
       'Academics',
       'Culture & Community',
-      ...events.map((event) => event.title),
     ],
     h4: [],
     h5: [],
@@ -60,7 +58,27 @@ export const searchIndex: SearchEntry[] = [
       "A lifetime of connections. The St. Xavier's College Alumni Association brings Xaverians together to reconnect with their alma mater, celebrate their journeys and strengthen the community beyond the campus.",
       'Explore Alumni',
       'Discover SXCCAA',
-      ...events.map((event) => `${event.year} ${event.place}`),
+      ...FOOTER,
+    ],
+  },
+  {
+    url: '/events',
+    title: 'Alumni Events & Activities',
+    description: eventsPage.intro,
+    h1: [`${eventsPage.titleLead} ${eventsPage.titleTail} ${eventsPage.display.join(' ')}`],
+    h2: [featuredEvent.title],
+    h3: alumniEvents.map((event) => event.title),
+    h4: [],
+    h5: [],
+    h6: [],
+    p: [
+      ...NAV,
+      eventsPage.intro,
+      eventsPage.photoNote,
+      `${featuredEvent.date} ${featuredEvent.place}`,
+      featuredEvent.description,
+      ...alumniEvents.map((event) => `${event.date} ${event.place}`),
+      ...alumniEvents.map((event) => event.description),
       ...FOOTER,
     ],
   },

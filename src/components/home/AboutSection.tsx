@@ -12,6 +12,7 @@
  */
 
 import { Button } from '@/components/ui/Button';
+import { AboutSlider } from '@/components/home/AboutSlider';
 import { hero } from '@/data/pages/home';
 
 export function AboutSection() {
@@ -112,53 +113,7 @@ export function AboutSection() {
                 </div>
               </div>
             </div>
-            <div className={"framer-1o2wl6s"} data-framer-name={"Image Slider Block"}>
-              <div className={"ssr-variant hidden-1n3ggvs"}>
-                <div className={"framer-foys6q-container"} style={{ willChange: "transform", opacity: "0", transform: "translateY(40px)" } as React.CSSProperties}>
-                  <div className={"framer-LyUVn framer-1cj6bs1 framer-v-o4ot4b"} data-framer-name={"Default"} style={{ height: "100%", width: "100%" } as React.CSSProperties}>
-                    <div className={"framer-otr7f8"} data-framer-name={"Image"} style={{ borderBottomLeftRadius: "10px", borderBottomRightRadius: "10px", borderTopLeftRadius: "10px", borderTopRightRadius: "10px", opacity: "0.4", transform: "translateX(-50%)" } as React.CSSProperties}>
-                      <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                        <img decoding={"async"} width={"3360"} height={"2240"} sizes={"(min-width: 1200px) min(min(min(100vw, 1800px) - 40px, 1296px) * 0.2546, 330px), (max-width: 809.98px) 100vw, (min-width: 810px) and (max-width: 1199.98px) min(min(min(100vw, 990px) - 40px, 1296px) * 0.2546, 330px)"} srcSet={"/images/home/about-slide-1-512.jpg 512w, /images/home/about-slide-1-1024.jpg 1024w, /images/home/about-slide-1-2048.jpg 2048w, /images/home/about-slide-1.jpg 3360w"} src={"/images/home/about-slide-1-512.jpg"} alt={"Image"} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "55.8% 36.6%", objectFit: "cover" } as React.CSSProperties} />
-                      </div>
-                    </div>
-                    <div className={"framer-1ejz204"} data-framer-name={"Image"} style={{ borderBottomLeftRadius: "10px", borderBottomRightRadius: "10px", borderTopLeftRadius: "10px", borderTopRightRadius: "10px", transform: "translateX(-50%)" } as React.CSSProperties}>
-                      <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                        <img decoding={"async"} width={"1500"} height={"1000"} sizes={"(min-width: 1200px) min(min(min(100vw, 1800px) - 40px, 1296px) * 0.4537, 588px), (max-width: 809.98px) 100vw, (min-width: 810px) and (max-width: 1199.98px) min(min(min(100vw, 990px) - 40px, 1296px) * 0.4537, 588px)"} srcSet={"/images/home/about-slide-2-512.jpg 512w, /images/home/about-slide-2-1024.jpg 1024w, /images/home/about-slide-2.jpg 1500w"} src={"/images/home/about-slide-2-512.jpg"} alt={"Image"} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "cover" } as React.CSSProperties} />
-                      </div>
-                    </div>
-                    <div className={"framer-1gtwo5i"} data-framer-name={"Image"} style={{ borderBottomLeftRadius: "10px", borderBottomRightRadius: "10px", borderTopLeftRadius: "10px", borderTopRightRadius: "10px", opacity: "0.4", transform: "translateX(-50%)" } as React.CSSProperties}>
-                      <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                        <img decoding={"async"} width={"990"} height={"1260"} sizes={"(min-width: 1200px) min(min(min(100vw, 1800px) - 40px, 1296px) * 0.2546, 330px), (max-width: 809.98px) 100vw, (min-width: 810px) and (max-width: 1199.98px) min(min(min(100vw, 990px) - 40px, 1296px) * 0.2546, 330px)"} srcSet={"/images/home/about-slide-3-1024.png 804w, /images/home/about-slide-3.png 990w"} src={"/images/home/about-slide-3-512.png"} alt={"Image"} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center", objectFit: "cover" } as React.CSSProperties} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={"ssr-variant hidden-72rtr7 hidden-11qy7e3"}>
-                <div className={"framer-foys6q-container"} style={{ opacity: "1", transform: "none" } as React.CSSProperties}>
-                  <div className={"framer-LyUVn framer-1cj6bs1 framer-v-1rzjhoz"} data-framer-name={"Phone"} style={{ height: "100%", width: "100%" } as React.CSSProperties}>
-                    <div className={"framer-otr7f8"} data-framer-name={"Image"} style={{ borderBottomLeftRadius: "6px", borderBottomRightRadius: "6px", borderTopLeftRadius: "6px", borderTopRightRadius: "6px", opacity: "1" } as React.CSSProperties}>
-                      <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                        <img decoding={"async"} width={"3360"} height={"2240"} srcSet={"/images/home/about-slide-1-512.jpg 512w, /images/home/about-slide-1-1024.jpg 1024w, /images/home/about-slide-1-2048.jpg 2048w, /images/home/about-slide-1.jpg 3360w"} src={"/images/home/about-slide-1-512.jpg"} alt={"Image"} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center top", objectFit: "cover" } as React.CSSProperties} sizes={"(min-width: 1200px) min(min(min(100vw, 1800px) - 40px, 1296px) * 0.2546, 330px), (max-width: 809.98px) 100vw, (min-width: 810px) and (max-width: 1199.98px) min(min(min(100vw, 990px) - 40px, 1296px) * 0.2546, 330px)"} />
-                      </div>
-                    </div>
-                    <div className={"framer-1ejz204"} data-framer-name={"Image"} style={{ borderBottomLeftRadius: "6px", borderBottomRightRadius: "6px", borderTopLeftRadius: "6px", borderTopRightRadius: "6px" } as React.CSSProperties}>
-                      <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                        <img decoding={"async"} width={"1500"} height={"1000"} srcSet={"/images/home/about-slide-2-512.jpg 512w, /images/home/about-slide-2-1024.jpg 1024w, /images/home/about-slide-2.jpg 1500w"} src={"/images/home/about-slide-2-512.jpg"} alt={"Image"} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center top", objectFit: "cover" } as React.CSSProperties} sizes={"(min-width: 1200px) min(min(min(100vw, 1800px) - 40px, 1296px) * 0.4537, 588px), (max-width: 809.98px) 100vw, (min-width: 810px) and (max-width: 1199.98px) min(min(min(100vw, 990px) - 40px, 1296px) * 0.4537, 588px)"} />
-                      </div>
-                    </div>
-                    <div className={"framer-1gtwo5i"} data-framer-name={"Image"} style={{ borderBottomLeftRadius: "6px", borderBottomRightRadius: "6px", borderTopLeftRadius: "6px", borderTopRightRadius: "6px", opacity: "1" } as React.CSSProperties}>
-                      <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
-                        <img decoding={"async"} width={"990"} height={"1260"} srcSet={"/images/home/about-slide-3-1024.png 804w, /images/home/about-slide-3.png 990w"} src={"/images/home/about-slide-3-512.png"} alt={"Image"} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "center top", objectFit: "cover" } as React.CSSProperties} sizes={"(min-width: 1200px) min(min(min(100vw, 1800px) - 40px, 1296px) * 0.2546, 330px), (max-width: 809.98px) 100vw, (min-width: 810px) and (max-width: 1199.98px) min(min(min(100vw, 990px) - 40px, 1296px) * 0.2546, 330px)"} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={"framer-14udjcw hidden-1n3ggvs"} data-framer-name={"Trigger 01"} id={"trigger-01"} />
-              <div className={"framer-13lzhb6 hidden-1n3ggvs"} data-framer-name={"Trigger 02"} id={"trigger-02"} />
-              <div className={"framer-101td2o hidden-1n3ggvs"} data-framer-name={"Trigger 03"} id={"trigger-03"} />
-            </div>
+            <AboutSlider />
           </div>
         </div>
       </section>

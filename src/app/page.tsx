@@ -5,7 +5,6 @@ import { AboutSection } from '@/components/home/AboutSection';
 import { FacultySection } from '@/components/home/FacultySection';
 import { ProgramSection } from '@/components/home/ProgramSection';
 import { CampusSection } from '@/components/home/CampusSection';
-import { EventsSection } from '@/components/home/EventsSection';
 import { VoicesSection } from '@/components/home/VoicesSection';
 
 export default function HomePage() {
@@ -19,7 +18,6 @@ export default function HomePage() {
           <FacultySection />
           <ProgramSection />
           <CampusSection />
-          <EventsSection />
           <VoicesSection />
         </div>
       </div>

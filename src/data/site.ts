@@ -74,7 +74,7 @@ export const pagesMenu: { title: string; links: NavLink[] }[] = [
     title: 'Association',
     links: [
       { label: 'About SXCCAA', href: '/about' },
-      { label: 'Events & Activities', href: '/#events' },
+      { label: 'Alumni Events & Activities', href: '/events' },
       { label: 'Contact SXCCAA', href: '/contact' },
     ],
   },
@@ -96,7 +96,7 @@ export const mobileMenu: NavLink[] = [
   { label: 'Xaverians Making a Difference', href: '/alumni#featured' },
   { label: 'Explore the Network', href: '/explore' },
   { label: 'Chapters', href: '/explore#chapters' },
-  { label: 'Events & Activities', href: '/#events' },
+  { label: 'Alumni Events & Activities', href: '/events' },
   { label: 'Community Initiatives', href: '/explore#community-initiatives' },
   { label: 'Contact', href: '/contact' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
@@ -104,6 +104,13 @@ export const mobileMenu: NavLink[] = [
 ];
 
 export const headerCta: NavLink = { label: 'Explore Alumni', href: '/alumni' };
+
+/**
+ * The way from the home page to the events page. The home page has no events
+ * section of its own — alumni events and activities have a page — so this pill
+ * sits beside "Explore the Network" in the network section.
+ */
+export const eventsCta: NavLink = { label: 'Events & Activities', href: '/events' };
 
 /** The enquiry block at the foot of the home and about pages. */
 export const contactCta = {
@@ -133,7 +140,7 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
       { label: 'Home', href: '/' },
       { label: 'About SXCCAA', href: '/about' },
       { label: 'Alumni', href: '/alumni' },
-      { label: 'Events', href: '/#events' },
+      { label: 'Events & Activities', href: '/events' },
       { label: 'Stories', href: '/alumni#featured' },
     ],
   },
