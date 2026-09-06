@@ -14,8 +14,13 @@ export function AlumniBanner({ lead, tail, display }: { lead: string; tail: stri
       <section className={"framer-d9337d"} data-framer-name={"Banner Section"} id={"banner"}>
         <div className={"framer-cfp9ri-container"} style={{ willChange: "transform", opacity: "1", transform: "none" } as React.CSSProperties}>
           <div className={"framer-7ZZtr framer-13od8gf framer-v-13od8gf"} data-framer-name={"Default"} style={{ height: "100%", width: "100%" } as React.CSSProperties}>
-            <div className={"framer-fuht15"} data-framer-name={"BG Layer"} style={{ backgroundColor: "var(--token-c4ab01f3-84bc-4e19-b61a-a114e990929b, rgba(19, 62, 109, 0.35))" } as React.CSSProperties} />
-            <div className={"framer-6mzyty"} data-framer-name={"BG Layer 2"} style={{ backgroundColor: "rgba(17, 17, 17, 0.28)" } as React.CSSProperties} />
+            {/* The template's two flat overlays, lightened so the
+            photograph reads brighter: the College blue from 0.35 to 0.15
+            and the ink wash from 0.28 to 0.08, matching the home hero.
+            The blue is written out rather than taken from its token, so
+            the token itself keeps its authored value. */}
+            <div className={"framer-fuht15"} data-framer-name={"BG Layer"} style={{ backgroundColor: "rgba(19, 62, 109, 0.15)" } as React.CSSProperties} />
+            <div className={"framer-6mzyty"} data-framer-name={"BG Layer 2"} style={{ backgroundColor: "rgba(17, 17, 17, 0.08)" } as React.CSSProperties} />
             <div className={"framer-1kv7kk8"} data-framer-appear-id={"1kv7kk8"} data-framer-name={"BG Image"} style={{ willChange: "transform", opacity: "0.001", transform: "scale(1.03)" } as React.CSSProperties}>
               <div style={{ position: "absolute", borderRadius: "inherit", cornerShape: "inherit", top: "0", right: "0", bottom: "0", left: "0" } as React.CSSProperties} data-framer-background-image-wrapper={"true"}>
                 <img decoding={"async"} width={"1672"} height={"941"} sizes={"(min-width: 1200px) max(100vw, 1px), (min-width: 810px) and (max-width: 1199.98px) max(100vw, 1px), (max-width: 809.98px) max(100vw, 1px)"} srcSet={"/images/home/hero-bg-512.jpg 512w, /images/home/hero-bg-1024.jpg 1024w, /images/home/hero-bg.jpg 1672w"} src={"/images/home/hero-bg.jpg"} alt={"St. Xavier's College, Kolkata"} style={{ display: "block", width: "100%", height: "100%", borderRadius: "inherit", cornerShape: "inherit", objectPosition: "50% 70%", objectFit: "cover" } as React.CSSProperties} />

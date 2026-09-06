@@ -281,7 +281,7 @@ function barStyle(scrolled: boolean, shadow = true): CSSProperties {
 }
 
 function DesktopBar({ tone, scrolled, lightPage, pathname, pagesOpen, setPagesOpen, openSearch }: BarProps & { pagesOpen: boolean; setPagesOpen: (v: boolean) => void; openSearch: () => void }) {
-  const itemClasses = ['framer-y6kjx2-container', 'framer-hq3sy-container', 'framer-15fi588-container'];
+  const itemClasses = ['framer-y6kjx2-container', 'framer-hq3sy-container', 'framer-9wtvq4-container', 'framer-15fi588-container'];
   const v = HEADER_VARIANT.desktop;
   const variant = scrolled ? v.scrolled : lightPage ? v.lightTop : v.top;
   return (
@@ -297,6 +297,7 @@ function DesktopBar({ tone, scrolled, lightPage, pathname, pagesOpen, setPagesOp
                   <DesktopNavItem link={mainNav[1]} tone={tone} current={isCurrent(pathname, mainNav[1].href)} containerClass={itemClasses[1]} />
                   <PagesMenu tone={tone} open={pagesOpen} onOpen={() => setPagesOpen(true)} onClose={() => setPagesOpen(false)} pathname={pathname} />
                   <DesktopNavItem link={mainNav[2]} tone={tone} current={isCurrent(pathname, mainNav[2].href)} containerClass={itemClasses[2]} />
+                  <DesktopNavItem link={mainNav[3]} tone={tone} current={isCurrent(pathname, mainNav[3].href)} containerClass={itemClasses[3]} />
                 </div>
               </div>
             </nav>

@@ -249,6 +249,7 @@
   #hero .framer-text.framer-styles-preset-1y2slg {
     --framer-font-size: 140px;
   }
+  #hero .site-hero-sub p.framer-text { --framer-font-size: 28px; }
 }
 @media (max-width: 1199.98px) and (min-width: 810px) {
   #hero .framer-text.framer-styles-preset-1y2slg {
@@ -261,22 +262,27 @@
   }
 }
 
-/* the founding year: very small, directly under the name */
-.site-hero-since {
+/* The Association's line, between the College's name and the year. The three
+ * fall in steps — 96px name, 22px here, 13px year — with the tracking opening
+ * up as the size drops, which is the same lock-up the header's logo uses. */
+.site-hero-sub {
   position: relative;
   flex: none;
   width: 100%;
   height: auto;
-  margin-top: 14px;
+  margin-top: 20px;
 }
-#hero .site-hero-since p.framer-text {
-  --framer-font-size: 13px;
-  --framer-line-height: 1.4em;
-  --framer-letter-spacing: 0.28em;
+#hero .site-hero-sub p.framer-text {
+  --framer-font-size: 22px;
+  --framer-line-height: 1.3em;
+  --framer-letter-spacing: 0.34em;
   --framer-font-weight: 600;
   --framer-text-transform: uppercase;
   --framer-text-alignment: center;
-  --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.72));
+  --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
+  /* the trailing letter-space is inside the centred line box, so the glyphs sit
+   * half a space left of true centre; indenting by half the tracking corrects it */
+  text-indent: 0.17em;
 }
 
 /* The line sits in the bottom-right corner of the hero, set flush right so its
@@ -321,6 +327,14 @@
 }
 
 @media (max-width: 1199.98px) {
+  .site-hero-sub {
+    margin-top: 16px;
+  }
+  #hero .site-hero-sub p.framer-text {
+    --framer-font-size: 17px;
+    --framer-letter-spacing: 0.3em;
+    text-indent: 0.15em;
+  }
   .site-hero-lede {
     max-width: 460px;
     margin-bottom: -30px;
@@ -330,12 +344,13 @@
   }
 }
 @media (max-width: 809.98px) {
-  .site-hero-since {
-    margin-top: 10px;
+  .site-hero-sub {
+    margin-top: 12px;
   }
-  #hero .site-hero-since p.framer-text {
-    --framer-font-size: 11px;
-    --framer-letter-spacing: 0.24em;
+  #hero .site-hero-sub p.framer-text {
+    --framer-font-size: 12px;
+    --framer-letter-spacing: 0.26em;
+    text-indent: 0.13em;
   }
   .site-hero-lede {
     max-width: none;
@@ -1351,4 +1366,112 @@
   width: 100%;
   height: auto;
   position: relative;
+}
+
+/* ── Campus section: wide top card + smaller side-by-side bottom row ── */
+.sx-campus-wide {
+  width: 100%;
+  display: flex;
+}
+/* Wide campus card — taller */
+.sx-campus-wide .framer-1sf96mu-container {
+  aspect-ratio: 3 / 1.1 !important;
+  height: var(--framer-aspect-ratio-supported, 600px) !important;
+  max-height: 680px !important;
+  width: 100% !important;
+  flex: none !important;
+}
+/* Bottom row — full width, row layout */
+.framer-MS5lx .framer-115d54s {
+  flex-direction: row !important;
+  flex: none !important;
+  width: 100% !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 24px !important;
+}
+/* Bottom cards — shorter and narrower */
+.framer-MS5lx .framer-115d54s .framer-arxw4x-container,
+.framer-MS5lx .framer-115d54s .framer-1yjpdms-container {
+  flex: 0 0 38% !important;
+  width: 38% !important;
+  aspect-ratio: 1.4 !important;
+  height: var(--framer-aspect-ratio-supported, 340px) !important;
+  max-height: 380px !important;
+}
+.framer-MS5lx .framer-115d54s .ssr-variant {
+  flex: 0 0 38% !important;
+  width: 38% !important;
+}
+@media (max-width: 1199.98px) {
+  .sx-campus-wide .framer-1sf96mu-container {
+    height: var(--framer-aspect-ratio-supported, 440px) !important;
+    max-height: 520px !important;
+  }
+  .framer-MS5lx .framer-115d54s .framer-arxw4x-container,
+  .framer-MS5lx .framer-115d54s .framer-1yjpdms-container {
+    flex: 0 0 46% !important;
+    width: 46% !important;
+    height: var(--framer-aspect-ratio-supported, 260px) !important;
+    max-height: 300px !important;
+  }
+  .framer-MS5lx .framer-115d54s .ssr-variant {
+    flex: 0 0 46% !important;
+    width: 46% !important;
+  }
+}
+@media (max-width: 809.98px) {
+  .sx-campus-wide .framer-1sf96mu-container {
+    aspect-ratio: 16 / 9 !important;
+    height: var(--framer-aspect-ratio-supported, 220px) !important;
+    max-height: 280px !important;
+  }
+  .framer-MS5lx .framer-115d54s {
+    flex-direction: row !important;
+    gap: 12px !important;
+  }
+  .framer-MS5lx .framer-115d54s .framer-arxw4x-container,
+  .framer-MS5lx .framer-115d54s .framer-1yjpdms-container {
+    flex: 0 0 46% !important;
+    width: 46% !important;
+    height: var(--framer-aspect-ratio-supported, 160px) !important;
+    max-height: 200px !important;
+  }
+  .framer-MS5lx .framer-115d54s .ssr-variant {
+    flex: 0 0 46% !important;
+    width: 46% !important;
+  }
+}
+
+/* ---- the card's media slot -------------------------------------------------
+ * `.framer-1jldtx4` is a flex item with a 1px basis that grows into whatever
+ * the row leaves it. On the desktop card it is the only item in that row, so
+ * it fills; on the phone card the text block sits in the same row and leaves
+ * it one pixel wide. That put the "coming soon" label outside the card, and it
+ * does the same to a photograph — a 1px-wide picture is no picture at all.
+ *
+ * So the slot is taken out of the row and laid over the wrap instead, which is
+ * positioned and which the text block still paints above. On the phone card
+ * that applies whatever the slot holds; elsewhere only a standing-in plate
+ * needs it, because there the slot already fills its row. */
+.framer-1jldtx4[data-plate],
+.framer-FtBy4.framer-v-1vdr9hh .framer-1jldtx4 {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+}
+
+/* ---- the phone card in "The Xaverian community" ---------------------------
+ * The phone variant nests its text block inside the image wrap, and the wrap
+ * centres what it holds — so once the standing-in plate above filled its slot
+ * properly, the title and the "coming soon" label were centred on top of each
+ * other. The desktop card sets its text at the foot of the card; this makes
+ * the phone card read the same way, and gives it back the inset the wrap loses
+ * by being laid over the card's padding. */
+.framer-FtBy4.framer-v-1vdr9hh .framer-112po6y {
+  align-items: flex-end;
+}
+.framer-FtBy4.framer-v-1vdr9hh .framer-191hkq5 {
+  padding: 20px;
 }

@@ -1,4 +1,5 @@
 import type { SiteImage } from '@/lib/images';
+import { eventsCta } from '@/data/site';
 
 /**
  * Content of the home page's data-driven sections. Layout lives in the
@@ -19,14 +20,19 @@ import type { SiteImage } from '@/lib/images';
 export const hero = {
   /** The College, centred at the top, one entry per word so it can wrap. */
   display: ["St.", "Xavier's", 'College'],
-  /** The founding year, very small, directly under the name. */
-  eyebrow: 'Since 1860',
+  /** The Association's own line, under the College's name. */
+  subtitle: 'Alumni Association',
   /** The line at the bottom right. */
   paragraph:
     'One legacy. One community. One Xaverian experience — the Association keeps Xaverians connected with their alma mater and with one another.',
-  /** Both buttons now sit in the About section below the hero. */
+  /**
+   * Both buttons now sit in the About section below the hero. The second one
+   * is the shared events link rather than its own literal, so the label and
+   * the route stay in step with the header, the footer and the network
+   * section, which all point at the same page.
+   */
   primaryCta: { label: 'Explore Alumni', href: '/alumni' },
-  secondaryCta: { label: 'Discover SXCCAA', href: '/about' },
+  secondaryCta: eventsCta,
 };
 
 export interface FacultySlide {
@@ -34,32 +40,64 @@ export interface FacultySlide {
   title: string;
   description: string;
   /**
-   * Left unset while SXCCAA's own photography is outstanding: the card then
-   * shows a "coming soon" plate. Supplying an image restores the photograph.
+   * Every card carries one now. A slide left without an image falls back to a
+   * "coming soon" plate rather than a stock photograph, which is how a new
+   * card can be added before SXCCAA has supplied its picture.
    */
   image?: SiteImage;
 }
 
-/** "The Xaverian community" slideshow (desktop) and stacked cards (tablet, phone). */
+/**
+ * "The Xaverian community": the slideshow on desktop and tablet, and the same
+ * cards stacked on phone. One list for all three — the phone used to carry its
+ * own hardcoded set in a different order, so the two had already drifted apart.
+ */
 export const faculties: FacultySlide[] = [
   {
     tag: 'SXCCAA',
     title: 'Alumni',
     description:
       'Reconnect with Xaverians across generations, disciplines, professions and locations — and find the people whose path you want to follow.',
+    image: {
+      src: '/images/home/community-alumni.jpg',
+      position: '50% 72%',
+      width: 1672,
+      height: 941,
+      widths: [512, 1024],
+      alt: 'Xaverians in gown and hood walking together along the College quadrangle at sunset',
+    },
   },
-  {
-    tag: 'SXCCAA',
-    title: 'Chapters',
-    description:
-      "Stay connected with the wider Xaverian community through the Association's chapters and network, in India and beyond.",
-  },
+
   {
     tag: 'SXCCAA',
     title: 'Initiatives',
     description:
       "Discover the Association's initiatives, activities and contribution to the wider community, from fellowship to philanthropy.",
+    image: {
+      src: '/images/home/community-initiatives.jpg',
+      position: '50% 62%',
+      width: 1672,
+      height: 941,
+      widths: [512, 1024],
+      alt: "An SXCCAA display on the College veranda, headed Alumni for a Brighter Tomorrow, with alumni and staff looking on",
+    },
   },
+
+  {
+    tag: 'SXCCAA',
+    title: 'Events',
+    description:
+      'Follow the gatherings, championships and chapter meets held by the Association and its forums — what has already taken place, and what is still to come.',
+    image: {
+      src: '/images/home/community-events.jpg',
+      position: '50% 38%',
+      width: 1536,
+      height: 1024,
+      widths: [512, 1024],
+      alt: "An SXCCAA Alumni Meet in the College hall: a speaker at the lectern before a full house, under a banner reading Reconnect, Relive, Reignite",
+    },
+  },
+
 ];
 
 export interface CampusCard {
@@ -70,8 +108,7 @@ export interface CampusCard {
 
 /** "Inside the Xaverian experience": four cards in two columns. */
 export const campusCards: CampusCard[] = [
-  { title: 'Campus', description: "St. Xavier's College (Autonomous), Kolkata — 30, Mother Teresa Sarani, in the heart of the city.", image: { src: '/images/home/campus-sports-wellness.jpg', width: 4852, height: 3239, widths: [512, 1024, 2048, 4096], alt: 'Card Image' } },
+  { title: 'Campus', description: "St. Xavier's College (Autonomous), Kolkata — 30, Mother Teresa Sarani, in the heart of the city.", image: { src: '/images/home/campus-raghabpur.jpg', width: 1348, height: 442, widths: [512, 1024], alt: "St. Xavier's College campus, Kolkata" } },
   { title: 'Academics', description: 'Humanities, Science, Commerce, Business Administration and Education.', image: { src: '/images/home/campus-libraries.jpg', width: 2832, height: 4256, widths: [1024, 2048, 4096], alt: 'Card Image', position: '59.4% 15.1%' } },
-  { title: 'Culture & Community', description: 'The activities, societies and gatherings that bring Xaverians together across generations.', image: { src: '/images/home/campus-gym.jpg', width: 6755, height: 4508, widths: [512, 1024, 2048, 4096], alt: 'Card Image' } },
-  { title: 'Chapters', description: 'The wider SXCCAA network, connecting Xaverians beyond the campus and beyond Kolkata.', image: { src: '/images/home/campus-university-lab.jpg', width: 3840, height: 2160, widths: [512, 1024, 2048], alt: 'Card Image' } },
+  { title: 'Life at Xavier\'s', description: 'Sports, fitness, societies and the vibrant campus culture that shapes every Xaverian.', image: { src: '/images/home/campus-gym.jpg', width: 6755, height: 4508, widths: [512, 1024, 2048, 4096], alt: 'Card Image' } },
 ];

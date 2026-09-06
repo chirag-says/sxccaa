@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { SiteShell, PAGE_ROOT_STYLE } from '@/components/layout/SiteShell';
-import { AlumniBanner } from '@/components/alumni/AlumniBanner';
-import { AlumniProfile } from '@/components/alumni/AlumniProfile';
+import { SiteShell } from '@/components/layout/SiteShell';
+import { AlumniProfileView } from '@/components/alumni/AlumniProfileView';
 import { ContactCta } from '@/components/shared/ContactCta';
 import { alumni, findAlumnus } from '@/data/alumni';
 
@@ -27,10 +26,9 @@ export default async function AlumniProfilePage({ params }: { params: Promise<{ 
   if (!person) notFound();
 
   return (
-    <SiteShell>
-      <div className="framer-OAXg4 framer-EpkeD framer-H9bCC framer-1ijzfe8" data-framer-root="" style={PAGE_ROOT_STYLE}>
-        <AlumniBanner lead="A " tail="Xaverian" display={['Profile']} />
-        <AlumniProfile person={person} />
+    <SiteShell lightPage={true}>
+      <div className="al-page">
+        <AlumniProfileView person={person} />
         <ContactCta />
       </div>
     </SiteShell>

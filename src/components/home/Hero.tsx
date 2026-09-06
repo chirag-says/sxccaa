@@ -8,8 +8,10 @@
  * reveal on the display line are the template's.
  *
  * The hero carries three things and no buttons: the College's name across the
- * top in the template's own display type, the founding year very small under
- * it, and one line at the bottom right in the template's paragraph type — the
+ * top in the template's own display type, the Association's own line under it
+ * — the two set in falling steps so they read as one lock-up, the way the
+ * header's logo does — and one line at the bottom right in the template's
+ * paragraph type — the
  * type and the place the original gives its right-hand column. Both calls to
  * action have moved to the About section below, which is the first thing a
  * visitor scrolls to. `site.css` holds the placing — see "hero tiers".
@@ -28,10 +30,11 @@ export function Hero() {
             <div className={"framer-7ZZtr framer-13od8gf framer-v-13od8gf"} data-framer-name={"Default"} style={{ height: "100%", width: "100%" } as React.CSSProperties}>
               {/* The template's two flat overlays, lightened so the photograph
                   reads brighter: the College blue drops from 0.35 to 0.15 and
-                  the ink wash from 0.28 to 0.08. The blue is written out rather
-                  than taken from its token, which the other pages' banners
-                  still use at full strength. What contrast the type needs comes
-                  from the gradient in `site.css`. */}
+                  the ink wash from 0.28 to 0.08 — the same pair the other
+                  pages' banners now carry. The blue is written out rather than
+                  taken from its token, so the token keeps its authored value.
+                  What contrast the type needs comes from the gradient in
+                  `site.css`. */}
               <div className={"framer-fuht15"} data-framer-name={"BG Layer"} style={{ backgroundColor: "rgba(19, 62, 109, 0.15)" } as React.CSSProperties} />
               <div className={"framer-6mzyty"} data-framer-name={"BG Layer 2"} style={{ backgroundColor: "rgba(17, 17, 17, 0.08)" } as React.CSSProperties} />
               <div className={"framer-1kv7kk8"} data-framer-appear-id={"1kv7kk8"} data-framer-name={"BG Image"} style={{ willChange: "transform", opacity: "0.001", transform: "scale(1.03)" } as React.CSSProperties}>
@@ -55,9 +58,9 @@ export function Hero() {
                       <SplitDisplay words={hero.display} appearId="1slilnr" containerClass="framer-1slilnr" as="h2" />
                     </div>
                   </div>
-                  <div className={"site-hero-since"} data-framer-appear-id={"1xedpim"} data-framer-name={"Founding Year"} data-framer-component-type={"RichTextContainer"} style={{ opacity: "0.001", transform: "translateY(40px)" } as React.CSSProperties}>
+                  <div className={"site-hero-sub"} data-framer-appear-id={"1xedpim"} data-framer-name={"Association"} data-framer-component-type={"RichTextContainer"} style={{ opacity: "0.001", transform: "translateY(40px)" } as React.CSSProperties}>
                     <p className={"framer-text framer-styles-preset-1o91uer"} data-styles-preset={"mUynNyA4W"} style={{ '--framer-text-color': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))" } as React.CSSProperties}>
-                      {hero.eyebrow}
+                      {hero.subtitle}
                     </p>
                   </div>
                 </div>

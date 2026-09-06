@@ -34,26 +34,13 @@ export const exploreItems: ExploreItem[] = [
     image: { src: '/images/programs/postgraduate.jpg', width: 8256, height: 5504, widths: [512, 1024, 2048, 4096], alt: 'Thumbnail Image' },
   },
   {
-    id: 'chapters',
-    title: 'Chapters',
-    description: "Discover the wider network connecting Xaverians beyond the campus. Chapter listings will be published here once the Association supplies them.",
-    href: '/contact',
-    image: { src: '/images/programs/professional-studies.jpg', width: 6000, height: 4000, widths: [512, 1024, 2048, 4096], alt: 'Thumbnail Image' },
-  },
-  {
     id: 'events',
     title: 'Events & Activities',
     description: 'Stay connected with alumni gatherings, fellowship and the activities the Association runs through the year.',
     href: '/events',
     image: { src: '/images/programs/certificate-courses.jpg', width: 5472, height: 3468, widths: [512, 1024, 2048, 4096], alt: 'Thumbnail Image' },
   },
-  {
-    id: 'community-initiatives',
-    title: 'Community Initiatives',
-    description: "Explore the philanthropic and social initiatives the Association runs, and the ways Xaverians take part in them.",
-    href: '/events',
-    image: { src: '/images/programs/online-programs.jpg', width: 3840, height: 2160, widths: [512, 1024, 2048], alt: 'Thumbnail Image' },
-  },
+
   {
     id: 'connect',
     title: 'Connect',

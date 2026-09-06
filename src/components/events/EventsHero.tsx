@@ -1,19 +1,24 @@
 'use client';
 
 /**
- * The page's opening: a typographic statement, then the archive's one wide
- * photograph opening out from behind a mask.
+ * The page's opening: a typographic statement against the one activity that has
+ * not happened yet, then the archive's widest photograph opening from a mask.
  *
  * Type leads rather than a full-bleed photograph, for a reason that is about
- * the material and not about taste. SXCCAA has supplied seven pictures for
- * nine events, and the largest is 1121px across; blown across a 1440px hero it
+ * the material and not about taste. SXCCAA has supplied six pictures for nine
+ * past events, and the largest is 1121px across; blown across a 1440px hero it
  * would be visibly soft, and a soft photograph at the top of a page reads as a
  * cheap page. So the words carry the opening, and the photograph is held to a
  * band no wider than its own file — where it is sharp, and where the mask
  * makes arriving at it an event.
  *
- * The mask is scroll-linked, not timed: the band opens from the centre as the
- * reader comes down to it, and closes again on the way back up.
+ * The Nostalgia ’26 poster used to sit in a column on the right. It now opens
+ * the page on its own stage above this block (`EventsUpcoming`), because it is
+ * the only thing on the page a reader can still act on and it was being read
+ * as a sidebar. What is left here is the retrospective's own opening.
+ *
+ * The mask on the band is scroll-linked, not timed: it opens from the centre
+ * as the reader comes down to it, and closes again on the way back up.
  */
 
 import { useRef } from 'react';
@@ -29,20 +34,18 @@ export function EventsHero() {
   useScrollLink(
     band,
     (p) => {
-      const el = band.current;
-      if (!el) return;
       // the mask opens from the centre; the picture inside settles out of a
       // slight push-in, so the two move against each other rather than together
-      el.style.setProperty('--open', String(p));
+      band.current?.style.setProperty('--open', String(p));
     },
     crossing(0.95, 0.45),
   );
 
   return (
     <header className="ev-hero" id="events-hero">
-      <div className="ev-shell">
-        <div className="ev-hero__type">
-          <p className="ev-eyebrow">{eventsPage.eyebrow}</p>
+      <div className="ev-shell ev-hero__top">
+        <div className="ev-hero__words">
+          <p className="ev-eyebrow">{eventsPage.recordEyebrow}</p>
           <h1 className="ev-hero__headline">
             {eventsPage.headline.map((line, i) => (
               <span className="ev-hero__line" key={line}>
@@ -52,13 +55,9 @@ export function EventsHero() {
               </span>
             ))}
           </h1>
-          <div className="ev-hero__aside">
-            <p className="ev-hero__intro">{eventsPage.intro}</p>
-            <p className="ev-hero__count">
-              <span>{alumniEvents.length}</span> recorded activities · 2023—2026
-            </p>
-          </div>
+          <p className="ev-hero__intro">{eventsPage.intro}</p>
         </div>
+
       </div>
 
       <div className="ev-shell">
@@ -84,6 +83,7 @@ export function EventsHero() {
           </figcaption>
         </figure>
       </div>
+
     </header>
   );
 }

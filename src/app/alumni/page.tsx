@@ -1,31 +1,23 @@
 import type { Metadata } from 'next';
-import { SiteShell, PAGE_ROOT_STYLE } from '@/components/layout/SiteShell';
-import { AlumniBanner } from '@/components/alumni/AlumniBanner';
-import { FeaturedAlumni } from '@/components/alumni/FeaturedAlumni';
-import { AlumniDirectory } from '@/components/alumni/AlumniDirectory';
+import { SiteShell } from '@/components/layout/SiteShell';
+import { AlumniHero } from '@/components/alumni/AlumniHero';
+import { AlumniFeatured } from '@/components/alumni/AlumniFeatured';
+import { AlumniDiscover } from '@/components/alumni/AlumniDiscover';
 import { ContactCta } from '@/components/shared/ContactCta';
-import { demoNotice, directoryCopy } from '@/data/alumni';
 
-export const metadata: Metadata = { title: 'Alumni Directory — SXCCAA' };
+export const metadata: Metadata = {
+  title: 'Alumni Directory — SXCCAA',
+  description:
+    'Reconnect with Xaverians across generations. Search the alumni directory, discover featured Xaverians, and connect with the global network.',
+};
 
 export default function AlumniPage() {
   return (
-    <SiteShell>
-      <div className="framer-OAXg4 framer-EpkeD framer-H9bCC framer-1ijzfe8" data-framer-root="" style={PAGE_ROOT_STYLE}>
-        <AlumniBanner lead="Meet the " tail="Xaverian" display={['Community']} />
-        <FeaturedAlumni />
-        <section className="sx-section" id="directory" data-framer-name="Alumni Directory">
-          <div className="sx-container">
-            <div className="sx-wrapper">
-              <div className="sx-notice">
-                <p className="framer-text framer-styles-preset-1tfjym1" data-styles-preset="zbOnBKABb">
-                  {demoNotice} {directoryCopy.privacyNote}
-                </p>
-              </div>
-              <AlumniDirectory />
-            </div>
-          </div>
-        </section>
+    <SiteShell lightPage={true}>
+      <div className="al-page">
+        <AlumniHero />
+        <AlumniFeatured />
+        <AlumniDiscover />
         <ContactCta />
       </div>
     </SiteShell>

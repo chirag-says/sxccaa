@@ -8,7 +8,43 @@
 
 import { FacultySlideshow } from './FacultySlideshow';
 import { SlideMedia } from './SlideMedia';
-import { faculties } from '@/data/pages/home';
+import { faculties, type FacultySlide } from '@/data/pages/home';
+
+
+/**
+ * The phone card's own container classes. All three carry the same box in the
+ * stylesheet but a reveal of their own in `effects.ts`, so they are cycled
+ * rather than collapsed to one — a fourth card reuses the first one's reveal.
+ */
+const PHONE_CARD_CLASSES = ['framer-1tkakbu-container', 'framer-bibtxh-container', 'framer-14ikicq-container'];
+
+/**
+ * One stacked card, as the phone breakpoint draws it: no pill, and the text
+ * block sits inside the image wrap rather than beside it.
+ */
+function PhoneCard({ slide, containerClass }: { slide: FacultySlide; containerClass: string }) {
+  return (
+    <div className={containerClass} style={{ willChange: "transform", opacity: "0", transform: "translateY(40px)" } as React.CSSProperties}>
+      <div className={"framer-FtBy4 framer-QNdG4 framer-RqKzS framer-1qbswss framer-v-1vdr9hh"} data-framer-name={"Phone"} style={{ height: "100%", width: "100%", borderBottomLeftRadius: "8px", borderBottomRightRadius: "8px", borderTopLeftRadius: "8px", borderTopRightRadius: "8px" } as React.CSSProperties}>
+        <div className={"framer-112po6y"} data-framer-name={"Image Wrap"}>
+          <SlideMedia image={slide.image} />
+          <div className={"framer-191hkq5"} data-framer-name={"Text Block"}>
+            <div className={"framer-1cfszvw"} data-framer-name={"Title"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-a0htzi': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
+              <h3 className={"framer-text framer-styles-preset-1oke2e1"} data-styles-preset={"RSOGskbDP"} style={{ '--framer-text-color': "var(--extracted-a0htzi, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
+                {slide.title}
+              </h3>
+            </div>
+            <div className={"framer-qeqmug"} data-framer-name={"Paragraph"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
+              <p className={"framer-text framer-styles-preset-1yx751z"} data-styles-preset={"kfKr753OE"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8)))" } as React.CSSProperties}>
+                {slide.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function FacultySection() {
   return (
@@ -83,63 +119,9 @@ export function FacultySection() {
               </div>
             </div>
             <div className={"framer-15tjthq hidden-72rtr7 hidden-11qy7e3"} data-framer-name={"Phone Card Block"}>
-              <div className={"framer-1tkakbu-container"} style={{ willChange: "transform", opacity: "0", transform: "translateY(40px)" } as React.CSSProperties}>
-                <div className={"framer-FtBy4 framer-QNdG4 framer-RqKzS framer-1qbswss framer-v-1vdr9hh"} data-framer-name={"Phone"} style={{ height: "100%", width: "100%", borderBottomLeftRadius: "8px", borderBottomRightRadius: "8px", borderTopLeftRadius: "8px", borderTopRightRadius: "8px" } as React.CSSProperties}>
-                  <div className={"framer-112po6y"} data-framer-name={"Image Wrap"}>
-                    <SlideMedia />
-                    <div className={"framer-191hkq5"} data-framer-name={"Text Block"}>
-                      <div className={"framer-1cfszvw"} data-framer-name={"Title"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-a0htzi': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
-                        <h3 className={"framer-text framer-styles-preset-1oke2e1"} data-styles-preset={"RSOGskbDP"} style={{ '--framer-text-color': "var(--extracted-a0htzi, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"Chapters"}
-                        </h3>
-                      </div>
-                      <div className={"framer-qeqmug"} data-framer-name={"Paragraph"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
-                        <p className={"framer-text framer-styles-preset-1yx751z"} data-styles-preset={"kfKr753OE"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8)))" } as React.CSSProperties}>
-                          {"Stay connected with the wider Xaverian community through the Association's chapters and network, in India and beyond."}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={"framer-bibtxh-container"} style={{ willChange: "transform", opacity: "0", transform: "translateY(40px)" } as React.CSSProperties}>
-                <div className={"framer-FtBy4 framer-QNdG4 framer-RqKzS framer-1qbswss framer-v-1vdr9hh"} data-framer-name={"Phone"} style={{ height: "100%", width: "100%", borderBottomLeftRadius: "8px", borderBottomRightRadius: "8px", borderTopLeftRadius: "8px", borderTopRightRadius: "8px" } as React.CSSProperties}>
-                  <div className={"framer-112po6y"} data-framer-name={"Image Wrap"}>
-                    <SlideMedia />
-                    <div className={"framer-191hkq5"} data-framer-name={"Text Block"}>
-                      <div className={"framer-1cfszvw"} data-framer-name={"Title"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-a0htzi': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
-                        <h3 className={"framer-text framer-styles-preset-1oke2e1"} data-styles-preset={"RSOGskbDP"} style={{ '--framer-text-color': "var(--extracted-a0htzi, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"Alumni"}
-                        </h3>
-                      </div>
-                      <div className={"framer-qeqmug"} data-framer-name={"Paragraph"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
-                        <p className={"framer-text framer-styles-preset-1yx751z"} data-styles-preset={"kfKr753OE"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8)))" } as React.CSSProperties}>
-                          {"Reconnect with Xaverians across generations, disciplines, professions and locations — and find the people whose path you want to follow."}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={"framer-14ikicq-container"} style={{ willChange: "transform", opacity: "0", transform: "translateY(40px)" } as React.CSSProperties}>
-                <div className={"framer-FtBy4 framer-QNdG4 framer-RqKzS framer-1qbswss framer-v-1vdr9hh"} data-framer-name={"Phone"} style={{ height: "100%", width: "100%", borderBottomLeftRadius: "8px", borderBottomRightRadius: "8px", borderTopLeftRadius: "8px", borderTopRightRadius: "8px" } as React.CSSProperties}>
-                  <div className={"framer-112po6y"} data-framer-name={"Image Wrap"}>
-                    <SlideMedia />
-                    <div className={"framer-191hkq5"} data-framer-name={"Text Block"}>
-                      <div className={"framer-1cfszvw"} data-framer-name={"Title"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-a0htzi': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
-                        <h3 className={"framer-text framer-styles-preset-1oke2e1"} data-styles-preset={"RSOGskbDP"} style={{ '--framer-text-color': "var(--extracted-a0htzi, var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255)))" } as React.CSSProperties}>
-                          {"Initiatives"}
-                        </h3>
-                      </div>
-                      <div className={"framer-qeqmug"} data-framer-name={"Paragraph"} data-framer-component-type={"RichTextContainer"} style={{ '--extracted-r6o4lv': "var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8))", '--framer-paragraph-spacing': "0px", transform: "none" } as React.CSSProperties}>
-                        <p className={"framer-text framer-styles-preset-1yx751z"} data-styles-preset={"kfKr753OE"} style={{ '--framer-text-color': "var(--extracted-r6o4lv, var(--token-64ea5169-a638-4017-b73c-ec045eca97b4, rgba(255, 255, 255, 0.8)))" } as React.CSSProperties}>
-                          {"Discover the Association's initiatives, activities and contribution to the wider community, from fellowship to philanthropy."}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {faculties.map((slide, i) => (
+                <PhoneCard key={slide.title} slide={slide} containerClass={PHONE_CARD_CLASSES[i % PHONE_CARD_CLASSES.length]} />
+              ))}
             </div>
           </div>
         </div>

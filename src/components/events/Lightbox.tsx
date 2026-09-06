@@ -112,7 +112,7 @@ export function Lightbox({
       ref={dialog}
       role="dialog"
       aria-modal="true"
-      aria-label={`${item.title} — photograph ${index + 1} of ${items.length}`}
+      aria-label={items.length > 1 ? `${item.title} — image ${index + 1} of ${items.length}` : item.title}
       data-flown={flown ? 'yes' : 'no'}
     >
       <button type="button" className="ev-lightbox__scrim" onClick={onClose} aria-label="Close the viewer" />
@@ -136,14 +136,21 @@ export function Lightbox({
             {item.date}
           </span>
         </p>
-        <p className="ev-lightbox__count" aria-hidden="true">
-          {String(index + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
-        </p>
+        {items.length > 1 ? (
+          <p className="ev-lightbox__count" aria-hidden="true">
+            {String(index + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+          </p>
+        ) : null}
       </div>
 
+      {/* stepping is meaningless with one item — it would wrap to itself */}
       <div className="ev-lightbox__nav">
-        <button type="button" onClick={() => step(-1)} aria-label="Previous photograph">←</button>
-        <button type="button" onClick={() => step(1)} aria-label="Next photograph">→</button>
+        {items.length > 1 ? (
+          <>
+            <button type="button" onClick={() => step(-1)} aria-label="Previous image">←</button>
+            <button type="button" onClick={() => step(1)} aria-label="Next image">→</button>
+          </>
+        ) : null}
         <button type="button" onClick={onClose} aria-label="Close the viewer">Close</button>
       </div>
     </div>

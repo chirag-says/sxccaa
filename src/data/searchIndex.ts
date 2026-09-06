@@ -42,8 +42,8 @@ export const searchIndex: SearchEntry[] = [
     ],
     h3: [
       'Alumni',
-      'Chapters',
       'Initiatives',
+      'Events',
       ...exploreItems.map((item) => item.title),
       'Campus',
       'Academics',
@@ -57,7 +57,7 @@ export const searchIndex: SearchEntry[] = [
       "St. Xavier's College (Autonomous) · Kolkata",
       "A lifetime of connections. The St. Xavier's College Alumni Association brings Xaverians together to reconnect with their alma mater, celebrate their journeys and strengthen the community beyond the campus.",
       'Explore Alumni',
-      'Discover SXCCAA',
+      'Events & Activities',
       ...FOOTER,
     ],
   },

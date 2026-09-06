@@ -45,13 +45,14 @@ export interface NavLink {
 }
 
 /**
- * The three pills in the desktop bar. The "Explore" dropdown is rendered
- * between the second and third, so the reading order is
- * Home · About SXCCAA · Explore · Contact.
+ * The four pills in the desktop bar, in reading order. The "Explore" dropdown
+ * is rendered between the second and third, so the bar reads
+ * Home · About SXCCAA · Explore · Events · Contact.
  */
 export const mainNav: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'About SXCCAA', href: '/about' },
+  { label: 'Events', href: '/events' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -66,8 +67,6 @@ export const pagesMenu: { title: string; links: NavLink[] }[] = [
       { label: 'Alumni Directory', href: '/alumni' },
       { label: 'Xaverians Making a Difference', href: '/alumni#featured' },
       { label: 'Connect with an Alumnus', href: '/alumni' },
-      { label: 'Chapters', href: '/explore#chapters' },
-      { label: 'Community Initiatives', href: '/explore#community-initiatives' },
     ],
   },
   {
@@ -95,9 +94,7 @@ export const mobileMenu: NavLink[] = [
   { label: 'Alumni Directory', href: '/alumni' },
   { label: 'Xaverians Making a Difference', href: '/alumni#featured' },
   { label: 'Explore the Network', href: '/explore' },
-  { label: 'Chapters', href: '/explore#chapters' },
   { label: 'Alumni Events & Activities', href: '/events' },
-  { label: 'Community Initiatives', href: '/explore#community-initiatives' },
   { label: 'Contact', href: '/contact' },
   { label: 'Privacy Policy', href: '/privacy-policy' },
   { label: 'Terms of Use', href: '/terms-of-use' },
@@ -108,7 +105,8 @@ export const headerCta: NavLink = { label: 'Explore Alumni', href: '/alumni' };
 /**
  * The way from the home page to the events page. The home page has no events
  * section of its own — alumni events and activities have a page — so this pill
- * sits beside "Explore the Network" in the network section.
+ * appears twice: beside "Explore Alumni" in the About section near the top,
+ * and beside "Explore the Network" in the network section further down.
  */
 export const eventsCta: NavLink = { label: 'Events & Activities', href: '/events' };
 
@@ -148,8 +146,6 @@ export const footerColumns: { title: string; links: NavLink[] }[] = [
     title: 'Explore',
     links: [
       { label: 'Alumni Directory', href: '/alumni' },
-      { label: 'Chapters', href: '/explore#chapters' },
-      { label: 'Community Initiatives', href: '/explore#community-initiatives' },
       { label: 'Connect', href: '/explore#connect' },
     ],
   },

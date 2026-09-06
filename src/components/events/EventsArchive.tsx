@@ -20,7 +20,18 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { alumniEvents, strands, type Strand } from '@/data/pages/events';
+import { alumniEvents, strands, type DateStamp, type Strand } from '@/data/pages/events';
+
+/**
+ * Whatever SXCCAA gave, the largest part of it is set large: the day where
+ * there is one, the month where the date was given as a month, the year where
+ * it was given as a season. The column is never left standing empty.
+ */
+function stampParts({ day, month, year }: DateStamp): [string, string | null] {
+  if (day) return [day, month ?? year];
+  if (month) return [month, year];
+  return [year, null];
+}
 
 type Filter = Strand | 'all';
 
@@ -114,8 +125,15 @@ export function EventsArchive() {
                     onMouseEnter={() => setHovered(event.images.length ? event.id : null)}
                   >
                     <p className="ev-row__stamp">
-                      {event.stamp.day ? <span className="ev-row__day">{event.stamp.day}</span> : null}
-                      <span className="ev-row__month">{event.stamp.month ?? event.stamp.year}</span>
+                      {(() => {
+                        const [large, small] = stampParts(event.stamp);
+                        return (
+                          <>
+                            <span className="ev-row__day" data-wide={large.length > 2 ? 'yes' : undefined}>{large}</span>
+                            {small ? <span className="ev-row__month">{small}</span> : null}
+                          </>
+                        );
+                      })()}
                     </p>
                     <div className="ev-row__body">
                       <h3 className="ev-row__title">{event.title}</h3>

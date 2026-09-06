@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SiteShell } from '@/components/layout/SiteShell';
+import { EventsUpcoming } from '@/components/events/EventsUpcoming';
 import { EventsHero } from '@/components/events/EventsHero';
 import { EventsIndex } from '@/components/events/EventsIndex';
 import { EventsStory } from '@/components/events/EventsStory';
@@ -17,6 +18,7 @@ export default function EventsPage() {
   return (
     <SiteShell>
       <div className="ev-page">
+        <EventsUpcoming />
         <EventsHero />
         <EventsIndex />
         <EventsStory />

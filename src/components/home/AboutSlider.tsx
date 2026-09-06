@@ -204,13 +204,15 @@ export function AboutSlider() {
             <div style={FILL} data-framer-background-image-wrapper="true">
               <img
                 decoding="async"
-                width={3360}
-                height={2240}
+                width={1447}
+                height={1087}
                 sizes="(max-width: 809.98px) 56vw, min(45vw, 588px)"
-                srcSet="/images/home/about-slide-1-512.jpg 512w, /images/home/about-slide-1-1024.jpg 1024w, /images/home/about-slide-1-2048.jpg 2048w, /images/home/about-slide-1.jpg 3360w"
+                /* the file is 1447px wide, so the srcset stops there: a 2048
+                   variant would only be this one upscaled */
+                srcSet="/images/home/about-slide-1-512.jpg 512w, /images/home/about-slide-1-1024.jpg 1024w, /images/home/about-slide-1.jpg 1447w"
                 src="/images/home/about-slide-1-1024.jpg"
-                alt="Xaverians on campus"
-                style={{ ...COVER, objectPosition: '55.8% 36.6%' }}
+                alt="A Xaverian raising her diploma on the College grounds on graduation day"
+                style={{ ...COVER, objectPosition: 'center' }}
               />
             </div>
           </div>

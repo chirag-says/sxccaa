@@ -16,6 +16,7 @@ import '@/styles/breakpoints.css';
 import '@/styles/site.css';
 import '@/styles/voices.css';
 import '@/styles/events.css';
+import '@/styles/alumni.css';
 import { FramerEffects } from '@/components/motion/FramerEffects';
 
 export const metadata: Metadata = {

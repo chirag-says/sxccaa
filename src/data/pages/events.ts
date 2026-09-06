@@ -57,6 +57,43 @@ export interface AlumniEvent {
   images: SiteImage[];
 }
 
+/**
+ * The one activity on this page that has not happened yet, and the poster the
+ * Association supplied for it. Every field is read off that artwork — the
+ * chapter, the date, the hours, the venue and the line under the title — so
+ * nothing here is inferred.
+ *
+ * The poster also carries early-bird prices and a bank account. Those are left
+ * in the artwork and deliberately not repeated as text: the picture is what
+ * SXCCAA issued, and setting an account number as machine-readable copy on a
+ * public page is a different thing from showing their poster.
+ */
+export const upcomingEvent = {
+  id: 'nostalgia-26',
+  title: 'Nostalgia ’26 cum Shakti',
+  subtitle: 'Women Achiever Awards 2026',
+  host: 'West Zone Chapter',
+  date: '3 October 2026',
+  /** The same date, for the days-to-go count. Nothing new is asserted. */
+  iso: '2026-10-03',
+  time: '10:00 AM – 5:00 PM',
+  place: 'Taj Santacruz, Mumbai',
+  lede: 'A grand reunion celebrating bonds. Honouring women. Inspiring generations.',
+  poster: {
+    src: '/images/events/nostalgia-26.jpg',
+    width: 1024,
+    height: 1536,
+    /* The 512 cut is only 341px across — narrower than the slot the poster is
+     * drawn in on a desktop — so it is left out of the set. The floor is the
+     * 1024 cut at 683px, which is sharp at 1x on the widest slot and right at
+     * 2x on a phone. This is the page's centrepiece; it should never be the
+     * candidate that gets upscaled. */
+    widths: [1024],
+    alt:
+      "Poster for Nostalgia '26 cum Shakti, the Women Achiever Awards 2026, presented by the West Zone Chapter of the St. Xavier's College (Cal) Alumni Association. 3rd October 2026, 10:00 AM to 5:00 PM, Taj Santacruz, Mumbai. The poster also lists early-bird booking rates and bank details.",
+  } as SiteImage,
+};
+
 /** The poster SXCCAA supplied for Alumni Connect. */
 export const featuredEvent = {
   id: 'alumni-connect',
@@ -113,6 +150,24 @@ export const alumniEvents: AlumniEvent[] = [
     strands: ['community', 'women'],
     source: { label: 'Official SXCCAA page', href: 'https://www.sxccal.edu/' },
     images: [],
+  },
+  {
+    id: 'international-yoga-day',
+    title: 'International Day of Yoga',
+    date: '2026',
+    stamp: { year: '2026' },
+    place: "St. Xavier's College (Autonomous), Kolkata",
+    description:
+      "Marked at the College by SXCCAA together with the Students' Council, the NSS and the NCC. The College records the observance for 2026; it has not published a day, so none is given here.",
+    strands: ['community', 'fellowship'],
+    images: [
+      {
+        src: '/images/events/international-yoga-day.jpg',
+        width: 399,
+        height: 501,
+        alt: "International Day of Yoga at St. Xavier's College, held with SXCCAA, the Students' Council, the NSS and the NCC",
+      },
+    ],
   },
   {
     id: 'eid-milan',
@@ -203,16 +258,19 @@ export const gallery = alumniEvents.flatMap((event) =>
 );
 
 export const eventsPage = {
-  eyebrow: 'Events & activities',
+  eyebrow: 'Alumni Events & Activities',
   titleLead: 'Alumni events',
   titleTail: '&',
   display: ['activities'],
-  /** The hero's three lines. Editorial copy, not a claim about any event. */
-  headline: ['Life', 'beyond the', 'classroom'],
+  /** The hero's three lines. */
+  headline: ['Where', 'Xaverians', 'Come Together'],
   intro:
-    "Initiatives, gatherings and championships run by the St. Xavier's College Alumni Association and its forums, with the Association's own record of each.",
+    "From meaningful initiatives and shared celebrations to moments of service, connection and community — discover the experiences that bring the Xaverian family together beyond the years at Xavier's.",
   /** Said plainly on the page, so no photograph is taken for something it is not. */
   photoNote:
     'Photographs are shown only where SXCCAA has supplied them for that event. The remaining entries are recorded from the official pages and are awaiting pictures.',
   featuredLabel: 'Latest',
+  /** Introduces the retrospective below the upcoming-event stage. */
+  recordEyebrow: 'The Association’s record',
 };
+

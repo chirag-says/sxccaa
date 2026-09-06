@@ -4,6 +4,8 @@
  *
  * Markup and class names are reproduced verbatim so the extracted Framer CSS
  * styles it exactly as the original.
+ *
+ * Layout: Campus is full-width on top; Academics + Chapters side-by-side below.
  */
 
 import { CampusCard } from './CampusCard';
@@ -14,11 +16,12 @@ import { campusCards } from '@/data/pages/home';
 /**
  * Each card's layout slot and its breakpoint copies: which card variant each
  * copy uses and the start state of its scroll reveal, as Framer laid them out.
+ *
+ * Slots 0 = Campus (full width), 1 = Academics, 2 = Chapters
  */
 const CAMPUS_SLOTS: { container: string; copies: { on: Breakpoint | Breakpoint[]; variant: 'desktop' | 'phone'; reveal?: string }[] }[] = [
   { container: 'framer-1sf96mu-container', copies: [{ on: 'desktop', variant: 'desktop' }, { on: ['tablet', 'phone'], variant: 'phone' }] },
   { container: 'framer-arxw4x-container', copies: [{ on: 'desktop', variant: 'desktop', reveal: 'translateY(40px)' }, { on: ['tablet', 'phone'], variant: 'phone', reveal: 'translateY(40px)' }] },
-  { container: 'framer-bmvoqh-container', copies: [{ on: 'desktop', variant: 'desktop', reveal: 'translateY(-40px)' }, { on: 'phone', variant: 'phone', reveal: 'translateY(40px)' }, { on: 'tablet', variant: 'phone', reveal: 'translateY(-40px)' }] },
   { container: 'framer-1yjpdms-container', copies: [{ on: 'desktop', variant: 'desktop', reveal: 'translateX(40px)' }, { on: 'phone', variant: 'phone', reveal: 'translateY(40px)' }, { on: 'tablet', variant: 'phone', reveal: 'translateX(40px)' }] },
 ];
 
@@ -80,16 +83,20 @@ export function CampusSection() {
                 </div>
               </div>
             </div>
-            <div className={"framer-1sm1ya7"} data-framer-name={"Campus Card Deck"}>
-              <div className={"framer-1wpva9u"} data-framer-name={"Campus Card Block"}>
-<CampusSlot index={0} />
-                <CampusSlot index={1} />
-</div>
+
+            {/* New layout: Campus full-width top, Academics + Chapters side-by-side below */}
+            <div className={"framer-1sm1ya7"} data-framer-name={"Campus Card Deck"} style={{ flexDirection: 'column', gap: '24px' }}>
+              {/* Row 1: Campus — full width */}
+              <div className="sx-campus-wide">
+                <CampusSlot index={0} />
+              </div>
+              {/* Row 2: Academics + Life at Xavier's — side by side */}
               <div className={"framer-115d54s"} data-framer-name={"Campus Card Block"}>
-<CampusSlot index={2} />
-                <CampusSlot index={3} />
-</div>
+                <CampusSlot index={1} />
+                <CampusSlot index={2} />
+              </div>
             </div>
+
           </div>
         </div>
       </section>
