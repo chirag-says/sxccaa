@@ -58,13 +58,15 @@ export const faculties: FacultySlide[] = [
     title: 'Alumni',
     description:
       'Reconnect with Xaverians across generations, disciplines, professions and locations — and find the people whose path you want to follow.',
+    /* the same photograph the About section carries below the hero, used
+       once and pointed at twice rather than copied into a second file */
     image: {
-      src: '/images/home/community-alumni.jpg',
-      position: '50% 72%',
-      width: 1672,
-      height: 941,
+      src: '/images/home/about-slide-1.jpg',
+      position: '50% 52%',
+      width: 1447,
+      height: 1087,
       widths: [512, 1024],
-      alt: 'Xaverians in gown and hood walking together along the College quadrangle at sunset',
+      alt: 'A Xaverian raising her diploma on the College grounds on graduation day',
     },
   },
 
