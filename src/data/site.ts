@@ -10,12 +10,20 @@
 export const siteLogo = {
   /** Crest and wordmark in white, used over the dark hero images and in the preloader. */
   white: '/svg/logo-white.svg',
-  /** The ink cut, used in the footer and the scrolled header. */
+  /** The ink cut, used in the footer lockup. */
   dark: '/svg/logo-dark.svg',
   /** The oversized mark behind the footer, drawn at roughly 1245×227. */
   watermark: '/svg/logo-watermark.svg',
   width: 156,
   height: 38,
+  /**
+   * The crest on its own, with no wordmark. The header carries this rather than
+   * the full lockup: the College name is already the page's first heading, and
+   * the mark reads better large. Full colour, so it needs no light/ink cut.
+   */
+  crest: '/svg/logo-crest.svg',
+  crestWidth: 134,
+  crestHeight: 160,
 };
 
 /** The institution. */

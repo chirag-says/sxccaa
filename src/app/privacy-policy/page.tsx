@@ -1,15 +1,13 @@
 import type { Metadata } from 'next';
 import { SiteShell, PAGE_ROOT_STYLE } from '@/components/layout/SiteShell';
-import { AlumniBanner } from '@/components/alumni/AlumniBanner';
 import { PolicyPlaceholder } from '@/components/shared/PolicyPlaceholder';
 
 export const metadata: Metadata = { title: 'Privacy Policy — SXCCAA' };
 
 export default function PrivacyPolicyPage() {
   return (
-    <SiteShell>
+    <SiteShell lightPage>
       <div className="framer-OAXg4 framer-EpkeD framer-H9bCC framer-1ijzfe8" data-framer-root="" style={PAGE_ROOT_STYLE}>
-        <AlumniBanner lead="Privacy" tail="at" display={['SXCCAA']} />
         <PolicyPlaceholder
           title="Privacy Policy"
           intro="The Association's privacy policy will be published here. Until SXCCAA supplies the wording, this page records how the platform is built to treat personal data."
@@ -21,6 +19,9 @@ export default function PrivacyPolicyPage() {
             'All alumni data remains the property of SXCCAA.',
           ]}
         />
+        {/* The header's scroll variant keys off this 1px strip, as on every
+        other page; the banner used to carry it. */}
+        <div aria-label="Scroll Trigger" className="framer-fkc7tz" data-framer-name="Scroll Triger" id="scroll-trigger" />
       </div>
     </SiteShell>
   );

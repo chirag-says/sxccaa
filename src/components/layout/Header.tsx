@@ -26,7 +26,7 @@ import { usePathname } from 'next/navigation';
 import { animate, type AnimationPlaybackControls } from 'motion';
 import { Button } from '@/components/ui/Button';
 import { SearchModal } from '@/components/search/SearchModal';
-import { headerCta, mainNav, mobileMenu, pagesMenu, pagesMenuLabel, siteLogo, type NavLink } from '@/data/site';
+import { associationName, headerCta, mainNav, mobileMenu, pagesMenu, pagesMenuLabel, siteLogo, type NavLink } from '@/data/site';
 import { tokens } from '@/lib/tokens';
 
 type Tone = 'light' | 'dark';
@@ -58,10 +58,10 @@ function Logo({ tone }: { tone: Tone }) {
           <div style={{ position: 'absolute', borderRadius: 'inherit', top: 0, right: 0, bottom: 0, left: 0 }} data-framer-background-image-wrapper="true">
             <img
               decoding="async"
-              width={dark ? 153 : siteLogo.width}
-              height={dark ? 29 : siteLogo.height}
-              src={dark ? siteLogo.dark : siteLogo.white}
-              alt=""
+              width={siteLogo.crestWidth}
+              height={siteLogo.crestHeight}
+              src={siteLogo.crest}
+              alt={associationName}
               style={{ display: 'block', width: '100%', height: '100%', borderRadius: 'inherit', objectPosition: 'center', objectFit: 'contain' }}
             />
           </div>

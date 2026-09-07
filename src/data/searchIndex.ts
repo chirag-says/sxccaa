@@ -9,7 +9,7 @@
  */
 import type { SearchEntry } from '@/lib/search';
 import { alumniEvents, featuredEvent, eventsPage } from '@/data/pages/events';
-import { pillars, pillarsHeading, history, why, college, bannerLead } from '@/data/pages/about';
+import { pillars, pillarsHeading, history, why, college } from '@/data/pages/about';
 import { exploreItems } from '@/data/explore';
 import { faq } from '@/data/pages/contact';
 import { contact, footerColumns, mobileMenu } from '@/data/site';
@@ -106,9 +106,6 @@ export const searchIndex: SearchEntry[] = [
     p: [
       ...NAV,
       'A community that carries the Xaverian spirit forward. SXCCAA connects Xaverians through fellowship, initiatives and engagement with their alma mater, strengthening the bond between alumni and the College.',
-      bannerLead.eyebrow,
-      bannerLead.lead,
-      bannerLead.text,
       'Established',
       'Students',
       'NIRF India Ranking 2025',

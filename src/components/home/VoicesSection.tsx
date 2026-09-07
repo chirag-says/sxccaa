@@ -130,16 +130,22 @@ export function VoicesSection() {
     <section ref={sectionRef} className="sx-voices" data-framer-name="Community Voices Section" aria-labelledby="sx-voices-title">
       <div ref={pinRef} className="sx-voices__pin">
         <div className="sx-voices__bg">
-          <img
-            src="/images/home/voices-bg.jpg"
-            srcSet="/images/home/voices-bg-512.jpg 512w, /images/home/voices-bg-1024.jpg 1024w, /images/home/voices-bg.jpg 1666w"
-            sizes="100vw"
-            width={1666}
-            height={944}
-            alt="The gate of St. Xaviers College (Calcutta), Raghabpur campus, at dusk"
-            decoding="async"
-            loading="lazy"
-          />
+          <picture>
+            <source
+              media="(max-width: 809.98px)"
+              srcSet="/images/home/campus-gate-mobile.png"
+            />
+            <img
+              src="/images/home/voices-bg.jpg"
+              srcSet="/images/home/voices-bg-512.jpg 512w, /images/home/voices-bg-1024.jpg 1024w, /images/home/voices-bg.jpg 1666w"
+              sizes="100vw"
+              width={1666}
+              height={944}
+              alt="The gate of St. Xaviers College (Calcutta), Raghabpur campus, at dusk"
+              decoding="async"
+              loading="lazy"
+            />
+          </picture>
         </div>
 
         <div className="sx-voices__centre">

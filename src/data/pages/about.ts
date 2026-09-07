@@ -246,9 +246,11 @@ export const statLines: StatLine[] = [
 ];
 
 /**
- * The lead that sits beside the banner title. It used to be the "Since 1860"
- * card down in the info section; it introduces the page better than it summed
- * it up, so it opens the page instead.
+ * Not rendered. This was the "Since 1860" lead beside the banner title, and
+ * before that a card in the info section; it has been taken off the page. The
+ * copy is kept here rather than deleted so putting it back is one element in
+ * `AboutBanner`, but nothing imports it today — and the search index no longer
+ * offers it, because the page no longer shows it.
  */
 export const bannerLead = {
   eyebrow: 'Since 1860',
