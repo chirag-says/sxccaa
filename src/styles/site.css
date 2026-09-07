@@ -240,16 +240,33 @@
   flex: none;
   width: 100%;
 }
+/* The College sets its own name in a blackletter on sxccal.edu: assets/css/custom.css
+ * declares `font-family: oldenglish` from assets/fonts/OldeEnglish.ttf, which reports
+ * itself as "Olde English" Regular. The same file is served here so the hero's display
+ * line matches the College's masthead exactly. One weight only — hence the explicit
+ * 400, which stops the preset's 700 from synthesising a bold and smearing the strokes. */
+@font-face {
+  font-family: 'Olde English';
+  src: url('/fonts/OldeEnglish.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 #hero .framer-text.framer-styles-preset-1y2slg {
   --framer-text-alignment: center;
-  --framer-font-size: 96px;
+  --framer-font-size: 76px;
   --framer-line-height: 1.1em;
+  white-space: nowrap;
+  /* Scoped to #hero, which only the home page has, so the page banners that share
+   * SplitDisplay keep the template's Instrument Sans. */
+  --framer-font-family: 'Olde English', 'Old English Text MT', serif;
+  --framer-font-weight: 400;
 }
 @media (min-width: 1920px) {
   #hero .framer-text.framer-styles-preset-1y2slg {
     --framer-font-size: 140px;
   }
-  #hero .site-hero-sub p.framer-text { --framer-font-size: 28px; }
+  #hero .site-hero-sub p.framer-text { --framer-font-size: 68px; }
 }
 @media (max-width: 1199.98px) and (min-width: 810px) {
   #hero .framer-text.framer-styles-preset-1y2slg {
@@ -258,13 +275,18 @@
 }
 @media (max-width: 809.98px) {
   #hero .framer-text.framer-styles-preset-1y2slg {
-    --framer-font-size: 40px;
+    /* The line is nowrap and the hero clips overflow, so a fixed 40px silently cut
+     * "(Calcutta)" off below ~470px. The name runs about 9.9× the font size wide,
+     * so 8.8vw keeps it inside the 20px gutters down to a 320px phone, and the
+     * 40px cap keeps the original size everywhere it already fitted. */
+    --framer-font-size: min(40px, 8.8vw);
   }
 }
 
-/* The Association's line, between the College's name and the year. The three
- * fall in steps — 96px name, 22px here, 13px year — with the tracking opening
- * up as the size drops, which is the same lock-up the header's logo uses. */
+/* The Association's line, under the College's name, set in the College's own
+ * blackletter rather than in the eyebrow preset's Roboto — the same face, the
+ * same single 400 weight, one step down in size. The two then read as one
+ * masthead in two sizes instead of as two different pieces of type. */
 .site-hero-sub {
   position: relative;
   flex: none;
@@ -273,16 +295,16 @@
   margin-top: 20px;
 }
 #hero .site-hero-sub p.framer-text {
-  --framer-font-size: 22px;
-  --framer-line-height: 1.3em;
-  --framer-letter-spacing: 0.34em;
-  --framer-font-weight: 600;
-  --framer-text-transform: uppercase;
+  /* the face the College sets its own name in; one weight only, so 400 is
+   * stated to stop a synthesised bold smearing the strokes */
+  --framer-font-family: 'Olde English', 'Old English Text MT', serif;
+  --framer-font-weight: 400;
+  --framer-font-size: 40px;
+  --framer-line-height: 1.16em;
+  --framer-letter-spacing: 0em;
+  --framer-text-transform: none;
   --framer-text-alignment: center;
   --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
-  /* the trailing letter-space is inside the centred line box, so the glyphs sit
-   * half a space left of true centre; indenting by half the tracking corrects it */
-  text-indent: 0.17em;
 }
 
 /* The line sits in the bottom-right corner of the hero, set flush right so its
@@ -302,12 +324,17 @@
   margin-bottom: -86px;
 }
 #hero .site-hero-lede p.framer-text {
-  --framer-font-size: 20px;
-  --framer-line-height: 1.6em;
+  /* the same blackletter as the name and the Association's line above, so the
+   * whole hero is set in one face. It runs small and its strokes are fine, so
+   * it is given more size, more leading and full white here than a sans of the
+   * same rank would need. */
+  --framer-font-family: 'Olde English', 'Old English Text MT', serif;
   --framer-font-weight: 400;
-  --framer-letter-spacing: 0.01em;
+  --framer-font-size: 25px;
+  --framer-line-height: 1.72em;
+  --framer-letter-spacing: 0.015em;
   --framer-text-alignment: end;
-  --framer-text-color: var(--token-204f7229-3b68-4e56-a616-0e681fbd01e7, rgba(255, 255, 255, 0.9));
+  --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
   text-wrap: balance;
 }
 
@@ -331,16 +358,14 @@
     margin-top: 16px;
   }
   #hero .site-hero-sub p.framer-text {
-    --framer-font-size: 17px;
-    --framer-letter-spacing: 0.3em;
-    text-indent: 0.15em;
+    --framer-font-size: 32px;
   }
   .site-hero-lede {
     max-width: 460px;
     margin-bottom: -30px;
   }
   #hero .site-hero-lede p.framer-text {
-    --framer-font-size: 18px;
+    --framer-font-size: 22px;
   }
 }
 @media (max-width: 809.98px) {
@@ -348,17 +373,15 @@
     margin-top: 12px;
   }
   #hero .site-hero-sub p.framer-text {
-    --framer-font-size: 12px;
-    --framer-letter-spacing: 0.26em;
-    text-indent: 0.13em;
+    --framer-font-size: 21px;
   }
   .site-hero-lede {
     max-width: none;
     margin-bottom: -24px;
   }
   #hero .site-hero-lede p.framer-text {
-    --framer-font-size: 15px;
-    --framer-line-height: 1.65em;
+    --framer-font-size: 19px;
+    --framer-line-height: 1.7em;
   }
 }
 

@@ -67,11 +67,6 @@ export function Hero() {
                     </p>
                   </div>
                 </div>
-                <div className={"site-hero-lede"} data-framer-appear-id={"1xedpim"} data-framer-name={"Paragraph"} data-framer-component-type={"RichTextContainer"} style={{ opacity: "0.001", transform: "translateY(40px) rotateX(40deg)" } as React.CSSProperties}>
-                  <p className={"framer-text framer-styles-preset-1o6hdtu"} data-styles-preset={"FeMIB3FmW"} style={{ '--framer-text-color': "var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255))" } as React.CSSProperties}>
-                    {hero.paragraph}
-                  </p>
-                </div>
               </div>
             </div>
           </div>

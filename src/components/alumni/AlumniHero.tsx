@@ -53,7 +53,7 @@ export function AlumniHero() {
           </p>
           <div className="al-hero__stats">
             <div className="al-hero__stat">
-              <Counter end={alumni.length} suffix="+" />
+              <Counter end={120} suffix="k+" />
               <span className="al-hero__stat-label">Alumni</span>
             </div>
             <div className="al-hero__stat">

@@ -22,9 +22,6 @@ export const hero = {
   display: ["St.", "Xaviers", 'College', '(Calcutta)'],
   /** The Association's own line, under the College's name. */
   subtitle: 'Alumni Association',
-  /** The line at the bottom right. */
-  paragraph:
-    'One legacy. One community. One Xaverian experience — the Association keeps Xaverians connected with their alma mater and with one another.',
   /**
    * Both buttons now sit in the About section below the hero. The second one
    * is the shared events link rather than its own literal, so the label and

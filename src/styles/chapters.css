@@ -1,0 +1,360 @@
+/*
+ * The West Zone chapter page.
+ *
+ * It borrows the events page's ground, measure and tokens — `.ev-shell`,
+ * `--ev-ink`, `--ev-muted`, `--ev-paper`, the two easings — so the two read as
+ * the same publication. Everything that moves is a transform, an opacity or a
+ * clip-path, written by the components; the rest state lives here, so a page
+ * that never runs its script still looks composed rather than half-built.
+ */
+
+.cw-page {
+  background: var(--ev-paper);
+}
+
+/* ---- hero ---------------------------------------------------------------- */
+
+.cw-hero {
+  padding: 128px 0 clamp(32px, 4vw, 56px);
+}
+.cw-hero__type {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 14px;
+}
+.cw-hero__headline {
+  margin: 0;
+  font-family: 'Instrument Sans', 'Instrument Sans Placeholder', sans-serif;
+  font-weight: 700;
+  /* "West Zone" sits on one line at every width, so the size is the one that
+   * fits the narrower measure: the phone's 335px column takes it to 42px, and
+   * the cap keeps it clear of the banner on a wide screen */
+  font-size: clamp(42px, 8.6vw, 128px);
+  line-height: 0.94;
+  white-space: nowrap;
+  letter-spacing: -0.035em;
+  color: var(--ev-ink);
+}
+/* each word comes up out of its own line, so the row has to clip it */
+.cw-hero__line {
+  display: flex;
+  gap: 0.22em;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+.cw-hero__word {
+  display: block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+.cw-hero__meta {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  gap: 14px;
+  margin-top: 6px;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.cw-hero__city {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ev-ink);
+}
+.cw-hero__lede {
+  max-width: 44ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ev-muted);
+}
+
+/* the poster: the widest thing on the page, and the first thing seen */
+.cw-hero__stage {
+  margin-top: clamp(22px, 3vw, 40px);
+  padding: 0 clamp(20px, 4vw, 40px);
+}
+/* The frame is capped by the viewport's height as well as its width, so the
+ * poster lands inside the first screen instead of starting below it. The box
+ * keeps the artwork's own ratio, so `cover` never actually crops anything. */
+.cw-frame {
+  position: relative;
+  margin: 0 auto;
+  width: min(100%, calc(66svh * 16 / 9));
+  max-width: 1240px;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  /* closed until the component opens it, so the poster is never seen whole
+   * for a frame before the reveal runs; the <noscript> block on the page
+   * opens it for a visitor whose script never arrives */
+  clip-path: inset(100% 0 0 0);
+  box-shadow: 0 40px 90px rgba(17, 17, 17, 0.16);
+  background: var(--ev-plate);
+}
+.cw-frame__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* the drift the scroll link writes; zero until it does */
+  transform: translate3d(0, var(--drift, 0%), 0);
+  will-change: transform;
+}
+
+/* ---- the meet ------------------------------------------------------------ */
+
+.cw-meet {
+  padding: clamp(56px, 7vw, 108px) 0;
+  border-top: 1px solid var(--ev-faint);
+}
+.cw-meet__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(28px, 5vw, 88px);
+  align-items: start;
+}
+.cw-meet__head {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 12px;
+  position: sticky;
+  top: 120px;
+}
+.cw-meet__title {
+  margin: 0;
+  font-size: clamp(30px, 3.4vw, 52px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ev-ink);
+}
+.cw-meet__when {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ev-muted);
+}
+.cw-dot {
+  padding: 0 8px;
+  color: rgba(17, 17, 17, 0.3);
+}
+
+.cw-bill {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+.cw-bill li {
+  padding: 8px 15px;
+  border: 1px solid var(--ev-faint);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ev-ink);
+  opacity: 0;
+  transform: scale(0.92);
+  will-change: transform, opacity;
+}
+
+.cw-meet__body {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+.cw-meet__note {
+  margin: 0;
+  max-width: 56ch;
+  font-size: clamp(16px, 1.2vw, 19px);
+  line-height: 1.6;
+  color: var(--ev-ink);
+}
+.cw-panels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-top: 1px solid var(--ev-faint);
+}
+.cw-panel {
+  display: grid;
+  grid-template-columns: 36px minmax(0, auto) minmax(0, 1fr);
+  gap: 4px 16px;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--ev-faint);
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: transform, opacity;
+}
+.cw-panel__num {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: rgba(17, 17, 17, 0.32);
+}
+.cw-panel__title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.cw-panel__detail {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ev-muted);
+}
+.cw-names {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ev-muted);
+  opacity: 0;
+  transform: translateY(18px);
+  will-change: transform, opacity;
+}
+
+/* ---- the foot ------------------------------------------------------------ */
+
+.cw-next {
+  padding: 0 0 clamp(56px, 7vw, 104px);
+}
+.cw-next__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(20px, 3vw, 48px);
+  align-items: stretch;
+}
+.cw-next__card {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  gap: 6px;
+  padding: clamp(26px, 3vw, 40px);
+  border-radius: 6px;
+  background: var(--ev-ink);
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.5s var(--ev-out);
+}
+.cw-next__card .ev-eyebrow {
+  color: rgba(255, 255, 255, 0.55);
+}
+.cw-next__card:hover {
+  transform: translateY(-3px);
+}
+.cw-next__card:focus-visible {
+  outline: 2px solid var(--ev-ink);
+  outline-offset: 4px;
+}
+.cw-next__title {
+  font-size: clamp(22px, 2.4vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.cw-next__date {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.62);
+}
+.cw-next__arrow {
+  position: absolute;
+  top: clamp(22px, 2.6vw, 34px);
+  right: clamp(22px, 2.6vw, 34px);
+  font-size: 20px;
+  transition: transform 0.5s var(--ev-out);
+}
+.cw-next__card:hover .cw-next__arrow {
+  transform: translate(4px, -4px);
+}
+
+.cw-next__side {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+.cw-next__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 19px 32px;
+  border: 1px solid var(--ev-ink);
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ev-ink);
+  white-space: nowrap;
+  transition: background-color 0.4s var(--ev-ease), color 0.4s var(--ev-ease), gap 0.4s var(--ev-out);
+}
+.cw-next__cta:hover {
+  background: var(--ev-ink);
+  color: #fff;
+  gap: 18px;
+}
+.cw-next__cta:focus-visible {
+  outline: 2px solid var(--ev-ink);
+  outline-offset: 4px;
+}
+.cw-next__source {
+  font-size: 13px;
+}
+
+@media (max-width: 1199.98px) {
+  .cw-hero {
+    padding-top: 144px;
+  }
+  .cw-meet__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cw-meet__head {
+    position: static;
+  }
+}
+@media (max-width: 809.98px) {
+  .cw-hero {
+    padding-top: 128px;
+  }
+  .cw-hero__stage {
+    padding: 0 20px;
+  }
+  .cw-panel {
+    grid-template-columns: 28px minmax(0, 1fr);
+  }
+  .cw-panel__detail {
+    grid-column: 2;
+  }
+  .cw-next__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cw-next__side {
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cw-hero__word,
+  .cw-hero__meta,
+  .cw-bill li,
+  .cw-panel,
+  .cw-names {
+    opacity: 1;
+    transform: none;
+  }
+  .cw-frame__img {
+    transform: none;
+  }
+  .cw-next__card,
+  .cw-next__arrow,
+  .cw-next__cta {
+    transition: none;
+  }
+}

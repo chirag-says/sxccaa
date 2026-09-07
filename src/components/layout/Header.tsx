@@ -21,7 +21,7 @@
  * Markup and class names are Framer's. Link lists come from `data/site.ts`.
  */
 
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { usePathname } from 'next/navigation';
 import { animate, type AnimationPlaybackControls } from 'motion';
 import { Button } from '@/components/ui/Button';
@@ -36,6 +36,8 @@ const textColor = (color: string) => ({ '--framer-text-color': `var(--extracted-
 const BORDER = 0.6000000238418579;
 const SHADOW = 'rgba(17, 17, 17, 0.25) 0px 2px 40px 0px';
 const HIDE_SPRING = { type: 'spring' as const, stiffness: 300, damping: 40, mass: 1 };
+/** The "Explore" dropdown sits before this entry of `mainNav`, i.e. third in the bar. */
+const PAGES_MENU_INDEX = 2;
 
 function isCurrent(pathname: string, href: string) {
   return href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
@@ -281,7 +283,9 @@ function barStyle(scrolled: boolean, shadow = true): CSSProperties {
 }
 
 function DesktopBar({ tone, scrolled, lightPage, pathname, pagesOpen, setPagesOpen, openSearch }: BarProps & { pagesOpen: boolean; setPagesOpen: (v: boolean) => void; openSearch: () => void }) {
-  const itemClasses = ['framer-y6kjx2-container', 'framer-hq3sy-container', 'framer-9wtvq4-container', 'framer-15fi588-container'];
+  // One Framer container class per pill; the last is reused if `mainNav` outgrows
+  // the list, since every one of them carries the same declarations.
+  const itemClasses = ['framer-y6kjx2-container', 'framer-hq3sy-container', 'framer-9wtvq4-container', 'framer-1t4mhpx-container', 'framer-15fi588-container'];
   const v = HEADER_VARIANT.desktop;
   const variant = scrolled ? v.scrolled : lightPage ? v.lightTop : v.top;
   return (
@@ -293,11 +297,14 @@ function DesktopBar({ tone, scrolled, lightPage, pathname, pagesOpen, setPagesOp
             <nav className={`framer-NUe1E framer-pjoegx ${scrolled ? 'framer-v-1l8b0e6' : 'framer-v-pjoegx'}`} data-framer-name={scrolled ? 'Desktop Scroll' : 'Desktop'} data-hide-scrollbars="true" data-highlight="true" aria-label="Main" style={{ backgroundColor: 'rgba(0, 0, 0, 0)', borderRadius: '12px', boxShadow: 'none' }}>
               <div className="framer-1ni2m92" data-framer-name="Menu Item Wrapper">
                 <div className="framer-18gaspg" data-framer-name="Menu Item Wrap">
-                  <DesktopNavItem link={mainNav[0]} tone={tone} current={isCurrent(pathname, mainNav[0].href)} containerClass={itemClasses[0]} />
-                  <DesktopNavItem link={mainNav[1]} tone={tone} current={isCurrent(pathname, mainNav[1].href)} containerClass={itemClasses[1]} />
-                  <PagesMenu tone={tone} open={pagesOpen} onOpen={() => setPagesOpen(true)} onClose={() => setPagesOpen(false)} pathname={pathname} />
-                  <DesktopNavItem link={mainNav[2]} tone={tone} current={isCurrent(pathname, mainNav[2].href)} containerClass={itemClasses[2]} />
-                  <DesktopNavItem link={mainNav[3]} tone={tone} current={isCurrent(pathname, mainNav[3].href)} containerClass={itemClasses[3]} />
+                  {mainNav.map((link, i) => (
+                    <Fragment key={`${link.href}-${i}`}>
+                      {i === PAGES_MENU_INDEX && (
+                        <PagesMenu tone={tone} open={pagesOpen} onOpen={() => setPagesOpen(true)} onClose={() => setPagesOpen(false)} pathname={pathname} />
+                      )}
+                      <DesktopNavItem link={link} tone={tone} current={isCurrent(pathname, link.href)} containerClass={itemClasses[i] ?? itemClasses[itemClasses.length - 1]} />
+                    </Fragment>
+                  ))}
                 </div>
               </div>
             </nav>
