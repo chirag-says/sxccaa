@@ -307,37 +307,6 @@
   --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
 }
 
-/* The line sits in the bottom-right corner of the hero, set flush right so its
- * edge lands on the container's own margin — the same edge the header and every
- * section below line up on. It is pulled down past most of the section's 150px
- * bottom padding; the section clips its overflow, so it can never spill below.
- * Balanced so the lines come out near-equal rather than one long and one stub. */
-.site-hero-lede {
-  position: relative;
-  grid-row: 2;
-  align-self: end;
-  justify-self: end;
-  flex: none;
-  width: 100%;
-  max-width: 560px;
-  height: auto;
-  margin-bottom: -86px;
-}
-#hero .site-hero-lede p.framer-text {
-  /* the same blackletter as the name and the Association's line above, so the
-   * whole hero is set in one face. It runs small and its strokes are fine, so
-   * it is given more size, more leading and full white here than a sans of the
-   * same rank would need. */
-  --framer-font-family: 'Olde English', 'Old English Text MT', serif;
-  --framer-font-weight: 400;
-  --framer-font-size: 25px;
-  --framer-line-height: 1.72em;
-  --framer-letter-spacing: 0.015em;
-  --framer-text-alignment: end;
-  --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
-  text-wrap: balance;
-}
-
 /* ---- hero scrim ------------------------------------------------------------
  * The photograph's lower right is the sunlit facade, which is where the line
  * at the foot sits. The template's two flat overlay layers are left alone;
@@ -360,13 +329,6 @@
   #hero .site-hero-sub p.framer-text {
     --framer-font-size: 32px;
   }
-  .site-hero-lede {
-    max-width: 460px;
-    margin-bottom: -30px;
-  }
-  #hero .site-hero-lede p.framer-text {
-    --framer-font-size: 22px;
-  }
 }
 @media (max-width: 809.98px) {
   .site-hero-sub {
@@ -374,14 +336,6 @@
   }
   #hero .site-hero-sub p.framer-text {
     --framer-font-size: 21px;
-  }
-  .site-hero-lede {
-    max-width: none;
-    margin-bottom: -24px;
-  }
-  #hero .site-hero-lede p.framer-text {
-    --framer-font-size: 19px;
-    --framer-line-height: 1.7em;
   }
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SiteShell } from '@/components/layout/SiteShell';
 import { ChapterHero } from '@/components/chapters/ChapterHero';
+import { ChapterInfo } from '@/components/chapters/ChapterInfo';
 import { ChapterMeet } from '@/components/chapters/ChapterMeet';
 import { ChapterNext } from '@/components/chapters/ChapterNext';
 
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
  */
 const NO_SCRIPT = `
   .cw-frame { clip-path: inset(0% 0 0 0) }
-  .cw-hero__word, .cw-hero__meta, .cw-bill li, .cw-panel, .cw-names {
+  .cw-hero__word, .cw-hero__meta, .cw-bill li, .cw-panel, .cw-names, .cw-info__card {
     opacity: 1; transform: none;
   }
 `;
@@ -32,6 +33,7 @@ export default function ChaptersPage() {
           <style>{NO_SCRIPT}</style>
         </noscript>
         <ChapterHero />
+        <ChapterInfo />
         <ChapterMeet />
         <ChapterNext />
       </div>

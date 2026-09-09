@@ -103,6 +103,50 @@
   will-change: transform;
 }
 
+/* ---- info strip (pricing + QR) ------------------------------------------- */
+
+.cw-info {
+  padding: clamp(40px, 5vw, 72px) 0;
+  border-top: 1px solid var(--ev-faint);
+}
+.cw-info__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+  justify-items: center;
+}
+.cw-info__card {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(20px, 2.5vw, 36px);
+  border-radius: 12px;
+  background: #fafafa;
+  border: 1px solid var(--ev-faint);
+  opacity: 0;
+  transform: translateY(24px);
+  will-change: transform, opacity;
+}
+.cw-info__label {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ev-muted);
+  font-weight: 600;
+}
+.cw-info__img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.cw-info__img--qr {
+  max-width: 260px;
+}
+
 /* ---- the meet ------------------------------------------------------------ */
 
 .cw-meet {
@@ -323,6 +367,9 @@
   .cw-hero__stage {
     padding: 0 20px;
   }
+  .cw-info__grid {
+    grid-template-columns: 1fr;
+  }
   .cw-panel {
     grid-template-columns: 28px minmax(0, 1fr);
   }
@@ -345,7 +392,8 @@
   .cw-hero__meta,
   .cw-bill li,
   .cw-panel,
-  .cw-names {
+  .cw-names,
+  .cw-info__card {
     opacity: 1;
     transform: none;
   }
