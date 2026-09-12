@@ -120,12 +120,16 @@ export function middleware(request: NextRequest): NextResponse {
   const path = request.nextUrl.pathname;
   const isProfile = /^\/alumni\/[^/]+/.test(path);
 
-  // /api/photo is excluded: it is the one route whose caching depends on the
-  // content rather than the path. An approved public photograph is public and
-  // may sit in a CDN for an hour; an alumni-only one must not be stored
-  // anywhere shared. The route handler knows which it is and sets the header
-  // itself, so middleware must not overwrite that decision here.
-  const decidesOwnCaching = path.startsWith('/api/photo');
+  // Two routes are excluded, because their caching depends on the content
+  // rather than the path and the handler is the only thing that knows.
+  //
+  //   /api/photo  — an approved public photograph may sit in a CDN for an hour;
+  //                 an alumni-only one must not be stored anywhere shared.
+  //   /api/poster — an event poster is public by nature and is fetched by mail
+  //                 clients that hold no session. It must cache hard, or one
+  //                 popular event turns five hundred inbox opens into five
+  //                 hundred database reads.
+  const decidesOwnCaching = path.startsWith('/api/photo') || path.startsWith('/api/poster');
 
   if (
     !decidesOwnCaching &&

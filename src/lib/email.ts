@@ -49,6 +49,18 @@ export function mailConfig(): MailConfig {
   return { apiKey, from, replyTo: process.env.MAIL_REPLY_TO, appUrl: appUrl.replace(/\/$/, '') };
 }
 
+/**
+ * A file travelling with a message.
+ *
+ * Only the event poster uses this. `content` is the raw bytes; the base64 the
+ * provider wants is done at the last moment in {@link send}, so nothing above
+ * this layer handles an encoded blob it could accidentally log.
+ */
+export interface Attachment {
+  filename: string;
+  content: Buffer;
+}
+
 export interface Mail {
   to: string;
   subject: string;
@@ -64,7 +76,23 @@ export interface Mail {
    * headers — but impersonation is, and no amount of escaping fixes that.
    */
   replyTo?: string;
+  /**
+   * Files to attach. Kept small on purpose — see `MAX_ATTACHMENT_BYTES`.
+   */
+  attachments?: Attachment[];
 }
+
+/**
+ * The ceiling on one message's attachments.
+ *
+ * Not a provider limit — Resend accepts considerably more. It is a limit on
+ * what is sensible to send five hundred times: every megabyte here is a
+ * megabyte uploaded per recipient, and a large attachment is a deliverability
+ * problem as much as a bandwidth one. The poster is re-encoded well under this
+ * before it ever reaches here; the check exists so that a future caller who
+ * skips that step fails immediately rather than at recipient two hundred.
+ */
+export const MAX_ATTACHMENT_BYTES = 2 * 1024 * 1024;
 
 /**
  * Send one message.
@@ -74,6 +102,14 @@ export interface Mail {
  * reveal that the address was on the allowlist.
  */
 export async function send(mail: Mail, config: MailConfig = mailConfig()): Promise<{ id: string }> {
+  const attachments = mail.attachments ?? [];
+  const attachedBytes = attachments.reduce((total, file) => total + file.content.byteLength, 0);
+  if (attachedBytes > MAX_ATTACHMENT_BYTES) {
+    throw new Error(
+      `Attachments total ${Math.round(attachedBytes / 1024)} KB, over the ${Math.round(MAX_ATTACHMENT_BYTES / 1024)} KB ceiling.`,
+    );
+  }
+
   const response = await fetch(RESEND_ENDPOINT, {
     method: 'POST',
     headers: { Authorization: `Bearer ${config.apiKey}`, 'Content-Type': 'application/json' },
@@ -84,8 +120,14 @@ export async function send(mail: Mail, config: MailConfig = mailConfig()): Promi
       text: mail.text,
       html: mail.html,
       ...(mail.replyTo ?? config.replyTo ? { reply_to: mail.replyTo ?? config.replyTo } : {}),
+      ...(attachments.length > 0
+        ? { attachments: attachments.map((file) => ({ filename: file.filename, content: file.content.toString('base64') })) }
+        : {}),
     }),
-    signal: AbortSignal.timeout(10_000),
+    // Longer than the default when carrying a file: the request body is now
+    // megabytes rather than kilobytes, and a timeout here is recorded as a
+    // failed recipient that the next chunk would retry.
+    signal: AbortSignal.timeout(attachments.length > 0 ? 30_000 : 10_000),
   });
 
   if (!response.ok) {

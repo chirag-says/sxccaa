@@ -4,11 +4,6 @@ export const contactPage = {
   title: 'Stay connected with SXCCAA',
   intro:
     'Have a question, or want to reconnect with the Xaverian community? Whether it is the alumni directory, a chapter, an Association initiative or an event, our team is here to help.',
-  /** College reception, as published on sxccal.edu. */
-  phone: '033-2255-1101',
-  phoneHref: 'tel:+913322551101',
-  email: 'contact@sxccal.edu',
-  emailHref: 'mailto:contact@sxccal.edu',
   followLabel: 'Follow Us -',
   /**
    * Social accounts are left pointing at the platforms until SXCCAA confirms

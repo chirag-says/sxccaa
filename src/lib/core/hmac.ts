@@ -19,11 +19,11 @@
  * string. One secret, several non-overlapping uses.
  */
 
-import { createHash, createHmac } from 'node:crypto';
+import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { getEmailPepper } from './keys.ts';
 import { normaliseEmail } from './email.ts';
 
-type Domain = 'email' | 'ip' | 'ua';
+type Domain = 'email' | 'ip' | 'ua' | 'unsubscribe';
 
 /** Bump this if a domain's input format ever changes; old and new hashes stay distinct. */
 const SCHEME = 'sxccaa.v1';
@@ -84,4 +84,54 @@ export function tokenHash(rawToken: string): Buffer {
     throw new TypeError('tokenHash requires a non-empty token.');
   }
   return createHash('sha256').update(rawToken, 'utf8').digest();
+}
+
+/**
+ * The proof carried by the unsubscribe link in a mailing.
+ *
+ * ## Why this is derived rather than stored
+ *
+ * The obvious design mints a random token per recipient per mailing and writes
+ * it down. That is a row per person per send, each one a live credential, each
+ * needing an expiry and a sweep — and an unsubscribe link that expires is an
+ * unsubscribe link that stops working in the mailbox of someone who wanted out.
+ *
+ * Deriving it from the alumni id with the same peppered HMAC everything else
+ * uses means there is nothing to store, nothing to expire, and the link in a
+ * two-year-old email still works. The pepper lives in the host's secret store,
+ * so the value cannot be computed by anyone holding only a copy of the database.
+ *
+ * ## What it is allowed to do
+ *
+ * Exactly one thing: set `email_opt_out` on that record. It is not a session,
+ * it does not sign anyone in, and it reveals nothing — the id is already in the
+ * URL of that person's own profile page. The worst an attacker who forges one
+ * could achieve is to stop the Association writing to somebody, which is why 16
+ * bytes is ample and why there is no rate limit on the page that consumes it.
+ *
+ * Truncated to 16 bytes for a URL a person might read aloud down a phone.
+ */
+export function unsubscribeToken(alumniId: string, pepper: Buffer = getEmailPepper()): string {
+  if (typeof alumniId !== 'string' || alumniId === '') {
+    throw new TypeError('unsubscribeToken requires a non-empty alumni id.');
+  }
+  return keyedHash('unsubscribe', alumniId, pepper).subarray(0, 16).toString('base64url');
+}
+
+/**
+ * Check an unsubscribe token.
+ *
+ * `timingSafeEqual` is arguably overkill for a value whose misuse ceiling is
+ * "somebody gets less email", but a comparison that leaks its progress is a
+ * habit worth not having, and both operands are known-length strings here.
+ */
+export function unsubscribeTokenMatches(
+  alumniId: string,
+  token: unknown,
+  pepper: Buffer = getEmailPepper(),
+): boolean {
+  if (typeof token !== 'string' || token === '') return false;
+  const expected = Buffer.from(unsubscribeToken(alumniId, pepper), 'utf8');
+  const actual = Buffer.from(token, 'utf8');
+  return expected.length === actual.length && timingSafeEqual(expected, actual);
 }
