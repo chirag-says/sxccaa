@@ -63,24 +63,41 @@ export function useAccountSummary(): AccountSummary | null {
   const [me, setMe] = useState<AccountSummary | null>(null);
 
   useEffect(() => {
-    // `ignore` rather than an AbortController: the request is tiny and the only
-    // thing that matters is not calling setState after unmount.
     let ignore = false;
-    fetch('/api/me/summary', { credentials: 'same-origin' })
-      .then((response) => (response.ok ? response.json() : null))
-      .then((data: AccountSummary | null) => {
-        if (!ignore && data?.signedIn) setMe(data);
-      })
-      .catch(() => {
-        // Signed out is the safe assumption, and the failure mode is a header
-        // that looks like it did before. Nothing to tell the visitor.
-      });
+
+    function fetchSummary() {
+      fetch('/api/me/summary', { credentials: 'same-origin' })
+        .then((response) => (response.ok ? response.json() : null))
+        .then((data: AccountSummary | null) => {
+          if (!ignore) setMe(data?.signedIn ? data : null);
+        })
+        .catch(() => {
+          // Signed out is the safe assumption, and the failure mode is a header
+          // that looks like it did before. Nothing to tell the visitor.
+        });
+    }
+
+    fetchSummary();
+
+    // Re-fetch when a photo is uploaded or removed so the header avatar
+    // reflects the change without a full page reload.
+    function onAccountUpdated() {
+      fetchSummary();
+    }
+    window.addEventListener('account-updated', onAccountUpdated);
+
     return () => {
       ignore = true;
+      window.removeEventListener('account-updated', onAccountUpdated);
     };
   }, []);
 
   return me;
+}
+
+/** Fire from anywhere to make the header re-fetch the account summary. */
+export function refreshAccountSummary() {
+  window.dispatchEvent(new Event('account-updated'));
 }
 
 export function AccountMenu({ tone, me }: { tone: Tone; me: AccountSummary | null }) {
@@ -109,7 +126,20 @@ export function AccountMenu({ tone, me }: { tone: Tone; me: AccountSummary | nul
     };
   }, [open]);
 
-  if (!me) return null;
+  // Anonymous visitor: show a Login pill instead of nothing.
+  if (!me) {
+    const color = tone === 'light' ? tokens.white : tokens.ink;
+    return (
+      <a
+        className="acct-login"
+        href="/login"
+        data-tone={tone}
+        style={{ '--acct-ink': color } as CSSProperties}
+      >
+        Login
+      </a>
+    );
+  }
 
   const ink = tone === 'light' ? tokens.white : tokens.ink;
   const firstName = firstNameOf(me.name);

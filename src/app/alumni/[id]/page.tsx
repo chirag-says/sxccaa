@@ -28,7 +28,6 @@ import { notFound } from 'next/navigation';
 
 import { SiteShell } from '@/components/layout/SiteShell';
 import { AlumniProfileView } from '@/components/alumni/AlumniProfileView';
-import { ContactCta } from '@/components/shared/ContactCta';
 import { readProfile, servingDemoRecords } from '@/lib/directory';
 import { currentSession } from '@/lib/session-cookie';
 import { spendProfileView } from '@/lib/view-budget';
@@ -66,7 +65,6 @@ export default async function AlumniProfilePage({ params }: { params: Promise<{ 
       <SiteShell lightPage={true}>
         <div className="al-page">
           <ViewBudgetNotice />
-          <ContactCta />
         </div>
       </SiteShell>
     );
@@ -79,7 +77,6 @@ export default async function AlumniProfilePage({ params }: { params: Promise<{ 
     <SiteShell lightPage={true}>
       <div className="al-page">
         <AlumniProfileView person={person} isDemo={servingDemoRecords()} />
-        <ContactCta />
       </div>
     </SiteShell>
   );

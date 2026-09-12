@@ -156,5 +156,17 @@ export async function submitEnquiry(
     sql,
   );
 
+  // Persist to contact_message so admins can review enquiries in the portal.
+  // Wrapped in try/catch: the email already succeeded, so a DB hiccup here
+  // should not tell the visitor their message was lost.
+  try {
+    await sql`
+      insert into contact_message (name, email, message, source)
+      values (${name}, ${email.value}, ${message}, ${safeSource(input.source)})
+    `;
+  } catch (error) {
+    console.error('[enquiry] could not persist to contact_message:', (error as Error).message);
+  }
+
   return { ok: true };
 }

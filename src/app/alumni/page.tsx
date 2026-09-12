@@ -20,7 +20,6 @@ import { AlumniHero } from '@/components/alumni/AlumniHero';
 import { AlumniFeatured } from '@/components/alumni/AlumniFeatured';
 import { AlumniDiscover } from '@/components/alumni/AlumniDiscover';
 import { SignInPrompt } from '@/components/alumni/SignInPrompt';
-import { ContactCta } from '@/components/shared/ContactCta';
 import { featuredIds } from '@/data/alumni';
 import { listFeatured, listPublicAlumni, tierOf, servingDemoRecords } from '@/lib/directory';
 import { currentSession } from '@/lib/session-cookie';
@@ -57,7 +56,6 @@ export default async function AlumniPage() {
         <AlumniFeatured people={featured} isDemo={isDemo} />
         {!isVerified && <SignInPrompt />}
         <AlumniDiscover people={people} isVerified={isVerified} isDemo={isDemo} />
-        <ContactCta />
       </div>
     </SiteShell>
   );

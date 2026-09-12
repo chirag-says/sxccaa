@@ -6,7 +6,6 @@ import { EventsIndex } from '@/components/events/EventsIndex';
 import { EventsStory } from '@/components/events/EventsStory';
 import { EventsArchive } from '@/components/events/EventsArchive';
 import { EventsGallery } from '@/components/events/EventsGallery';
-import { ContactCta } from '@/components/shared/ContactCta';
 
 export const metadata: Metadata = {
   title: 'Alumni Events & Activities — SXCCAA',
@@ -24,7 +23,6 @@ export default function EventsPage() {
         <EventsStory />
         <EventsArchive />
         <EventsGallery />
-        <ContactCta />
       </div>
     </SiteShell>
   );

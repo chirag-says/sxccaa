@@ -31,8 +31,8 @@
 
 import sharp from 'sharp';
 
-/** Plan §7.4: 5 MB. Enforced on the stream, before the body is buffered. */
-export const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+/** Plan §7.4: 15 MB. Enforced on the stream, before the body is buffered. */
+export const MAX_UPLOAD_BYTES = 15 * 1024 * 1024;
 
 /** Anything larger on either axis is a decompression bomb, not a portrait. */
 export const MAX_SOURCE_DIMENSION = 8000;

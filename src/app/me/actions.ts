@@ -87,7 +87,7 @@ export async function uploadPhoto(_prev: unknown, formData: FormData): Promise<M
   // A cheap first stop. `processPhoto` checks again on the bytes it actually
   // receives, because `File.size` is as trustworthy as any other client claim.
   if (file.size > MAX_UPLOAD_BYTES) {
-    return { ok: false, error: 'That image is larger than 5 MB. Most phones can export a smaller copy.' };
+    return { ok: false, error: 'That image is larger than 15 MB. Most phones can export a smaller copy.' };
   }
 
   const bytes = Buffer.from(await file.arrayBuffer());

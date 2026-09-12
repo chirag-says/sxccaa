@@ -131,13 +131,8 @@ export function VoicesSection() {
       <div ref={pinRef} className="sx-voices__pin">
         <div className="sx-voices__bg">
           <picture>
-            <source
-              media="(max-width: 809.98px)"
-              srcSet="/images/home/campus-gate-mobile.png"
-            />
             <img
-              src="/images/home/voices-bg.jpg"
-              srcSet="/images/home/voices-bg-512.jpg 512w, /images/home/voices-bg-1024.jpg 1024w, /images/home/voices-bg.jpg 1666w"
+              src="/images/home/voices-bg.png"
               sizes="100vw"
               width={1666}
               height={944}

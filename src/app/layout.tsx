@@ -24,6 +24,7 @@ import '@/styles/auth.css';
 import '@/styles/account.css';
 import '@/styles/me.css';
 import '@/styles/request.css';
+import '@/styles/contact.css';
 import { FramerEffects } from '@/components/motion/FramerEffects';
 
 export const metadata: Metadata = {

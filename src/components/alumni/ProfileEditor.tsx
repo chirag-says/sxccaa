@@ -24,6 +24,7 @@
 import { useActionState, useState } from 'react';
 
 import { deletePhoto, saveProfile, setVisibility, uploadPhoto, type MeResult } from '@/app/me/actions';
+import { refreshAccountSummary } from '@/components/layout/AccountMenu';
 import type { OwnAlumnus } from '@/lib/visibility';
 
 const AVATAR = '/svg/alumni-avatar.svg';
@@ -53,7 +54,11 @@ export function ProfileEditor({ profile }: { profile: OwnAlumnus }) {
     null,
   );
   const [photoState, photoAction, uploading] = useActionState<MeResult | null, FormData>(
-    async (prev, data) => uploadPhoto(prev, data),
+    async (prev, data) => {
+      const result = await uploadPhoto(prev, data);
+      if (result?.ok) refreshAccountSummary();
+      return result;
+    },
     null,
   );
   const [visibilityState, visibilityAction] = useActionState<MeResult | null, FormData>(
@@ -61,7 +66,11 @@ export function ProfileEditor({ profile }: { profile: OwnAlumnus }) {
     null,
   );
   const [removeState, removeAction] = useActionState<MeResult | null, FormData>(
-    async () => deletePhoto(),
+    async () => {
+      const result = await deletePhoto();
+      if (result?.ok) refreshAccountSummary();
+      return result;
+    },
     null,
   );
 
@@ -116,7 +125,7 @@ export function ProfileEditor({ profile }: { profile: OwnAlumnus }) {
                 required
               />
               <p className="me-hint">
-                JPEG, PNG or WebP, up to 5 MB. It goes live straight away — there is nothing to wait
+                JPEG, PNG or WebP, up to 15 MB. It goes live straight away — there is nothing to wait
                 for. We re-encode it and strip the location data your phone attaches, which for a
                 photograph taken at home is your address.
               </p>
