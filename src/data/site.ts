@@ -132,13 +132,16 @@ export const contactCta = {
     emailPlaceholder: 'you@example.com',
     messageLabel: 'Message',
     messagePlaceholder: 'Tell us how we can help...',
-    consent: 'I agree to the terms and conditions.',
+    consent: 'I agree to the SXCCAA privacy policy and terms of use.',
     submit: 'Send Message',
     sending: 'Sending…',
     sent: 'Message sent',
     error: 'Could not send, try again',
-    /** Endpoint that accepts the multipart POST. Unset: submitting only shows the sent state. */
-    action: undefined as string | undefined,
+    /**
+     * Where the enquiry goes. Required: an unset action used to report success
+     * and throw the message away — see the header of SiteForm.tsx.
+     */
+    action: '/api/enquiry',
   },
 };
 

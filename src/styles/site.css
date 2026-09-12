@@ -223,6 +223,26 @@
   gap: 0;
 }
 
+/* the acronym, letter-spaced above the College's name so the two read as
+ * one masthead: SXCCAA / St. Xaviers College (Calcutta) / Alumni Association.
+ * Set in the eyebrow preset's own face (Inter 600) rather than in blackletter,
+ * so the three tiers alternate between the two families and the acronym stays
+ * crisp at small sizes. */
+.site-hero-acronym {
+  flex: none;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 16px;
+}
+#hero .site-hero-acronym p.framer-text {
+  --framer-font-size: 18px;
+  --framer-letter-spacing: 0.3em;
+  --framer-text-alignment: center;
+  --framer-text-color: var(--token-5cace45c-5aeb-4596-8405-46748e8b644b, rgb(255, 255, 255));
+  --framer-font-weight: 600;
+  opacity: 0.85;
+}
+
 /* the College's name, centred across the top, with the year under it */
 #hero .site-hero-heading {
   grid-row: 1;
@@ -267,11 +287,15 @@
     --framer-font-size: 140px;
   }
   #hero .site-hero-sub p.framer-text { --framer-font-size: 68px; }
+  #hero .site-hero-acronym p.framer-text { --framer-font-size: 22px; }
+  .site-hero-acronym { margin-bottom: 20px; }
 }
 @media (max-width: 1199.98px) and (min-width: 810px) {
   #hero .framer-text.framer-styles-preset-1y2slg {
     --framer-font-size: 64px;
   }
+  #hero .site-hero-acronym p.framer-text { --framer-font-size: 15px; }
+  .site-hero-acronym { margin-bottom: 12px; }
 }
 @media (max-width: 809.98px) {
   #hero .framer-text.framer-styles-preset-1y2slg {
@@ -281,6 +305,8 @@
      * 40px cap keeps the original size everywhere it already fitted. */
     --framer-font-size: min(40px, 8.8vw);
   }
+  #hero .site-hero-acronym p.framer-text { --framer-font-size: 12px; --framer-letter-spacing: 0.25em; }
+  .site-hero-acronym { margin-bottom: 8px; }
 }
 
 /* The Association's line, under the College's name, set in the College's own
@@ -1541,3 +1567,26 @@
 
 /* the no-script case is handled by a <noscript> style in the component: the
  * `.no-js` class the other rules in this file use is never actually set. */
+
+/*
+ * The enquiry form's result line.
+ *
+ * Framer's export has no notion of a form that failed — its own service handled
+ * that — so this is the one addition to the extracted styles. Sized and spaced
+ * to sit inside the form's existing gap rather than push the layout around.
+ */
+.site-form-notice {
+  margin: 4px 0 0;
+  padding: 11px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  background: rgba(19, 62, 109, 0.08);
+  color: #133e6d;
+}
+
+.site-form-notice--problem {
+  background: rgba(163, 36, 31, 0.08);
+  color: #a3241f;
+}

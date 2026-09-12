@@ -1,11 +1,43 @@
 /**
- * Premium alumni profile view — no hero image.
- * Clean editorial layout with sticky sidebar photo and fact grid.
+ * A full alumni profile. Reachable only with a session (see the route).
+ *
+ * The type is the security boundary. This component takes `PrivateAlumnus`, and
+ * the only function that produces one is `readProfile`, which requires a
+ * `Session`. There is no path from an anonymous request to this markup.
+ *
+ * ## Why "Not shared" is rendered at all
+ *
+ * The optional fields are absent from the object when their owner's toggle is
+ * off, so nothing here can print a hidden number by mistake — `person.contact`
+ * is `undefined`, not a string waiting to be revealed. What the reader sees
+ * instead is a plain "Not shared", which is deliberate: an omitted row looks
+ * like a bug and prompts someone to go looking, while a stated one tells the
+ * truth — this person chose not to publish it — and closes the question.
  */
 
-import { DEMO_BADGE, IS_DEMO_DATA, directoryCopy, type Alumnus } from '@/data/alumni';
+import { DEMO_BADGE, directoryCopy } from '@/data/alumni';
+import type { PrivateAlumnus } from '@/lib/visibility';
 
-export function AlumniProfileView({ person }: { person: Alumnus }) {
+const AVATAR = '/svg/alumni-avatar.svg';
+
+function Fact({ label, value }: { label: string; value: string | number | null | undefined }) {
+  return (
+    <div className="al-profile__fact">
+      <dt>{label}</dt>
+      <dd>{value ?? <span className="al-profile__unshared">Not shared</span>}</dd>
+    </div>
+  );
+}
+
+export function AlumniProfileView({
+  person,
+  isDemo = false,
+}: {
+  person: PrivateAlumnus;
+  isDemo?: boolean;
+}) {
+  const role = [person.designation, person.currentOrg].filter(Boolean).join(', ');
+
   return (
     <section className="al-profile-page">
       <div className="al-shell">
@@ -13,94 +45,49 @@ export function AlumniProfileView({ person }: { person: Alumnus }) {
           {/* Sidebar */}
           <aside className="al-profile__aside">
             <div className="al-profile__photo">
-              <img src={person.photo} width={400} height={400} alt="" decoding="async" />
+              <img src={person.photoUrl ?? AVATAR} width={400} height={400} alt="" decoding="async" />
             </div>
             <div className="al-profile__pills">
-              {IS_DEMO_DATA && (
+              {isDemo && (
                 <span className="al-profile__pill al-profile__pill--demo">{DEMO_BADGE} record</span>
               )}
-              <span className="al-profile__pill">Class of {person.graduationYear}</span>
-              {person.openToConnect && (
-                <span className="al-profile__pill al-profile__pill--green">Open to connect</span>
-              )}
+              <span className="al-profile__pill">Class of {person.batchYear}</span>
+              {person.stream && <span className="al-profile__pill">{person.stream}</span>}
             </div>
-            {person.openToConnect ? (
-              <a className="al-profile__connect-btn" href={`/alumni/${person.slug}/connect`}>
-                Connect with this Alumnus
-              </a>
-            ) : (
-              <p style={{ fontSize: 14, color: 'var(--al-muted)', margin: 0 }}>
-                This Xaverian is not accepting connection requests at the moment.
-              </p>
-            )}
-            {(person.linkedin || person.x) && (
-              <div className="al-profile__links">
-                {person.linkedin && (
-                  <a className="al-profile__link" href={person.linkedin} target="_blank" rel="noreferrer">
-                    LinkedIn
-                  </a>
-                )}
-                {person.x && (
-                  <a className="al-profile__link" href={person.x} target="_blank" rel="noreferrer">
-                    X
-                  </a>
-                )}
-              </div>
-            )}
+
+            {/* Contact. Present here only because a session reached this page
+                and the owner left the toggle on. */}
+            <div className="al-profile__contact">
+              <h2 className="al-profile__section-title">Contact</h2>
+              <dl className="al-profile__facts al-profile__facts--stack">
+                <Fact label="Phone" value={person.contact ?? null} />
+                <Fact label="Email" value={person.gmail ?? null} />
+              </dl>
+            </div>
           </aside>
 
           {/* Main content */}
           <div className="al-profile__main">
             <div>
-              <h1 className="al-profile__name">{person.name}</h1>
-              <p className="al-profile__role">
-                {person.designation}, {person.company} · {person.city}, {person.country}
-              </p>
-            </div>
-
-            <div>
-              <h2 className="al-profile__section-title">About</h2>
-              <p className="al-profile__bio">{person.bio}</p>
+              <h1 className="al-profile__name">{person.fullName}</h1>
+              {role && <p className="al-profile__role">{role}</p>}
             </div>
 
             <div>
               <h2 className="al-profile__section-title">Details</h2>
               <dl className="al-profile__facts">
-                <div className="al-profile__fact">
-                  <dt>Graduation Year</dt>
-                  <dd>{person.graduationYear}</dd>
-                </div>
-                <div className="al-profile__fact">
-                  <dt>Programme</dt>
-                  <dd>{person.programme}</dd>
-                </div>
-                <div className="al-profile__fact">
-                  <dt>Department</dt>
-                  <dd>{person.department}</dd>
-                </div>
-                <div className="al-profile__fact">
-                  <dt>Industry</dt>
-                  <dd>{person.industry}</dd>
-                </div>
-                <div className="al-profile__fact">
-                  <dt>Designation</dt>
-                  <dd>{person.designation}</dd>
-                </div>
-                <div className="al-profile__fact">
-                  <dt>Location</dt>
-                  <dd>{person.city}, {person.country}</dd>
-                </div>
+                <Fact label="Batch / Year of passing" value={person.batchYear} />
+                <Fact label="Stream of study" value={person.stream} />
+                <Fact label="Current organisation" value={person.currentOrg} />
+                <Fact label="Designation and role" value={person.designation} />
+                <Fact label="Previous organisation / role" value={person.previousRole ?? null} />
               </dl>
             </div>
 
-            {person.helpsWith.length > 0 && (
+            {person.otherInfo && (
               <div>
-                <h2 className="al-profile__section-title">Happy to help with</h2>
-                <div className="al-profile__helps">
-                  {person.helpsWith.map((area) => (
-                    <span key={area} className="al-profile__help-tag">{area}</span>
-                  ))}
-                </div>
+                <h2 className="al-profile__section-title">Other information</h2>
+                <p className="al-profile__bio">{person.otherInfo}</p>
               </div>
             )}
 

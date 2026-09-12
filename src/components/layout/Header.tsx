@@ -24,6 +24,7 @@
 import { Fragment, useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { usePathname } from 'next/navigation';
 import { animate, type AnimationPlaybackControls } from 'motion';
+import { AccountMenu, useAccountSummary, type AccountSummary } from '@/components/layout/AccountMenu';
 import { Button } from '@/components/ui/Button';
 import { SearchModal } from '@/components/search/SearchModal';
 import { associationName, headerCta, mainNav, mobileMenu, pagesMenu, pagesMenuLabel, siteLogo, type NavLink } from '@/data/site';
@@ -269,6 +270,8 @@ interface BarProps {
   /** Framer's "Style 02": the page starts light, so the bar starts with ink text. */
   lightPage: boolean;
   pathname: string;
+  /** Null for anonymous visitors, and for the moment before the answer arrives. */
+  me: AccountSummary | null;
 }
 
 /** Framer's variant classes for the header per layout, [closed, open] × [top, scrolled]. */
@@ -282,7 +285,7 @@ function barStyle(scrolled: boolean, shadow = true): CSSProperties {
   return { backgroundColor: scrolled ? tokens.white : tokens.transparent, width: '100%', boxShadow: scrolled && shadow ? SHADOW : 'none' };
 }
 
-function DesktopBar({ tone, scrolled, lightPage, pathname, pagesOpen, setPagesOpen, openSearch }: BarProps & { pagesOpen: boolean; setPagesOpen: (v: boolean) => void; openSearch: () => void }) {
+function DesktopBar({ tone, scrolled, lightPage, pathname, me, pagesOpen, setPagesOpen, openSearch }: BarProps & { pagesOpen: boolean; setPagesOpen: (v: boolean) => void; openSearch: () => void }) {
   // One Framer container class per pill; the last is reused if `mainNav` outgrows
   // the list, since every one of them carries the same declarations.
   const itemClasses = ['framer-y6kjx2-container', 'framer-hq3sy-container', 'framer-9wtvq4-container', 'framer-1t4mhpx-container', 'framer-15fi588-container'];
@@ -311,6 +314,9 @@ function DesktopBar({ tone, scrolled, lightPage, pathname, pagesOpen, setPagesOp
           </div>
           <div className="framer-wav27y" data-framer-name="Header Button">
             <SearchButton tone={tone} onClick={openSearch} />
+            {/* Signed-in alumni only; renders nothing at all for everybody else,
+                so the anonymous bar is untouched. */}
+            <AccountMenu tone={tone} me={me} />
             <Button label={headerCta.label} href={headerCta.href} variant={tone === 'dark' ? 'default' : 'white'} containerClass="framer-1evgxmi-container" />
           </div>
         </div>
@@ -319,7 +325,7 @@ function DesktopBar({ tone, scrolled, lightPage, pathname, pagesOpen, setPagesOp
   );
 }
 
-function CompactBar({ layout, tone, scrolled, lightPage, pathname, menuOpen, toggleMenu, closeMenu }: BarProps & { layout: 'tablet' | 'phone'; menuOpen: boolean; toggleMenu: () => void; closeMenu: () => void }) {
+function CompactBar({ layout, tone, scrolled, lightPage, pathname, me, menuOpen, toggleMenu, closeMenu }: BarProps & { layout: 'tablet' | 'phone'; menuOpen: boolean; toggleMenu: () => void; closeMenu: () => void }) {
   const v = HEADER_VARIANT[layout];
   const variant = scrolled ? (menuOpen ? v.openScrolled : v.scrolled) : lightPage ? (menuOpen ? v.lightOpenTop : v.lightTop) : menuOpen ? v.openTop : v.top;
   const name = `${layout === 'tablet' ? 'Tablet' : 'Phone'}${lightPage && !scrolled ? ' Style 02' : ''}${menuOpen ? ' Open' : ''}${scrolled ? ' Scroll' : ''}`;
@@ -332,6 +338,7 @@ function CompactBar({ layout, tone, scrolled, lightPage, pathname, menuOpen, tog
           <Logo tone={tone} />
           <MobileMenu open={menuOpen} pathname={pathname} onNavigate={closeMenu} />
           <div className="framer-wav27y" data-framer-name="Header Button">
+            <AccountMenu tone={tone} me={me} />
             <Hamburger open={menuOpen} tone={tone} onClick={toggleMenu} />
           </div>
         </div>
@@ -356,6 +363,8 @@ export function Header({ containerClass = 'framer-yg91o4-container', lightPage =
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const closeSearch = useCallback(() => setSearchOpen(false), []);
+  // One request for all three breakpoint copies of the bar.
+  const me = useAccountSummary();
 
   // Route changes close whatever was open.
   useEffect(() => {
@@ -407,13 +416,13 @@ export function Header({ containerClass = 'framer-yg91o4-container', lightPage =
     <>
       <div ref={container} className={containerClass} data-framer-layout-hint-center-x="true" style={{ willChange: 'transform', opacity: 1, transform: 'translateX(-50%)' }}>
         <div className="ssr-variant hidden-mygaao hidden-4y47at">
-          <DesktopBar tone={tone} scrolled={scrolled} lightPage={lightPage} pathname={pathname} pagesOpen={pagesOpen} setPagesOpen={setPagesOpen} openSearch={() => setSearchOpen(true)} />
+          <DesktopBar tone={tone} scrolled={scrolled} lightPage={lightPage} pathname={pathname} me={me} pagesOpen={pagesOpen} setPagesOpen={setPagesOpen} openSearch={() => setSearchOpen(true)} />
         </div>
         <div className="ssr-variant hidden-4y47at hidden-8j9uhy">
-          <CompactBar layout="phone" tone={tone} scrolled={scrolled} lightPage={lightPage} pathname={pathname} menuOpen={menuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+          <CompactBar layout="phone" tone={tone} scrolled={scrolled} lightPage={lightPage} pathname={pathname} me={me} menuOpen={menuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
         </div>
         <div className="ssr-variant hidden-mygaao hidden-8j9uhy">
-          <CompactBar layout="tablet" tone={tone} scrolled={scrolled} lightPage={lightPage} pathname={pathname} menuOpen={menuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
+          <CompactBar layout="tablet" tone={tone} scrolled={scrolled} lightPage={lightPage} pathname={pathname} me={me} menuOpen={menuOpen} toggleMenu={toggleMenu} closeMenu={closeMenu} />
         </div>
       </div>
       <SearchModal open={searchOpen} onClose={closeSearch} />

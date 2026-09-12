@@ -2,13 +2,26 @@
 
 /**
  * Editorial text-only hero for the Alumni page.
- * No image — just oversized typography, animated stat counters, and a ghosted
- * watermark behind the content for depth.
+ * Oversized typography, animated stat counters, a ghosted watermark for depth.
+ *
+ * The counters are fed from the server rather than computed here, and they
+ * count what the directory actually holds. The previous "120k+ alumni" was a
+ * claim about the college, not about this dataset; a number on a page under the
+ * Association's name should be one the page can substantiate.
  */
 
 import { useEffect, useRef, useState } from 'react';
+
 import { useInView } from '@/lib/useInView';
-import { alumni } from '@/data/alumni';
+
+export interface DirectoryStats {
+  /** Records visible in the directory right now. */
+  total: number;
+  /** Distinct batch years present. */
+  batches: number;
+  /** Distinct streams of study present. */
+  streams: number;
+}
 
 function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -33,10 +46,7 @@ function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
   return <span ref={ref} className="al-hero__stat-number">{count}{suffix}</span>;
 }
 
-export function AlumniHero() {
-  const countries = new Set(alumni.map((a) => a.country)).size;
-  const industries = new Set(alumni.map((a) => a.industry)).size;
-
+export function AlumniHero({ stats }: { stats: DirectoryStats }) {
   return (
     <section className="al-hero" id="alumni-hero">
       <div className="al-shell">
@@ -53,16 +63,16 @@ export function AlumniHero() {
           </p>
           <div className="al-hero__stats">
             <div className="al-hero__stat">
-              <Counter end={120} suffix="k+" />
-              <span className="al-hero__stat-label">Alumni</span>
+              <Counter end={stats.total} />
+              <span className="al-hero__stat-label">In the directory</span>
             </div>
             <div className="al-hero__stat">
-              <Counter end={countries} />
-              <span className="al-hero__stat-label">Countries</span>
+              <Counter end={stats.batches} />
+              <span className="al-hero__stat-label">Batches</span>
             </div>
             <div className="al-hero__stat">
-              <Counter end={industries} />
-              <span className="al-hero__stat-label">Industries</span>
+              <Counter end={stats.streams} />
+              <span className="al-hero__stat-label">Streams</span>
             </div>
             <div className="al-hero__stat">
               <Counter end={1860} />

@@ -53,6 +53,7 @@ export function Hero() {
             <div className={"framer-x3cdgf"}>
               <div className={"framer-7lgqt8"} data-framer-name={"Content"}>
                 <div className={"framer-13zotdq site-hero-heading"} data-framer-name={"Heading Block"} id={"about-banner-text"}>
+
                   <div className={"framer-z4uw3d"} data-framer-name={"Title Wrap"}>
                     <div className={"ssr-variant hidden-1n3ggvs hidden-11qy7e3"}>
                       <SplitDisplay words={hero.display} appearId="1slilnr" containerClass="framer-1slilnr" as="h1" />

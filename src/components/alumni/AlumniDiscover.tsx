@@ -1,58 +1,76 @@
 'use client';
 
 /**
- * Premium alumni directory with search, filters, and card grid.
- * All filter/search logic is preserved exactly from the original AlumniDirectory.
+ * The directory: search, filters, grid.
+ *
+ * Records arrive as props from the server page, already projected to
+ * `PublicAlumnus`. This component never fetches and never imports the loader —
+ * it could not, since the loader reaches the database and the encryption key.
+ * Whatever a signed-out visitor can extract from this component's state is
+ * exactly what the server decided to send, which is the five public fields.
+ *
+ * Filtering and search run in the browser over that same public set. For five
+ * hundred records that is instant and avoids a round trip per keystroke; more
+ * to the point, there is no search endpoint to probe, so nobody can use the
+ * search box to ask the server questions about fields it did not send.
  */
 
 import { useMemo, useState } from 'react';
+
 import { AlumniCard } from './AlumniCard';
-import {
-  alumni,
-  directoryCopy,
-  filterLabels,
-  filterOptions,
-  type Alumnus,
-  type FilterKey,
-} from '@/data/alumni';
+import { directoryCopy, filterLabels, type FilterKey } from '@/data/alumni';
+import type { PublicAlumnus } from '@/lib/visibility';
 
-const EMPTY: Record<FilterKey, string> = {
-  graduationYear: '',
-  programme: '',
-  department: '',
-  industry: '',
-  location: '',
-};
+const EMPTY: Record<FilterKey, string> = { batchYear: '', stream: '' };
 
-const valueOf = (person: Alumnus, key: FilterKey) =>
-  key === 'graduationYear' ? String(person.graduationYear)
-  : key === 'location' ? `${person.city}, ${person.country}`
-  : person[key];
+const valueOf = (person: PublicAlumnus, key: FilterKey): string =>
+  key === 'batchYear' ? String(person.batchYear) : (person.stream ?? '');
 
-const haystack = (person: Alumnus) =>
-  [person.name, person.company, person.designation, person.city, person.country].join(' ').toLowerCase();
+const haystack = (person: PublicAlumnus) =>
+  [person.fullName, person.currentOrg, person.designation, person.stream, String(person.batchYear)]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
 
-export function AlumniDiscover() {
+const unique = (values: string[]) => Array.from(new Set(values.filter(Boolean))).sort();
+
+export function AlumniDiscover({
+  people,
+  isVerified,
+  isDemo = false,
+}: {
+  people: PublicAlumnus[];
+  isVerified: boolean;
+  isDemo?: boolean;
+}) {
   const [query, setQuery] = useState('');
   const [filters, setFilters] = useState(EMPTY);
-  const [openOnly, setOpenOnly] = useState(false);
+
+  // Derived from the records on screen, so a filter never offers a value that
+  // would return nothing — and never names a batch or stream that is not in the
+  // directory.
+  const filterOptions = useMemo(
+    () => ({
+      batchYear: unique(people.map((person) => String(person.batchYear))).reverse(),
+      stream: unique(people.map((person) => person.stream ?? '')),
+    }),
+    [people],
+  );
 
   const results = useMemo(() => {
     const needle = query.trim().toLowerCase();
-    return alumni.filter((person) => {
+    return people.filter((person) => {
       if (needle && !haystack(person).includes(needle)) return false;
-      if (openOnly && !person.openToConnect) return false;
       return (Object.keys(filters) as FilterKey[]).every(
         (key) => !filters[key] || valueOf(person, key) === filters[key],
       );
     });
-  }, [query, filters, openOnly]);
+  }, [people, query, filters]);
 
-  const dirty = query !== '' || openOnly || Object.values(filters).some(Boolean);
+  const dirty = query !== '' || Object.values(filters).some(Boolean);
   const reset = () => {
     setQuery('');
     setFilters(EMPTY);
-    setOpenOnly(false);
   };
 
   return (
@@ -95,11 +113,6 @@ export function AlumniDiscover() {
             </select>
           ))}
 
-          <label className="al-toggle" data-on={openOnly}>
-            <input type="checkbox" checked={openOnly} onChange={(e) => setOpenOnly(e.target.checked)} />
-            {directoryCopy.openToConnectLabel}
-          </label>
-
           {dirty && (
             <button type="button" className="al-reset" onClick={reset}>{directoryCopy.clearLabel}</button>
           )}
@@ -113,7 +126,7 @@ export function AlumniDiscover() {
         {results.length > 0 ? (
           <div className="al-grid">
             {results.map((person) => (
-              <AlumniCard key={person.slug} person={person} />
+              <AlumniCard key={person.id} person={person} isVerified={isVerified} isDemo={isDemo} />
             ))}
           </div>
         ) : (

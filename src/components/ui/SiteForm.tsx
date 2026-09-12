@@ -1,11 +1,27 @@
 'use client';
 
 /**
- * The site's forms (contact page and the "Get in touch" CTA). Framer posted
- * these to its own form service, which a self-hosted rebuild does not have:
- * give `action` an endpoint that accepts a multipart POST and the form sends
- * there; without one, submitting only validates and shows the sent state so
- * the UI can be exercised.
+ * The site's general enquiry form — the contact page and the "Get in touch"
+ * band that appears on the alumni, profile and events pages.
+ *
+ * ## What changed, and why it mattered
+ *
+ * `action` used to be optional, and a form without one reported success: it set
+ * the sent state, cleared the fields and discarded everything. Framer posted
+ * these to its own form service, which a self-hosted rebuild does not have, so
+ * every form on the site had been quietly doing that. A visitor filled it in,
+ * read "Message sent", and nobody ever saw the message — worse than having no
+ * form at all, because it costs the sender the chance to email instead.
+ *
+ * `action` is now **required**. The branch that lied no longer exists and
+ * cannot be reintroduced without the compiler objecting at both call sites.
+ *
+ * ## The notice is not decoration
+ *
+ * The server's own words are rendered, success or failure. A form that fails
+ * has to say what to do instead — here, email the Association directly — and
+ * the only component that can tell "we could not reach the server" from "we
+ * could not send it" is the one holding the response.
  *
  * `SubmitButton` renders Framer's submit pill (`framer-LUWvx`) and reads the
  * form state from context to swap its label while sending and after.
@@ -25,32 +41,68 @@ export interface FormLabels {
   error: string;
 }
 
-export function SiteForm({ className, action, children }: { className: string; action?: string; children: ReactNode }) {
+export function SiteForm({
+  className,
+  action,
+  source,
+  children,
+}: {
+  className: string;
+  /** Required. See the note above — an actionless form used to report success. */
+  action: string;
+  /** Which page this instance sits on, so a reply has some context. */
+  source?: string;
+  children: ReactNode;
+}) {
   const [state, setState] = useState<FormState>('idle');
+  const [notice, setNotice] = useState('');
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    if (!action) {
-      setState('sent');
-      form.reset();
-      return;
-    }
+    const body = new FormData(form);
+    body.set('source', source ?? window.location.pathname);
+
     setState('sending');
+    setNotice('');
+
     try {
-      const response = await fetch(action, { method: 'POST', body: new FormData(form) });
-      if (!response.ok) throw new Error(`${response.status}`);
+      const response = await fetch(action, { method: 'POST', body });
+      const data = (await response.json().catch(() => ({}))) as { message?: string };
+
+      if (!response.ok) {
+        setState('error');
+        setNotice(data.message ?? 'We could not send that. Please email the Association directly.');
+        return;
+      }
+
       setState('sent');
+      setNotice(data.message ?? 'Thank you — your message is with the Association.');
       form.reset();
     } catch {
       setState('error');
+      setNotice('We could not reach the server. Check your connection, or email the Association directly.');
     }
   }
 
   return (
     <FormStateContext.Provider value={state}>
+      {/*
+        Browser validation is left on. `required` is meaningful on all four
+        fields now — including the consent box, which the server checks too —
+        and an immediate "please tick this" beats a round trip.
+      */}
       <form className={className} data-state={state} onSubmit={onSubmit}>
         {children}
+        {notice && (
+          <p
+            className={`site-form-notice${state === 'error' ? ' site-form-notice--problem' : ''}`}
+            role="status"
+            aria-live="polite"
+          >
+            {notice}
+          </p>
+        )}
       </form>
     </FormStateContext.Provider>
   );

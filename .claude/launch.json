@@ -4,9 +4,21 @@
     {
       "name": "oxvercity",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3300,
       "autoPort": false
+    },
+    {
+      "name": "oxvercity-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "dev:preview"
+      ],
+      "autoPort": true
     }
   ]
 }

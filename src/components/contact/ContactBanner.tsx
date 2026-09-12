@@ -156,7 +156,7 @@ export function ContactBanner() {
                     </div>
                   </label>
                   <label className={"framer-1yijxfq"} data-framer-name={"Terms & Conditions"}>
-                    <input className={"framer-form-boolean-input framer-1n6923x"} type={"checkbox"} name={"Newsletter"} />
+                    <input className={"framer-form-boolean-input framer-1n6923x"} type={"checkbox"} name={"Consent"} required={true} />
                     <div className={"framer-1kdgpb6"} data-framer-name={"Text"} data-framer-component-type={"RichTextContainer"} style={{ transform: "none" } as React.CSSProperties}>
                       <p className={"framer-text framer-styles-preset-1dfqlr0"} data-styles-preset={"r3nvaFHNq"}>
                         {contactPage.form.consent}
@@ -217,7 +217,7 @@ export function ContactBanner() {
                     </div>
                   </label>
                   <label className={"framer-1yijxfq"} data-framer-name={"Terms & Conditions"}>
-                    <input className={"framer-form-boolean-input framer-1n6923x"} type={"checkbox"} name={"Newsletter"} />
+                    <input className={"framer-form-boolean-input framer-1n6923x"} type={"checkbox"} name={"Consent"} required={true} />
                     <div className={"framer-1kdgpb6"} data-framer-name={"Text"} data-framer-component-type={"RichTextContainer"} style={{ transform: "none" } as React.CSSProperties}>
                       <p className={"framer-text framer-styles-preset-1dfqlr0"} data-styles-preset={"r3nvaFHNq"}>
                         {contactPage.form.consent}

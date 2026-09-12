@@ -347,6 +347,39 @@ export const appearAnimations: Record<string, Record<string, AppearSpec>> = {
       }
     }
   },
+  "hero-acronym": {
+    "default": {
+      "initial": {
+        "opacity": 0.001,
+        "rotate": 0,
+        "rotateX": 0,
+        "rotateY": 0,
+        "scale": 1,
+        "skewX": 0,
+        "skewY": 0,
+        "x": 0,
+        "y": 20
+      },
+      "animate": {
+        "opacity": 1,
+        "rotate": 0,
+        "rotateX": 0,
+        "rotateY": 0,
+        "scale": 1,
+        "skewX": 0,
+        "skewY": 0,
+        "transition": {
+          "damping": 100,
+          "delay": 0,
+          "mass": 1,
+          "stiffness": 400,
+          "type": "spring"
+        },
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
   "1xedpim": {
     "default": {
       "initial": {
